@@ -12,7 +12,8 @@ $frame-height: 667px;
 
 .app__frame {
 	width: $frame-width;
-	height: $frame-height;
+	height: $frame-height * .85;
+
 
 	box-shadow:
 					0 16px 24px 2px rgba(0,0,0,0.14),
@@ -21,4 +22,8 @@ $frame-height: 667px;
 
 	overflow: hidden;
 	box-sizing: border-box;
+
+	@media (min-width: $tablet-width--sm) {
+		height: $frame-height;
+	}
 }
