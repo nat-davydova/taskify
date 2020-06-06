@@ -1,0 +1,12 @@
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo__text {
+	font: {
+		weight: 600;
+	}
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
