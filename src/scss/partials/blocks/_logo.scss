@@ -8,6 +8,7 @@
 }
 
 .logo__text {
+	display: none;
 	margin-left: 10px;
 
 	font: {
@@ -15,4 +16,8 @@
 	}
 	text-transform: uppercase;
 	letter-spacing: 1px;
+
+	@media (min-width: $mobile-width) {
+		display: inline-flex;
+	}
 }

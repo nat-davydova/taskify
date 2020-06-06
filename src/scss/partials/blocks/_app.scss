@@ -11,8 +11,8 @@ $frame-height: 667px;
 }
 
 .app__frame {
-	width: $frame-width;
-	height: $frame-height * .85;
+	width: 90%;
+	height: 90%;
 
 
 	box-shadow:
@@ -23,7 +23,13 @@ $frame-height: 667px;
 	overflow: hidden;
 	box-sizing: border-box;
 
+	@media (min-width: $mobile-width) {
+		width: $frame-width * .85;
+		height: $frame-height * .85;
+	}
+
 	@media (min-width: $tablet-width--sm) {
+		width: $frame-width;
 		height: $frame-height;
 	}
 }
