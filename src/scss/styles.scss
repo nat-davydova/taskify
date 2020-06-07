@@ -2,6 +2,7 @@
 
 // SETUP IMPORT
 @import "partials/setup/colors";
+@import "partials/setup/global-styles";
 @import "partials/setup/media";
 @import "partials/setup/mixins";
 
@@ -10,5 +11,6 @@
 @import "partials/blocks/btn";
 @import "partials/blocks/icon";
 @import "partials/blocks/logo";
+@import "partials/blocks/modal";
 @import "partials/blocks/nav";
 @import "partials/blocks/task";

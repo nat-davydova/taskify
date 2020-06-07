@@ -1,34 +1,29 @@
 html(lang="en")
     include includes/setup/head
 
-    body
-        //APP BODY
-        .app
+    body.app
 
-            //APP FRAME
-            .app__frame
+        //HEADER
+        header.header
 
-                //HEADER
-                header.header
+            include includes/blocks/nav
 
-                    include includes/blocks/nav
+        .container.main-container.mt-3
 
-                .container.main-container.mt-3
+            //ADD TASKS BTN
+            .row
+                .col
+                    include includes/blocks/add-task
 
-                    //ADD TASKS BTN
-                    .row
-                        .col
-                            include includes/blocks/add-task
+            //CONTENT PANELS
 
-                    //CONTENT PANELS
+            //TASKS PANEL
+            .row.tasks-panel.panel
+                .col
+                    include includes/blocks/tasks-panel
 
-                    //TASKS PANEL
-                    .row.tasks-panel.panel
-                        .col
-                            include includes/blocks/tasks-panel
-
-                //MODALS
-                include includes/modals/add-task-modal
+        //MODALS
+        include includes/modals/add-task-modal
 
 
         script(src="scripts/scripts.min.js")

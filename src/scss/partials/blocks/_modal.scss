@@ -1,0 +1,9 @@
+.modal,
+.modal-backdrop {
+	@include position-absolute($top: 0, $left: 0);
+}
+
+.modal-backdrop {
+	width: 100%;
+	height: 100%;
+}
