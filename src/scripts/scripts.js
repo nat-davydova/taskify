@@ -1,2 +1,4 @@
-console.log('Scripts compiled properly!')
+(function () {
+  'use strict'
 
+})()
