@@ -1,11 +1,21 @@
 .modal.fade#new-task-modal(tabindex="-1" role="dialog" aria-labelledby="new-task-title" aria-hidden="true")
     .modal-dialog
         .modal-content
+
+            // modal title
             .modal-header
                 h5.modal-title#new-task-title Add New Task
                 button.close(type="button" data-dismiss="modal" aria-label="Close")
                     span(aria-hidden="true") &times;
+
+            // modal body
             .modal-body
-            .modal-footer
-                button.btn.btn-danger(type="button" data-dismiss="modal") Close
+                form.add-new-task
+                    .form-group
+                        input.form-control(type="text" placeholder="New Task content" aria-label="New Task")
+
+            //modal footer
+            .modal-footer.d-flex.justify-content-between
                 button.btn.btn-success(type="button" data-dismiss="modal") Save
+                button.btn.btn-danger(type="button" data-dismiss="modal") Close
+
