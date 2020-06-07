@@ -1,3 +1,17 @@
+.task {
+
+	&:not(:last-child) {
+		margin-bottom: 15px;
+	}
+}
+
 .task__form-block {
 	padding-left: 0;
+}
+
+.task__title {
+
+	p {
+		margin-bottom: 0;
+	}
 }
