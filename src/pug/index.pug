@@ -11,12 +11,11 @@ html(lang="en")
                 //HEADER
                 header.header
 
-                    //navigation part
                     include includes/blocks/nav
 
                 .container.main-container.mt-3
 
-                    // ADD TASKS BTN
+                    //ADD TASKS BTN
                     .row
                         .col
                             include includes/blocks/add-task
@@ -27,6 +26,9 @@ html(lang="en")
                     .row.tasks-panel.panel
                         .col
                             include includes/blocks/tasks-panel
+
+                //MODALS
+                include includes/modals/add-task-modal
 
 
         script(src="scripts/scripts.min.js")
