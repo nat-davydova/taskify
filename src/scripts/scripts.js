@@ -1,11 +1,14 @@
 // APP CONTROLLER
 
+//import bootstrap parts
+import 'bootstrap/js/dist/modal'
+
 // import models
 import { createTask } from './models/Task'
 
 // import utils and configs
 import { PATH } from './configs/path'
-import * as utils from './utils'
+import { getInputValue } from './utils'
 
 (function () {
   'use strict'
@@ -30,7 +33,13 @@ import * as utils from './utils'
 
     // adding new task
     if (target.closest(PATH.addTask.addTaskBtn)) {
-      tasksListController()
+      const taskTitle = getInputValue(PATH.addTask.addTaskTitle)
+
+      const newTaskData = {
+        taskTitle
+      }
+
+      tasksListController(newTaskData)
     }
   })
 })()

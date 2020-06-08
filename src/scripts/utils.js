@@ -1,1 +1,5 @@
-import 'bootstrap/js/dist/modal'
+export const getInputValue = inputElem => {
+  const inputEl = document.querySelector(inputElem)
+
+  return inputEl.value
+}
