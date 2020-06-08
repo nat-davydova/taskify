@@ -1,4 +1,4 @@
-.modal.fade#new-task-modal(tabindex="-1" role="dialog" aria-labelledby="new-task-title" aria-hidden="true")
+.add-new-task.modal.fade#new-task-modal(tabindex="-1" role="dialog" aria-labelledby="new-task-title" aria-hidden="true")
     .modal-dialog.modal-dialog-centered
         .modal-content
 
@@ -10,13 +10,13 @@
 
             // modal body
             .modal-body
-                form.add-new-task
+                form.add-new-task__form
                     .form-group
-                        input.form-control(type="text" placeholder="New Task content" aria-label="New Task")
+                        input.add-new-task__title.form-control(type="text" placeholder="New Task" aria-label="New Task")
 
             //modal footer
             .modal-footer.d-flex.justify-content-between
                 button.btn.btn-danger(type="button" data-dismiss="modal") Close
-                button.btn.btn-success(type="button" data-dismiss="modal") Save
+                button.add-new-task__btn.btn.btn-success(type="button" data-dismiss="modal") Save
 
 

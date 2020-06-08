@@ -25,4 +25,12 @@ import * as utils from './utils'
   }
 
   // *** EVENT LISTENERS
+  document.addEventListener('click', e => {
+    const target = e.target
+
+    // adding new task
+    if (target.closest(PATH.addTask.addTaskBtn)) {
+      tasksListController()
+    }
+  })
 })()
