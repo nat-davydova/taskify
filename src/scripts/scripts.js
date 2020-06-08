@@ -1,7 +1,7 @@
 // APP CONTROLLER
 
 // import models
-import Task from './models/Task'
+import { createTask } from './models/Task'
 
 // import utils and configs
 import { PATH } from './configs/path'
@@ -17,10 +17,12 @@ import * as utils from './utils'
   }
 
   // *** TASKS LIST CONTROLLER
-  const tasksListController = () => {
-    const task = new Task()
-    state.taskList.push(task)
+  const tasksListController = (taskData) => {
+    const newTask = createTask(taskData)
+    state.taskList.push(newTask)
 
-    console.log()
+    console.log(state.taskList)
   }
+
+  // *** EVENT LISTENERS
 })()

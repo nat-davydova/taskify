@@ -1,7 +1,7 @@
 // TASK MODEL
 
-export default class Task {
-  constructor (taskTitle) {
-    this.taskTitle = taskTitle
+export const createTask = ({ taskTitle }) => {
+  return {
+    taskTitle
   }
 }
