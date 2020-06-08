@@ -1,6 +1,6 @@
 // APP CONTROLLER
 
-//import bootstrap parts
+// import bootstrap parts
 import 'bootstrap/js/dist/modal'
 
 // import models
