@@ -11,7 +11,7 @@ import * as taskView from './views/taskView'
 
 // import utils and configs
 import { PATH } from './configs/path'
-import { getInputValue } from './utils'
+import { cleanInput, getInputValue } from './utils'
 
 (function () {
   'use strict'
@@ -28,6 +28,8 @@ import { getInputValue } from './utils'
     state.taskList.push(newTask)
 
     taskView.renderTask(taskData)
+
+    cleanInput(PATH.addTask.addTaskTitleInput)
   }
 
   // *** EVENT LISTENERS
@@ -36,7 +38,7 @@ import { getInputValue } from './utils'
 
     // adding new task
     if (target.closest(PATH.addTask.addTaskBtn)) {
-      const taskTitle = getInputValue(PATH.addTask.addTaskTitle)
+      const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
 
       const newTaskData = {
         taskTitle

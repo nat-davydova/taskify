@@ -11,3 +11,8 @@ export const grabTemplate = templateElem => {
 }
 
 export const appendTemplate = (template, appendDestination) => appendDestination.append(template)
+
+export const cleanInput = input => {
+  const inputEl = document.querySelector(input)
+  inputEl.value = ''
+}
