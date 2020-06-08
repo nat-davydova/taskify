@@ -6,6 +6,9 @@ import 'bootstrap/js/dist/modal'
 // import models
 import { createTask } from './models/Task'
 
+// import views
+import * as taskView from './views/taskView'
+
 // import utils and configs
 import { PATH } from './configs/path'
 import { getInputValue } from './utils'
