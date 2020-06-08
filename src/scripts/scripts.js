@@ -27,7 +27,7 @@ import { getInputValue } from './utils'
     const newTask = createTask(taskData)
     state.taskList.push(newTask)
 
-    console.log(state.taskList)
+    taskView.renderTask(taskData)
   }
 
   // *** EVENT LISTENERS

@@ -5,6 +5,13 @@ export const PATH = {
   },
 
   task: {
-    taskTemplate: '#task'
+    taskTemplate: '#task',
+    taskTitle: '.task__title p'
+  },
+
+  panels: {
+    tasks: {
+      tasksPanelContent: '.tasks-panel__content'
+    }
   }
 }

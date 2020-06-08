@@ -9,3 +9,8 @@ export const grabTemplate = templateElem => {
 
   return document.importNode(template.content, true)
 }
+
+export const appendTemplate = (template, appendDestination) => {
+  appendDestination.append(template)
+  return;
+}
