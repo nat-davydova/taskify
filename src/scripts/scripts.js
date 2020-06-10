@@ -26,7 +26,9 @@ import {
 
   // state holds:
   // - tasks list
+  // - current search query
   const state = {
+    search: {},
     taskList: []
   }
 
@@ -39,6 +41,13 @@ import {
 
     unmarkErrored(PATH.addTask.addTaskTitleInput)
     cleanInput(PATH.addTask.addTaskTitleInput)
+  }
+
+  // *** SEARCH CONTROLLER
+  const searchController = searchQuery => {
+    state.search.query = searchQuery
+
+    state.search.results = search(state.taskList, state.search.query)
   }
 
   // *** EVENT LISTENERS
@@ -75,7 +84,7 @@ import {
       const searchForm = target.closest(PATH.search.searchForm)
       const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
 
-      search(state.taskList, searchQuery)
+      searchController(searchQuery)
     }
   })
 })()
