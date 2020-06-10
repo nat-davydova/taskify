@@ -1,4 +1,4 @@
-# Taskify App (HTML/CSS/JS)
+# Taskify App v.1.0
 
 The app allows to:
 - **create** new tasks;
