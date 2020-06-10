@@ -5,6 +5,7 @@ import 'bootstrap/js/dist/modal'
 
 // import models
 import { createTask } from './models/Task'
+import { search } from './models/Search'
 
 // import views
 import * as taskView from './views/taskView'
