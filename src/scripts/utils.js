@@ -2,8 +2,14 @@
 
 import { PATH } from './configs/path'
 
-export const getInputValue = inputElem => {
-  const inputEl = document.querySelector(inputElem)
+export const getInputValue = (inputElem, form) => {
+  let inputEl
+
+  if (form) {
+    inputEl = form.querySelector(inputElem)
+  } else {
+    inputEl = document.querySelector(inputElem)
+  }
 
   return inputEl.value
 }

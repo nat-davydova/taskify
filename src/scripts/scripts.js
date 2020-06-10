@@ -72,8 +72,7 @@ import {
     // search functional
     if (target.closest(PATH.search.searchBtn)) {
       const searchForm = target.closest(PATH.search.searchForm)
-      const searchInput = searchForm.querySelector(PATH.search.searchInput)
-      const searchQuery = getInputValue(searchInput)
+      const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
 
       console.log(searchQuery)
     }
