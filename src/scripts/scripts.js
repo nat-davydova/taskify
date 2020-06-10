@@ -11,7 +11,12 @@ import * as taskView from './views/taskView'
 
 // import utils and configs
 import { PATH } from './configs/path'
-import { cleanInput, getInputValue } from './utils'
+import {
+  cleanInput,
+  getInputValue,
+  checkTextEmpty,
+  markAsError
+} from './utils'
 
 (function () {
   'use strict'
@@ -39,6 +44,11 @@ import { cleanInput, getInputValue } from './utils'
     // adding new task
     if (target.closest(PATH.addTask.addTaskBtn)) {
       const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
+
+      if (checkTextEmpty(taskTitle)) {
+        markAsError(PATH.addTask.addTaskTitleInput)
+        return
+      }
 
       const newTaskData = {
         taskTitle

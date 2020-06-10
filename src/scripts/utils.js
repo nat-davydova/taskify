@@ -1,3 +1,5 @@
+// COLLECTION OF HELPERS FUNCTIONS
+
 export const getInputValue = inputElem => {
   const inputEl = document.querySelector(inputElem)
 
@@ -15,4 +17,13 @@ export const appendTemplate = (template, appendDestination) => appendDestination
 export const cleanInput = input => {
   const inputEl = document.querySelector(input)
   inputEl.value = ''
+}
+
+export const checkTextEmpty = string => {
+  return !string || string.trim() === ''
+}
+
+export const markAsError = elem => {
+  const errorElem = document.querySelector(elem)
+  errorElem.classList.add('with-error')
 }
