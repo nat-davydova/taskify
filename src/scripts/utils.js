@@ -48,3 +48,7 @@ export const dismissModal = modal => {
 
   modalClose.click()
 }
+
+export const hideElem = elem => {
+  elem.classList.add('js-hidden')
+}

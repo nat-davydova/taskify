@@ -18,7 +18,8 @@ import {
   checkTextEmpty,
   markAsError,
   unmarkErrored,
-  dismissModal
+  dismissModal,
+  hideElem
 } from './utils'
 
 (function () {
@@ -48,6 +49,15 @@ import {
     state.search.query = searchQuery
 
     state.search.results = search(state.taskList, state.search.query)
+
+    const tasksElems = document.querySelectorAll(PATH.task.task)
+    tasksElems.forEach(elem => {
+      const taskTitle = elem.querySelector(PATH.task.taskTitle).textContent
+
+      if (state.search.results.indexOf(taskTitle) < 0) {
+        hideElem(elem)
+      }
+    })
   }
 
   // *** EVENT LISTENERS
