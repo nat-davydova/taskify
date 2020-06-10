@@ -61,5 +61,12 @@ import {
 
       tasksListController(newTaskData)
     }
+
+    // checking/unchecking task
+    if (target.closest(PATH.task.taskCheckbox)) {
+      const task = target.closest(PATH.task.task)
+
+      taskView.hideTask(task)
+    }
   })
 })()

@@ -9,3 +9,9 @@ export const renderTask = ({ taskTitle }) => {
 
   appendTemplate(taskTemplate, document.querySelector(PATH.panels.tasks.tasksPanelContent))
 }
+
+export const hideTask = task => {
+  setTimeout(() => {
+    task.classList.add('js-hidden')
+  }, 300)
+}
