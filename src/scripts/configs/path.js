@@ -1,7 +1,8 @@
 export const PATH = {
   addTask: {
     addTaskBtn: '.add-new-task__btn',
-    addTaskTitleInput: '.add-new-task__title'
+    addTaskTitleInput: '.add-new-task__title',
+    saveTaskBtn: '.save-task'
   },
 
   task: {

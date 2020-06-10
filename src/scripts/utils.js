@@ -27,3 +27,19 @@ export const markAsError = elem => {
   const errorElem = document.querySelector(elem)
   errorElem.classList.add('border-danger')
 }
+
+// use if you need to remove error markers from element (check previous function)
+export const unmarkErrored = elem => {
+  const errorElem = document.querySelector(elem)
+  errorElem.classList.remove('border-danger')
+}
+
+export const btnModalDeprecateDismiss = btn => {
+  const btnElem = document.querySelector(btn)
+  btnElem.dataset.dismiss = ''
+}
+
+export const btnModalAllowDismiss = btn => {
+  const btnElem = document.querySelector(btn)
+  btnElem.dataset.dismiss = 'modal'
+}

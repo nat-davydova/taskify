@@ -15,7 +15,10 @@ import {
   cleanInput,
   getInputValue,
   checkTextEmpty,
-  markAsError
+  markAsError,
+  unmarkErrored,
+  btnModalDeprecateDismiss,
+  btnModalAllowDismiss
 } from './utils'
 
 (function () {
@@ -34,6 +37,7 @@ import {
 
     taskView.renderTask(taskData)
 
+    unmarkErrored(PATH.addTask.addTaskTitleInput)
     cleanInput(PATH.addTask.addTaskTitleInput)
   }
 
@@ -42,13 +46,16 @@ import {
     const target = e.target
 
     // adding new task
-    if (target.closest(PATH.addTask.addTaskBtn)) {
+    if (target.closest(PATH.addTask.saveTaskBtn)) {
       const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
 
       if (checkTextEmpty(taskTitle)) {
+        btnModalDeprecateDismiss(PATH.addTask.saveTaskBtn)
         markAsError(PATH.addTask.addTaskTitleInput)
         return
       }
+
+      btnModalAllowDismiss(PATH.addTask.saveTaskBtn)
 
       const newTaskData = {
         taskTitle
