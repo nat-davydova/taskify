@@ -25,5 +25,5 @@ export const checkTextEmpty = string => {
 
 export const markAsError = elem => {
   const errorElem = document.querySelector(elem)
-  errorElem.classList.add('with-error')
+  errorElem.classList.add('border-danger')
 }
