@@ -20,7 +20,8 @@ import {
   unmarkErrored,
   dismissModal,
   hideElem,
-  showElem
+  showElem,
+  triggerClick
 } from './utils'
 
 (function () {
@@ -99,6 +100,16 @@ import {
       const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
 
       searchController(searchQuery)
+    }
+  })
+
+  document.addEventListener('keydown', e => {
+    const target = e.target
+
+    if (target.closest(PATH.search.searchInput) && e.code === 'Enter') {
+      e.preventDefault()
+
+      triggerClick(PATH.search.searchBtn, target.closest(PATH.search.searchForm), false)
     }
   })
 })()

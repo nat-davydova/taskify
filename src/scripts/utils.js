@@ -28,6 +28,21 @@ export const unmarkErrored = elem => {
   errorElem.classList.remove('border-danger')
 }
 
+export const triggerClick = (elem, parent, needToSearchParent = true) => {
+  let elemEl
+
+  if (parent && needToSearchParent) {
+    const parentEl = document.querySelector(parent)
+    elemEl = parentEl.querySelector(elem)
+  } else if (parent) {
+    elemEl = parent.querySelector(elem)
+  } else {
+    elemEl = document.querySelector(elem)
+  }
+
+  elemEl.click()
+}
+
 // *** FORMS RELATED
 
 export const getInputValue = (inputElem, form) => {
@@ -64,8 +79,5 @@ export const appendTemplate = (template, appendDestination) => appendDestination
 // *** MODALS RELATED
 
 export const dismissModal = modal => {
-  const modalElem = document.querySelector(modal)
-  const modalClose = modalElem.querySelector(PATH.misc.modalClose)
-
-  modalClose.click()
+  triggerClick(PATH.misc.modalClose, modal)
 }
