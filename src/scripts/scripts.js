@@ -68,5 +68,14 @@ import {
 
       taskView.hideTask(task)
     }
+
+    // search functional
+    if (target.closest(PATH.search.searchBtn)) {
+      const searchForm = target.closest(PATH.search.searchForm)
+      const searchInput = searchForm.querySelector(PATH.search.searchInput)
+      const searchQuery = getInputValue(searchInput)
+
+      console.log(searchQuery)
+    }
   })
 })()

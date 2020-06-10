@@ -19,6 +19,12 @@ export const PATH = {
     }
   },
 
+  search: {
+    searchForm: '.search',
+    searchInput: '.search__input',
+    searchBtn: '.search__btn'
+  },
+
   misc: {
     modalClose: '.close'
   }
