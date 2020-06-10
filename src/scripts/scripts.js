@@ -75,7 +75,7 @@ import {
       const searchForm = target.closest(PATH.search.searchForm)
       const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
 
-      console.log(searchQuery)
+      search(state.taskList, searchQuery)
     }
   })
 })()
