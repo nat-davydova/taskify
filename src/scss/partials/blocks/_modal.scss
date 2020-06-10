@@ -7,3 +7,12 @@
 	width: 100%;
 	height: 100%;
 }
+
+.modal-dialog-centered {
+
+	&:before {
+		display: none !important;
+	}
+} 
+
+
