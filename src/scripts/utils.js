@@ -1,34 +1,20 @@
-// COLLECTION OF HELPERS FUNCTIONS
-
 import { PATH } from './configs/path'
 
-export const getInputValue = (inputElem, form) => {
-  let inputEl
+// COLLECTION OF HELPERS FUNCTIONS
 
-  if (form) {
-    inputEl = form.querySelector(inputElem)
-  } else {
-    inputEl = document.querySelector(inputElem)
-  }
+// - common
+// - forms related
+// - templates related
+// - modals related
 
-  return inputEl.value
+// *** COMMON
+
+export const hideElem = elem => {
+  elem.classList.add('js-hidden')
 }
 
-export const grabTemplate = templateElem => {
-  const template = document.querySelector(templateElem)
-
-  return document.importNode(template.content, true)
-}
-
-export const appendTemplate = (template, appendDestination) => appendDestination.append(template)
-
-export const cleanInput = input => {
-  const inputEl = document.querySelector(input)
-  inputEl.value = ''
-}
-
-export const checkTextEmpty = string => {
-  return !string || string.trim() === ''
+export const showElem = elem => {
+  elem.classList.remove('js-hidden')
 }
 
 export const markAsError = elem => {
@@ -42,17 +28,44 @@ export const unmarkErrored = elem => {
   errorElem.classList.remove('border-danger')
 }
 
+// *** FORMS RELATED
+
+export const getInputValue = (inputElem, form) => {
+  let inputEl
+
+  if (form) {
+    inputEl = form.querySelector(inputElem)
+  } else {
+    inputEl = document.querySelector(inputElem)
+  }
+
+  return inputEl.value
+}
+
+export const cleanInput = input => {
+  const inputEl = document.querySelector(input)
+  inputEl.value = ''
+}
+
+export const checkTextEmpty = string => {
+  return !string || string.trim() === ''
+}
+
+// *** TEMPLATES RELATED
+
+export const grabTemplate = templateElem => {
+  const template = document.querySelector(templateElem)
+
+  return document.importNode(template.content, true)
+}
+
+export const appendTemplate = (template, appendDestination) => appendDestination.append(template)
+
+// *** MODALS RELATED
+
 export const dismissModal = modal => {
   const modalElem = document.querySelector(modal)
   const modalClose = modalElem.querySelector(PATH.misc.modalClose)
 
   modalClose.click()
-}
-
-export const hideElem = elem => {
-  elem.classList.add('js-hidden')
-}
-
-export const showElem = elem => {
-  elem.classList.remove('js-hidden')
 }
