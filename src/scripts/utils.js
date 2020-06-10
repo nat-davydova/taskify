@@ -38,11 +38,7 @@ export const unmarkErrored = elem => {
 
 export const dismissModal = modal => {
   const modalElem = document.querySelector(modal)
-  const modalBackdrop = document.querySelector(PATH.misc.modalBackdrop)
+  const modalClose = modalElem.querySelector(PATH.misc.modalClose)
 
-  modalElem.classList.remove('show')
-  modalElem.setAttribute('aria-hidden', 'true')
-  modalElem.setAttribute('style', 'display: none')
-
-  document.body.removeChild(modalBackdrop)
+  modalClose.click()
 }

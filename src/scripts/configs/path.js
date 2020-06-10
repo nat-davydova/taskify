@@ -18,6 +18,6 @@ export const PATH = {
   },
 
   misc: {
-    modalBackdrop: '.modal-backdrop'
+    modalClose: '.close'
   }
 }
