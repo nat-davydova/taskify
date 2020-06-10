@@ -1,5 +1,7 @@
 // COLLECTION OF HELPERS FUNCTIONS
 
+import { PATH } from './configs/path'
+
 export const getInputValue = inputElem => {
   const inputEl = document.querySelector(inputElem)
 
@@ -34,12 +36,13 @@ export const unmarkErrored = elem => {
   errorElem.classList.remove('border-danger')
 }
 
-export const btnModalDeprecateDismiss = btn => {
-  const btnElem = document.querySelector(btn)
-  btnElem.dataset.dismiss = ''
-}
+export const dismissModal = modal => {
+  const modalElem = document.querySelector(modal)
+  const modalBackdrop = document.querySelector(PATH.misc.modalBackdrop)
 
-export const btnModalAllowDismiss = btn => {
-  const btnElem = document.querySelector(btn)
-  btnElem.dataset.dismiss = 'modal'
+  modalElem.classList.remove('show')
+  modalElem.setAttribute('aria-hidden', 'true')
+  modalElem.setAttribute('style', 'display: none')
+
+  document.body.removeChild(modalBackdrop)
 }

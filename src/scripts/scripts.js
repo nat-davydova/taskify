@@ -17,8 +17,7 @@ import {
   checkTextEmpty,
   markAsError,
   unmarkErrored,
-  btnModalDeprecateDismiss,
-  btnModalAllowDismiss
+  dismissModal
 } from './utils'
 
 (function () {
@@ -50,12 +49,11 @@ import {
       const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
 
       if (checkTextEmpty(taskTitle)) {
-        btnModalDeprecateDismiss(PATH.addTask.saveTaskBtn)
         markAsError(PATH.addTask.addTaskTitleInput)
         return
       }
 
-      btnModalAllowDismiss(PATH.addTask.saveTaskBtn)
+      dismissModal(PATH.addTask.addTaskModal)
 
       const newTaskData = {
         taskTitle

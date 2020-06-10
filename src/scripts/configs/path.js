@@ -1,6 +1,7 @@
 export const PATH = {
   addTask: {
     addTaskBtn: '.add-new-task__btn',
+    addTaskModal: '.add-new-task',
     addTaskTitleInput: '.add-new-task__title',
     saveTaskBtn: '.save-task'
   },
@@ -14,5 +15,9 @@ export const PATH = {
     tasks: {
       tasksPanelContent: '.tasks-panel__content'
     }
+  },
+
+  misc: {
+    modalBackdrop: '.modal-backdrop'
   }
 }
