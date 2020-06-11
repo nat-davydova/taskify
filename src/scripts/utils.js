@@ -1,3 +1,5 @@
+import PerfectScrollbar from 'perfect-scrollbar'
+
 import { PATH } from './configs/path'
 
 // COLLECTION OF HELPERS FUNCTIONS
@@ -6,6 +8,7 @@ import { PATH } from './configs/path'
 // - forms related
 // - templates related
 // - modals related
+// - scrollbar related
 
 // *** COMMON
 
@@ -80,4 +83,9 @@ export const appendTemplate = (template, appendDestination) => appendDestination
 
 export const dismissModal = modal => {
   triggerClick(PATH.misc.modalClose, modal)
+}
+
+// *** SCROLLBAR RELATED
+export const scrollbarIniting = elemWithScrollbar => {
+  const ps = new PerfectScrollbar(elemWithScrollbar)
 }

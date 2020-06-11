@@ -21,7 +21,8 @@ import {
   dismissModal,
   hideElem,
   showElem,
-  triggerClick
+  triggerClick,
+  scrollbarIniting
 } from './utils'
 
 (function () {
@@ -81,6 +82,10 @@ import {
   }
 
   // *** EVENT LISTENERS
+  document.addEventListener('DOMContentLoaded', () => {
+    scrollbarIniting(PATH.panels.tasks.tasksPanel)
+  })
+
   document.addEventListener('click', e => {
     const target = e.target
 

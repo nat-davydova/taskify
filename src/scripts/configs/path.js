@@ -15,6 +15,7 @@ export const PATH = {
 
   panels: {
     tasks: {
+      tasksPanel: '.tasks-panel',
       tasksPanelContent: '.tasks-panel__content'
     }
   },
