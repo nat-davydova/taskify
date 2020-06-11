@@ -106,6 +106,13 @@ import {
   document.addEventListener('keydown', e => {
     const target = e.target
 
+    if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
+      const searchForm = target.closest(PATH.search.searchForm)
+      const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
+
+      searchController(searchQuery)
+    }
+
     if (target.closest(PATH.search.searchInput) && e.code === 'Enter') {
       e.preventDefault()
 
