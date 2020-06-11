@@ -27,6 +27,8 @@ import {
 (function () {
   'use strict'
 
+  console.log('prepared for Edge1')
+
   // state holds:
   // - tasks list
   // - current search query
@@ -111,17 +113,19 @@ import {
     }
   })
 
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keypress', e => {
     const target = e.target
 
-    if (target.closest(PATH.search.searchInput) && e.code === 'Enter') {
+    if (target.closest(PATH.search.searchInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
       triggerClick(PATH.search.searchBtn, target.closest(PATH.search.searchForm), false)
     }
 
     // adding new task
-    if (target.closest(PATH.addTask.addTaskTitleInput) && e.code === 'Enter') {
+    console.log(e.code, e.key)
+
+    if (target.closest(PATH.addTask.addTaskTitleInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
       tasksListController()
