@@ -33,7 +33,10 @@ import {
   // - current search query
   const state = {
     search: {},
-    taskList: []
+    taskList: [
+      { taskTitle: 'Default Task' },
+      { taskTitle: 'One More Default Task' }
+    ]
   }
 
   // *** TASKS LIST CONTROLLER
@@ -83,6 +86,10 @@ import {
 
   // *** EVENT LISTENERS
   document.addEventListener('DOMContentLoaded', () => {
+    state.taskList.forEach(elem => {
+      taskView.renderTask(elem)
+    })
+
     scrollbarIniting(PATH.panels.tasks.tasksPanel)
   })
 
