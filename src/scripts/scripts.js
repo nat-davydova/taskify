@@ -64,6 +64,8 @@ import {
     const newTask = createTask(taskData)
     state.taskList.push(newTask)
 
+    console.log(state.taskList)
+
     taskView.renderTask(taskData)
 
     unmarkErrored(PATH.addTask.addTaskTitleInput)
