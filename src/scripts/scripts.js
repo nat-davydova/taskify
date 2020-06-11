@@ -36,11 +36,11 @@ import {
     search: {},
     taskList: [
       {
-        taskTitle: 'Default Task',
+        taskTitle: 'Sample Task',
         id: uuid()
       },
       {
-        taskTitle: 'One More Default Task',
+        taskTitle: 'One More Sample Task',
         id: uuid()
       }
     ]
