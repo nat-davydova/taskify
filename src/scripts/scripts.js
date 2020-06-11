@@ -27,8 +27,6 @@ import {
 (function () {
   'use strict'
 
-  console.log('prepared for Edge1')
-
   // state holds:
   // - tasks list
   // - current search query
@@ -63,7 +61,6 @@ import {
 
   // *** SEARCH CONTROLLER
   const searchController = searchEl => {
-
     const searchForm = searchEl.closest(PATH.search.searchForm)
 
     state.search.query = getInputValue(PATH.search.searchInput, searchForm)
@@ -101,7 +98,7 @@ import {
 
     // search functional
     if (target.closest(PATH.search.searchBtn)) {
-      searchController(target.closest(PATH.search.searchInput))
+      searchController(target.closest(PATH.search.searchBtn))
     }
   })
 
@@ -123,8 +120,6 @@ import {
     }
 
     // adding new task
-    console.log(e.code, e.key)
-
     if (target.closest(PATH.addTask.addTaskTitleInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
