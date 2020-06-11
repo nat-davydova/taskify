@@ -10,7 +10,8 @@ export const PATH = {
     task: '.task',
     taskTemplate: '#task',
     taskTitle: '.task__title p',
-    taskCheckbox: '.task__checkbox'
+    taskCheckbox: '.task__checkbox',
+    taskDelBtn: '.task__del'
   },
 
   panels: {

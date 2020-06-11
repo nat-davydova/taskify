@@ -116,6 +116,10 @@ import {
     if (target.closest(PATH.search.searchBtn)) {
       searchController(target.closest(PATH.search.searchBtn))
     }
+
+    if (target.closest(PATH.task.taskDelBtn)) {
+      console.log('del it')
+    }
   })
 
   document.addEventListener('keyup', e => {
