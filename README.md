@@ -1,4 +1,4 @@
-# Taskify App v.1.1
+# Taskify App v.1.2
 
 The app allows to:
 - **create** new tasks;
