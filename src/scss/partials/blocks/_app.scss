@@ -5,6 +5,8 @@ $frame-height: 667px;
 .app {
 	position: relative;
 
+	display: flex;
+	flex-direction: column;
 	width: 90%;
 	height: 90%;
 
