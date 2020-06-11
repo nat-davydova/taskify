@@ -62,7 +62,6 @@ import {
   // *** SEARCH CONTROLLER
   const searchController = searchQuery => {
     state.search.query = searchQuery
-    console.log(searchQuery)
 
     state.search.results = search(state.taskList, state.search.query)
 

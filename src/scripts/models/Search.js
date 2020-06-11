@@ -6,7 +6,7 @@ export const search = (list, query) => {
   list.forEach(elem => {
     const { taskTitle } = elem
 
-    if (queryRegExp.test(taskTitle)) {
+    if (taskTitle.match(queryRegExp)) {
       searchResults.push(taskTitle)
     }
   })
