@@ -1,7 +1,7 @@
 //single task
 template#task
     .task.card
-        .card-body.d-flex.py-2
+        .card-body.d-flex.align-items-center.py-2
 
             //task checklist
             form.task__form.mr-3
@@ -11,3 +11,10 @@ template#task
             //task title
             .task__title
                 p
+
+            //task btn bar
+            .task__btn-bar.d-flex.ml-auto
+
+                //delete task btn
+                button.btn.btn--iconed.btn-sm(type="button")
+                    span.material-icons close
