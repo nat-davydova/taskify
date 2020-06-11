@@ -2,6 +2,7 @@
 
 // import bootstrap parts
 import 'bootstrap/js/dist/modal'
+import { v4 as uuid } from 'uuid'
 
 // import models
 import { createTask } from './models/Task'
@@ -34,8 +35,14 @@ import {
   const state = {
     search: {},
     taskList: [
-      { taskTitle: 'Default Task' },
-      { taskTitle: 'One More Default Task' }
+      {
+        taskTitle: 'Default Task',
+        id: uuid()
+      },
+      {
+        taskTitle: 'One More Default Task',
+        id: uuid()
+      }
     ]
   }
 
