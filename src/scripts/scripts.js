@@ -60,8 +60,11 @@ import {
   }
 
   // *** SEARCH CONTROLLER
-  const searchController = searchQuery => {
-    state.search.query = searchQuery
+  const searchController = searchEl => {
+
+    const searchForm = searchEl.closest(PATH.search.searchForm)
+
+    state.search.query = getInputValue(PATH.search.searchInput, searchForm)
 
     state.search.results = search(state.taskList, state.search.query)
 
@@ -96,10 +99,7 @@ import {
 
     // search functional
     if (target.closest(PATH.search.searchBtn)) {
-      const searchForm = target.closest(PATH.search.searchForm)
-      const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
-
-      searchController(searchQuery)
+      searchController(target.closest(PATH.search.searchInput))
     }
   })
 
@@ -107,10 +107,7 @@ import {
     const target = e.target
 
     if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
-      const searchForm = target.closest(PATH.search.searchForm)
-      const searchQuery = getInputValue(PATH.search.searchInput, searchForm)
-
-      searchController(searchQuery)
+      searchController(target.closest(PATH.search.searchInput))
     }
   })
 
