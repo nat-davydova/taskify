@@ -57,16 +57,11 @@ import {
 
     dismissModal(PATH.addTask.addTaskModal)
 
-    const taskData = {
-      taskTitle
-    }
+    const newTask = createTask(taskTitle)
 
-    const newTask = createTask(taskData)
     state.taskList.push(newTask)
 
-    console.log(state.taskList)
-
-    taskView.renderTask(taskData)
+    taskView.renderTask(newTask)
 
     unmarkErrored(PATH.addTask.addTaskTitleInput)
     cleanInput(PATH.addTask.addTaskTitleInput)
