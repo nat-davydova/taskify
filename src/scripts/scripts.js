@@ -62,6 +62,7 @@ import {
   // *** SEARCH CONTROLLER
   const searchController = searchQuery => {
     state.search.query = searchQuery
+    console.log(searchQuery)
 
     state.search.results = search(state.taskList, state.search.query)
 
@@ -103,7 +104,7 @@ import {
     }
   })
 
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keyup', e => {
     const target = e.target
 
     if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
@@ -112,6 +113,10 @@ import {
 
       searchController(searchQuery)
     }
+  })
+
+  document.addEventListener('keydown', e => {
+    const target = e.target
 
     if (target.closest(PATH.search.searchInput) && e.code === 'Enter') {
       e.preventDefault()
