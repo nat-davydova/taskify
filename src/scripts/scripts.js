@@ -111,5 +111,25 @@ import {
 
       triggerClick(PATH.search.searchBtn, target.closest(PATH.search.searchForm), false)
     }
+
+    // adding new task
+    if (target.closest(PATH.addTask.addTaskTitleInput) && e.code === 'Enter') {
+      e.preventDefault()
+
+      const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
+
+      if (checkTextEmpty(taskTitle)) {
+        markAsError(PATH.addTask.addTaskTitleInput)
+        return
+      }
+
+      dismissModal(PATH.addTask.addTaskModal)
+
+      const newTaskData = {
+        taskTitle
+      }
+
+      tasksListController(newTaskData)
+    }
   })
 })()
