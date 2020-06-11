@@ -1,4 +1,4 @@
-import { grabTemplate, appendTemplate } from '../utils'
+import { grabTemplate, appendTemplate, hideElem } from '../utils'
 import { PATH } from '../configs/path'
 
 export const renderTask = ({ taskTitle }) => {
@@ -11,7 +11,17 @@ export const renderTask = ({ taskTitle }) => {
 }
 
 export const hideTask = task => {
+  const taskTitle = task.querySelector(PATH.task.taskTitle)
+  const taskTitleContent = taskTitle.textContent
+  const newTaskTitle = `
+    <del>
+        ${taskTitleContent}
+    </del>
+  `
+
+  taskTitle.innerHTML = newTaskTitle
+
   setTimeout(() => {
-    task.classList.add('js-hidden')
+    hideElem(task)
   }, 300)
 }
