@@ -36,7 +36,20 @@ import {
   }
 
   // *** TASKS LIST CONTROLLER
-  const tasksListController = (taskData) => {
+  const tasksListController = () => {
+    const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
+
+    if (checkTextEmpty(taskTitle)) {
+      markAsError(PATH.addTask.addTaskTitleInput)
+      return
+    }
+
+    dismissModal(PATH.addTask.addTaskModal)
+
+    const taskData = {
+      taskTitle
+    }
+
     const newTask = createTask(taskData)
     state.taskList.push(newTask)
 
@@ -71,20 +84,7 @@ import {
 
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {
-      const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
-
-      if (checkTextEmpty(taskTitle)) {
-        markAsError(PATH.addTask.addTaskTitleInput)
-        return
-      }
-
-      dismissModal(PATH.addTask.addTaskModal)
-
-      const newTaskData = {
-        taskTitle
-      }
-
-      tasksListController(newTaskData)
+      tasksListController()
     }
 
     // checking/unchecking task
@@ -116,20 +116,7 @@ import {
     if (target.closest(PATH.addTask.addTaskTitleInput) && e.code === 'Enter') {
       e.preventDefault()
 
-      const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
-
-      if (checkTextEmpty(taskTitle)) {
-        markAsError(PATH.addTask.addTaskTitleInput)
-        return
-      }
-
-      dismissModal(PATH.addTask.addTaskModal)
-
-      const newTaskData = {
-        taskTitle
-      }
-
-      tasksListController(newTaskData)
+      tasksListController()
     }
   })
 })()
