@@ -1,9 +1,12 @@
 import { grabTemplate, appendTemplate, hideElem } from '../utils'
 import { PATH } from '../configs/path'
 
-export const renderTask = ({ taskTitle }) => {
+export const renderTask = ({ taskTitle, taskId }) => {
   const taskTemplate = grabTemplate(PATH.task.taskTemplate)
+  const taskEl = taskTemplate.querySelector(PATH.task.task)
   const taskTitleElem = taskTemplate.querySelector(PATH.task.taskTitle)
+
+  taskEl.dataset.taskId = taskId
 
   taskTitleElem.textContent = taskTitle
 
