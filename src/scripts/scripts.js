@@ -47,24 +47,30 @@ import {
   }
 
   // *** TASKS LIST CONTROLLER
-  const tasksListController = () => {
-    const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
+  // type can be:
+  // - add - for task adding
+  // - pick - for picking a task
+  // - del - for deleting a task
+  const tasksListController = (type) => {
+    if (type === 'add') {
+      const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
 
-    if (checkTextEmpty(taskTitle)) {
-      markAsError(PATH.addTask.addTaskTitleInput)
-      return
+      if (checkTextEmpty(taskTitle)) {
+        markAsError(PATH.addTask.addTaskTitleInput)
+        return
+      }
+
+      dismissModal(PATH.addTask.addTaskModal)
+
+      const newTask = createTask(taskTitle)
+
+      state.taskList.push(newTask)
+
+      taskView.renderTask(newTask)
+
+      unmarkErrored(PATH.addTask.addTaskTitleInput)
+      cleanInput(PATH.addTask.addTaskTitleInput)
     }
-
-    dismissModal(PATH.addTask.addTaskModal)
-
-    const newTask = createTask(taskTitle)
-
-    state.taskList.push(newTask)
-
-    taskView.renderTask(newTask)
-
-    unmarkErrored(PATH.addTask.addTaskTitleInput)
-    cleanInput(PATH.addTask.addTaskTitleInput)
   }
 
   // *** SEARCH CONTROLLER
@@ -102,7 +108,7 @@ import {
 
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {
-      tasksListController()
+      tasksListController('add')
     }
 
     // checking/unchecking task
@@ -147,7 +153,7 @@ import {
     if (target.closest(PATH.addTask.addTaskTitleInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
-      tasksListController()
+      tasksListController('add')
     }
   })
 })()
