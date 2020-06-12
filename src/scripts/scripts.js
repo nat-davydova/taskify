@@ -5,7 +5,7 @@ import 'bootstrap/js/dist/modal'
 import { v4 as uuid } from 'uuid'
 
 // import models
-import { createTask, delTask } from './models/Task'
+import { createTask, delTask, editTask } from './models/Task'
 import { search } from './models/Search'
 
 // import views
@@ -83,7 +83,21 @@ import {
     }
 
     if (type === 'edit') {
+      const newTaskTitle = getInputValue(PATH.editTaskModal.editTaskInput)
+
+      if (checkTextEmpty(newTaskTitle)) {
+        markAsError(PATH.editTaskModal.editTaskInput)
+        return
+      }
+
       dismissModal(PATH.editTaskModal.editModal)
+
+      editTask(state.pickedItemId, state.taskList, newTaskTitle)
+
+      console.log(state.taskList)
+
+      unmarkErrored(PATH.editTaskModal.editTaskInput)
+      cleanInput(PATH.editTaskModal.editTaskInput)
     }
   }
 

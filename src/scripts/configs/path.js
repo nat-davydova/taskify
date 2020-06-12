@@ -13,7 +13,8 @@ export const PATH = {
 
   editTaskModal: {
     editModal: '.edit-task-modal',
-    editTaskBtn: '.save-edited-task'
+    editTaskBtn: '.save-edited-task',
+    editTaskInput: '.edit-task__title'
   },
 
   task: {
