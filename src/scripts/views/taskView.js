@@ -42,3 +42,19 @@ export const deleteTask = taskId => {
 
   taskElemToDel.remove()
 }
+
+export const editTask = (taskId, newTitle) => {
+  const tasksArr = document.querySelectorAll(PATH.task.task)
+
+  let taskElemToEdit
+
+  tasksArr.forEach(elem => {
+    if (elem.dataset.taskId === taskId) {
+      taskElemToEdit = elem
+    }
+  })
+
+  const titleElem = taskElemToEdit.querySelector(PATH.task.taskTitle)
+
+  titleElem.textContent = newTitle
+}

@@ -94,7 +94,7 @@ import {
 
       editTask(state.pickedItemId, state.taskList, newTaskTitle)
 
-      console.log(state.taskList)
+      taskView.editTask(state.pickedItemId, newTaskTitle)
 
       unmarkErrored(PATH.editTaskModal.editTaskInput)
       cleanInput(PATH.editTaskModal.editTaskInput)
