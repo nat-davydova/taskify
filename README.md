@@ -1,7 +1,7 @@
-# Taskify App v.1.2
+# Taskify App v.2.0
 
 The app allows to:
-- **create** new tasks;
+- **create**, **edit** and **delete** tasks;
 - **mark** tasks as completed;
 - **search** tasks by their titles
 
