@@ -13,7 +13,7 @@ The app allows to:
 
 - HTML (Pug, Bootstrap v4)
 - CSS/CSS3 (SCSS)
-- JS (ES6+, Babel, Async)
+- JS (ES6+, Babel)
 - Gulp 4
 - Responsive (Mobile First Approach)
 - Crossbrowser
