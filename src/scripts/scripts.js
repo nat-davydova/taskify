@@ -143,6 +143,13 @@ import {
     if (target.closest(PATH.delTaskModal.delTaskBtn)) {
       tasksListController('del')
     }
+
+    // editing task
+    if (target.closest(PATH.task.taskEditBtn)) {
+      const taskId = target.closest(PATH.task.task).dataset.taskId
+
+      tasksListController('pick', taskId)
+    }
   })
 
   document.addEventListener('keyup', e => {
