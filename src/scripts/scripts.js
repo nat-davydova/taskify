@@ -118,7 +118,11 @@ import {
     }
 
     if (target.closest(PATH.task.taskDelBtn)) {
-      console.log('del it')
+      const taskId = target.closest(PATH.task.task).dataset.taskId
+
+      state.pickedItemId = taskId
+
+      console.log(state)
     }
   })
 
