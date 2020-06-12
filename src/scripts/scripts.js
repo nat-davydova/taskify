@@ -5,7 +5,7 @@ import 'bootstrap/js/dist/modal'
 import { v4 as uuid } from 'uuid'
 
 // import models
-import { createTask } from './models/Task'
+import { createTask, delTask } from './models/Task'
 import { search } from './models/Search'
 
 // import views
@@ -74,6 +74,11 @@ import {
 
     if (type === 'pick') {
       state.pickedItemId = taskId
+    }
+
+    if (type === 'del') {
+      delTask(taskId, state.taskList)
+      dismissModal(PATH.delTaskModal.delModal)
     }
   }
 

@@ -12,3 +12,16 @@ export const createTask = (...taskData) => {
     taskId: id
   }
 }
+
+export const delTask = (taskId, taskDataArr) => {
+  let delElemIndex
+
+  for (let i = 0; i < taskDataArr.length; i++) {
+    if (taskDataArr[i].taskId === taskId) {
+      delElemIndex = i
+      break
+    }
+  }
+
+  taskDataArr.splice(delElemIndex, 1)
+}

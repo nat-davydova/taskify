@@ -7,7 +7,8 @@ export const PATH = {
   },
 
   delTaskModal: {
-    delTaskBtn: '.del-task'
+    delModal: '.del-task',
+    delTaskBtn: '.del-task-btn'
   },
 
   task: {
