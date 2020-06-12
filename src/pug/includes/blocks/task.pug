@@ -16,5 +16,7 @@ template#task
             .task__btn-bar.d-flex.ml-auto
 
                 //delete task btn
+                button.task__edit.btn.btn--iconed.btn-sm(type="button" data-toggle="modal" data-target="#edit-task-modal")
+                    span.material-icons edit
                 button.task__del.btn.btn--iconed.btn-sm(type="button" data-toggle="modal" data-target="#del-task-modal")
                     span.material-icons close
