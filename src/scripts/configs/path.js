@@ -11,6 +11,11 @@ export const PATH = {
     delTaskBtn: '.del-task-btn'
   },
 
+  editTaskModal: {
+    editModal: '.edit-task-modal',
+    editTaskBtn: '.save-edited-task'
+  },
+
   task: {
     task: '.task',
     taskTemplate: '#task',

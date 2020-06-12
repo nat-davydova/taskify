@@ -81,6 +81,10 @@ import {
       dismissModal(PATH.delTaskModal.delModal)
       taskView.deleteTask(state.pickedItemId)
     }
+
+    if (type === 'edit') {
+      dismissModal(PATH.editTaskModal.editModal)
+    }
   }
 
   // *** SEARCH CONTROLLER
@@ -149,6 +153,10 @@ import {
       const taskId = target.closest(PATH.task.task).dataset.taskId
 
       tasksListController('pick', taskId)
+    }
+
+    if (target.closest(PATH.editTaskModal.editTaskBtn)) {
+      tasksListController('edit')
     }
   })
 
