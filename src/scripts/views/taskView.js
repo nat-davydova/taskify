@@ -28,3 +28,17 @@ export const hideTask = task => {
     hideElem(task)
   }, 300)
 }
+
+export const deleteTask = taskId => {
+  const tasksArr = document.querySelectorAll(PATH.task.task)
+
+  let taskElemToDel
+
+  tasksArr.forEach(elem => {
+    if (elem.dataset.taskId === taskId) {
+      taskElemToDel = elem
+    }
+  })
+
+  taskElemToDel.remove()
+}

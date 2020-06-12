@@ -77,8 +77,9 @@ import {
     }
 
     if (type === 'del') {
-      delTask(taskId, state.taskList)
+      delTask(state.pickedItemId, state.taskList)
       dismissModal(PATH.delTaskModal.delModal)
+      taskView.deleteTask(state.pickedItemId)
     }
   }
 
