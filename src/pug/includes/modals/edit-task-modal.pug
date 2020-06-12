@@ -1,0 +1,20 @@
+.edit-task-modal.modal.fade#edit-task-modal(tabindex="-1" role="dialog" aria-labelledby="edit-task-title" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+        .modal-content
+
+            // modal title
+            .modal-header
+                h5.modal-title#edit-task-title Edit Task
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+
+            // modal body
+            .modal-body
+                form.add-new-task__form
+                    .form-group
+                        input.edit-task__title.form-control(type="text" placeholder="New Task Title" aria-label="New Task Title")
+
+            //modal footer
+            .modal-footer.d-flex.justify-content-between
+                button.btn.btn-danger(type="button" data-dismiss="modal") Close
+                button.save-edited-task.btn.btn-success(type="button") Save
