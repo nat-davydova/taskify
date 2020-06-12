@@ -51,7 +51,7 @@ import {
   // - add - for task adding
   // - pick - for picking a task
   // - del - for deleting a task
-  const tasksListController = (type) => {
+  const tasksListController = (type, taskId) => {
     if (type === 'add') {
       const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
 
@@ -70,6 +70,10 @@ import {
 
       unmarkErrored(PATH.addTask.addTaskTitleInput)
       cleanInput(PATH.addTask.addTaskTitleInput)
+    }
+
+    if (type === 'pick') {
+      state.pickedItemId = taskId
     }
   }
 
@@ -123,12 +127,15 @@ import {
       searchController(target.closest(PATH.search.searchBtn))
     }
 
+    // deleting task
     if (target.closest(PATH.task.taskDelBtn)) {
       const taskId = target.closest(PATH.task.task).dataset.taskId
 
-      state.pickedItemId = taskId
+      tasksListController('pick', taskId)
+    }
 
-      console.log(state)
+    if (target.closest(PATH.delTaskModal.delTaskBtn)) {
+      tasksListController('del')
     }
   })
 

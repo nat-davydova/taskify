@@ -6,6 +6,10 @@ export const PATH = {
     saveTaskBtn: '.save-task'
   },
 
+  delTaskModal: {
+    delTaskBtn: '.del-task'
+  },
+
   task: {
     task: '.task',
     taskTemplate: '#task',
