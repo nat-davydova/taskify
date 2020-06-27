@@ -13,44 +13,46 @@ import { PATH } from './configs/path'
 // *** COMMON
 
 export const hideElem = elem => {
-  if (elem) {
-    elem.classList.add('js-hidden')
-  } else {
+  if (!elem) {
     throw new Error('Provide a DOM element to hideElem() function')
   }
+
+  elem.classList.add('js-hidden')
 }
 
 export const showElem = elem => {
-  if (elem) {
-    elem.classList.remove('js-hidden')
-  } else {
+  if (!elem) {
     throw new Error('Provide a DOM element to showElem() function')
   }
+
+  elem.classList.remove('js-hidden')
 }
 
 export const markAsError = elem => {
-  if (elem &&
-    typeof elem === 'string' &&
-    elem.trim() !== ''
+  if (
+    !elem ||
+    typeof elem !== 'string' ||
+    elem.trim() === ''
   ) {
-    const errorElem = document.querySelector(elem)
-    errorElem.classList.add('border-danger')
-  } else {
     throw new Error('Provide a DOM element identificator/classname to markAsError() function')
   }
+
+  const errorElem = document.querySelector(elem)
+  errorElem.classList.add('border-danger')
 }
 
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = elem => {
-  if (elem &&
-    typeof elem === 'string' &&
-    elem.trim() !== ''
+  if (
+    !elem ||
+    typeof elem !== 'string' ||
+    elem.trim() === ''
   ) {
-    const errorElem = document.querySelector(elem)
-    errorElem.classList.remove('border-danger')
-  } else {
     throw new Error('Provide a DOM element identificator/classname to unmarkErrored() function')
   }
+
+  const errorElem = document.querySelector(elem)
+  errorElem.classList.remove('border-danger')
 }
 
 export const triggerClick = (elem, parent, needToSearchParent = true) => {
