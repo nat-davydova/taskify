@@ -6,9 +6,9 @@ import { v4 as uuid } from 'uuid'
 const findATaskIndex = (taskId, taskDataArr) => {
   if (
     !taskId ||
-    typeof taskId !== 'number'
+    typeof taskId !== 'string'
   ) {
-    throw new Error('Provide a number as a TaskId')
+    throw new Error('Provide a string id as a TaskId')
   }
 
   if (!taskDataArr) {

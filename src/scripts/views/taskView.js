@@ -1,6 +1,22 @@
 import { grabTemplate, appendTemplate, hideElem } from '../utils'
 import { PATH } from '../configs/path'
 
+// *** HELPERS
+const findElemInTaskArr = taskId => {
+  const tasksArr = document.querySelectorAll(PATH.task.task)
+
+  let taskElem
+
+  tasksArr.forEach(elem => {
+    if (elem.dataset.taskId === taskId) {
+      taskElem = elem
+    }
+  })
+
+  return taskElem
+}
+
+// *** EXPORTS
 export const renderTask = taskData => {
   if (
     !taskData ||
@@ -39,29 +55,28 @@ export const hideTask = task => {
 }
 
 export const deleteTask = taskId => {
-  const tasksArr = document.querySelectorAll(PATH.task.task)
+  if (!taskId) {
+    throw new Error('Provide a valid task id in deleteTask function')
+  }
 
-  let taskElemToDel
-
-  tasksArr.forEach(elem => {
-    if (elem.dataset.taskId === taskId) {
-      taskElemToDel = elem
-    }
-  })
+  const taskElemToDel = findElemInTaskArr(taskId)
 
   taskElemToDel.remove()
 }
 
 export const editTask = (taskId, newTitle) => {
-  const tasksArr = document.querySelectorAll(PATH.task.task)
+  if (!taskId) {
+    throw new Error('Provide a valid task id in editTask function')
+  }
 
-  let taskElemToEdit
+  if (
+    !newTitle ||
+    typeof newTitle !== 'string'
+  ) {
+    throw new Error('Provide a valid title into editTask function')
+  }
 
-  tasksArr.forEach(elem => {
-    if (elem.dataset.taskId === taskId) {
-      taskElemToEdit = elem
-    }
-  })
+  const taskElemToEdit = findElemInTaskArr(taskId)
 
   const titleElem = taskElemToEdit.querySelector(PATH.task.taskTitle)
 
