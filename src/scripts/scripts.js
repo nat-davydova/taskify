@@ -177,6 +177,7 @@ import {
   document.addEventListener('keyup', e => {
     const target = e.target
 
+    // search on typing
     if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
       searchController(target.closest(PATH.search.searchInput))
     }
@@ -185,6 +186,7 @@ import {
   document.addEventListener('keypress', e => {
     const target = e.target
 
+    // if we press 'Enter' when Search Input is focused
     if (target.closest(PATH.search.searchInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
