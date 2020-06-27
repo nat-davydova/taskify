@@ -24,19 +24,33 @@ export const showElem = elem => {
   if (elem) {
     elem.classList.remove('js-hidden')
   } else {
-    throw new Error('Provide a DOM element to hideElem() function')
+    throw new Error('Provide a DOM element to showElem() function')
   }
 }
 
 export const markAsError = elem => {
-  const errorElem = document.querySelector(elem)
-  errorElem.classList.add('border-danger')
+  if (elem &&
+    typeof elem === 'string' &&
+    elem.trim() !== ''
+  ) {
+    const errorElem = document.querySelector(elem)
+    errorElem.classList.add('border-danger')
+  } else {
+    throw new Error('Provide a DOM element identificator/classname to markAsError() function')
+  }
 }
 
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = elem => {
-  const errorElem = document.querySelector(elem)
-  errorElem.classList.remove('border-danger')
+  if (elem &&
+    typeof elem === 'string' &&
+    elem.trim() !== ''
+  ) {
+    const errorElem = document.querySelector(elem)
+    errorElem.classList.remove('border-danger')
+  } else {
+    throw new Error('Provide a DOM element identificator/classname to unmarkErrored() function')
+  }
 }
 
 export const triggerClick = (elem, parent, needToSearchParent = true) => {
