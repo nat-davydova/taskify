@@ -10,32 +10,39 @@ import { PATH } from './configs/path'
 // - modals related
 // - scrollbar related
 
+// *** HELPERS FOR LOCAL USAGE
+
+// funcName() is used for error message customization
+const checkIfElemExists = (elem, funcName, parentElem = null) => {
+  if (
+    !elem ||
+    typeof elem !== 'string' ||
+    elem.trim() === '' ||
+    (parentElem && typeof parentElem !== 'string') ||
+    (parentElem && parentElem.trim() === '')
+  ) {
+    throw new Error(`Provide a DOM element to ${funcName} function`)
+  }
+
+  return true
+}
+
 // *** COMMON
 
 export const hideElem = elem => {
-  if (!elem) {
-    throw new Error('Provide a DOM element to hideElem() function')
-  }
+  checkIfElemExists(elem, 'hideElem')
 
   elem.classList.add('js-hidden')
 }
 
 export const showElem = elem => {
-  if (!elem) {
-    throw new Error('Provide a DOM element to showElem() function')
-  }
+  checkIfElemExists(elem, 'showElem')
 
   elem.classList.remove('js-hidden')
 }
 
 export const markAsError = elem => {
-  if (
-    !elem ||
-    typeof elem !== 'string' ||
-    elem.trim() === ''
-  ) {
-    throw new Error('Provide a DOM element identificator/classname to markAsError() function')
-  }
+  checkIfElemExists(elem, 'markAsError')
 
   const errorElem = document.querySelector(elem)
   errorElem.classList.add('border-danger')
@@ -43,36 +50,22 @@ export const markAsError = elem => {
 
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = elem => {
-  if (
-    !elem ||
-    typeof elem !== 'string' ||
-    elem.trim() === ''
-  ) {
-    throw new Error('Provide a DOM element identificator/classname to unmarkErrored() function')
-  }
+  checkIfElemExists(elem, 'unmarkErrored')
 
   const errorElem = document.querySelector(elem)
   errorElem.classList.remove('border-danger')
 }
 
-export const triggerClick = (elem, parent, needToSearchParent = true) => {
-  if (
-    !elem ||
-    typeof elem !== 'string' ||
-    elem.trim() === '' ||
-    (parent && typeof parent !== 'string') ||
-    (parent && parent.trim() === '')
-  ) {
-    throw new Error('Provide a DOM element identificator/classname to triggerClick() function')
-  }
+export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
+  checkIfElemExists(elem, 'triggerClick', parentElem)
 
   let elemEl
 
-  if (parent && needToSearchParent) {
-    const parentEl = document.querySelector(parent)
+  if (parentElem && needToSearchParent) {
+    const parentEl = document.querySelector(parentElem)
     elemEl = parentEl.querySelector(elem)
-  } else if (parent) {
-    elemEl = parent.querySelector(elem)
+  } else if (parentElem) {
+    elemEl = parentElem.querySelector(elem)
   } else {
     elemEl = document.querySelector(elem)
   }
@@ -82,21 +75,13 @@ export const triggerClick = (elem, parent, needToSearchParent = true) => {
 
 // *** FORMS RELATED
 
-export const getInputValue = (inputElem, form) => {
-  if (
-    !inputElem ||
-    typeof inputElem !== 'string' ||
-    inputElem.trim() === '' ||
-    (form && typeof parent !== 'string') ||
-    (form && form.trim() === '')
-  ) {
-    throw new Error('Provide a DOM element identificator/classname to getInputValue function')
-  }
+export const getInputValue = (inputElem, parentElem) => {
+  checkIfElemExists(inputElem, 'getInputValue', parentElem)
 
   let inputEl
 
-  if (form) {
-    inputEl = form.querySelector(inputElem)
+  if (parentElem) {
+    inputEl = parentElem.querySelector(inputElem)
   } else {
     inputEl = document.querySelector(inputElem)
   }
@@ -104,13 +89,22 @@ export const getInputValue = (inputElem, form) => {
   return inputEl.value
 }
 
-export const cleanInput = input => {
-  const inputEl = document.querySelector(input)
+export const cleanInput = inputElem => {
+  checkIfElemExists(inputElem, 'cleanInput')
+
+  const inputEl = document.querySelector(inputElem)
   inputEl.value = ''
 }
 
-export const checkTextEmpty = string => {
-  return !string || string.trim() === ''
+export const checkTextEmpty = stringArg => {
+  if (
+    !stringArg ||
+    typeof stringArg !== 'string'
+  ) {
+    throw new Error('Provide a string argument to checkTextEmpty function')
+  }
+
+  return stringArg.length === 0 || stringArg.trim() === ''
 }
 
 // *** TEMPLATES RELATED
