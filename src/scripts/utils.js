@@ -13,11 +13,19 @@ import { PATH } from './configs/path'
 // *** COMMON
 
 export const hideElem = elem => {
-  elem.classList.add('js-hidden')
+  if (elem) {
+    elem.classList.add('js-hidden')
+  } else {
+    throw new Error('Provide a DOM element to hideElem() function')
+  }
 }
 
 export const showElem = elem => {
-  elem.classList.remove('js-hidden')
+  if (elem) {
+    elem.classList.remove('js-hidden')
+  } else {
+    throw new Error('Provide a DOM element to hideElem() function')
+  }
 }
 
 export const markAsError = elem => {
