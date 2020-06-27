@@ -1,7 +1,16 @@
 import { grabTemplate, appendTemplate, hideElem } from '../utils'
 import { PATH } from '../configs/path'
 
-export const renderTask = ({ taskTitle, taskId }) => {
+export const renderTask = taskData => {
+  if (
+    !taskData ||
+    typeof taskData !== 'object'
+  ) {
+    throw new Error('Please provide taskData to renderTask function')
+  }
+
+  const { taskTitle, taskId } = taskData
+
   const taskTemplate = grabTemplate(PATH.task.taskTemplate)
   const taskEl = taskTemplate.querySelector(PATH.task.task)
   const taskTitleElem = taskTemplate.querySelector(PATH.task.taskTitle)
