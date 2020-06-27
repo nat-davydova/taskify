@@ -13,7 +13,7 @@ import { PATH } from './configs/path'
 // *** HELPERS FOR LOCAL USAGE
 
 // funcName() is used for error message customization
-const checkIfElemExists = (elem, funcName, parentElem = null) => {
+const checkIfElemArgValid = (elem, funcName, parentElem = null) => {
   if (
     !elem ||
     typeof elem !== 'string' ||
@@ -30,19 +30,19 @@ const checkIfElemExists = (elem, funcName, parentElem = null) => {
 // *** COMMON
 
 export const hideElem = elem => {
-  checkIfElemExists(elem, 'hideElem')
+  checkIfElemArgValid(elem, 'hideElem')
 
   elem.classList.add('js-hidden')
 }
 
 export const showElem = elem => {
-  checkIfElemExists(elem, 'showElem')
+  checkIfElemArgValid(elem, 'showElem')
 
   elem.classList.remove('js-hidden')
 }
 
 export const markAsError = elem => {
-  checkIfElemExists(elem, 'markAsError')
+  checkIfElemArgValid(elem, 'markAsError')
 
   const errorElem = document.querySelector(elem)
   errorElem.classList.add('border-danger')
@@ -50,14 +50,14 @@ export const markAsError = elem => {
 
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = elem => {
-  checkIfElemExists(elem, 'unmarkErrored')
+  checkIfElemArgValid(elem, 'unmarkErrored')
 
   const errorElem = document.querySelector(elem)
   errorElem.classList.remove('border-danger')
 }
 
 export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
-  checkIfElemExists(elem, 'triggerClick', parentElem)
+  checkIfElemArgValid(elem, 'triggerClick', parentElem)
 
   let elemEl
 
@@ -76,7 +76,7 @@ export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
 // *** FORMS RELATED
 
 export const getInputValue = (inputElem, parentElem) => {
-  checkIfElemExists(inputElem, 'getInputValue', parentElem)
+  checkIfElemArgValid(inputElem, 'getInputValue', parentElem)
 
   let inputEl
 
@@ -90,7 +90,7 @@ export const getInputValue = (inputElem, parentElem) => {
 }
 
 export const cleanInput = inputElem => {
-  checkIfElemExists(inputElem, 'cleanInput')
+  checkIfElemArgValid(inputElem, 'cleanInput')
 
   const inputEl = document.querySelector(inputElem)
   inputEl.value = ''
