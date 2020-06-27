@@ -56,6 +56,16 @@ export const unmarkErrored = elem => {
 }
 
 export const triggerClick = (elem, parent, needToSearchParent = true) => {
+  if (
+    !elem ||
+    typeof elem !== 'string' ||
+    elem.trim() === '' ||
+    (parent && typeof parent !== 'string') ||
+    (parent && parent.trim() === '')
+  ) {
+    throw new Error('Provide a DOM element identificator/classname to triggerClick() function')
+  }
+
   let elemEl
 
   if (parent && needToSearchParent) {
