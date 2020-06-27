@@ -5,7 +5,7 @@ import 'bootstrap/js/dist/modal'
 import { v4 as uuid } from 'uuid'
 
 // import models
-import { createTask, delTask, editTask } from './models/Task'
+import { createTask, delTask, editTask } from './models/taskModel'
 import { search } from './models/Search'
 
 // import views
