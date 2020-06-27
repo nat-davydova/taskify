@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 
 // import models
 import { createTask, delTask, editTask } from './models/taskModel'
-import { search } from './models/Search'
+import { search } from './models/searchModel'
 
 // import views
 import * as taskView from './views/taskView'
