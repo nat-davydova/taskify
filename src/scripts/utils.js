@@ -83,6 +83,16 @@ export const triggerClick = (elem, parent, needToSearchParent = true) => {
 // *** FORMS RELATED
 
 export const getInputValue = (inputElem, form) => {
+  if (
+    !inputElem ||
+    typeof inputElem !== 'string' ||
+    inputElem.trim() === '' ||
+    (form && typeof parent !== 'string') ||
+    (form && form.trim() === '')
+  ) {
+    throw new Error('Provide a DOM element identificator/classname to getInputValue function')
+  }
+
   let inputEl
 
   if (form) {
