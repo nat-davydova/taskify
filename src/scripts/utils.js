@@ -30,13 +30,17 @@ const checkIfElemArgValid = (elem, funcName, parentElem = null) => {
 // *** COMMON
 
 export const hideElem = elem => {
-  checkIfElemArgValid(elem, 'hideElem')
+  if (!elem) {
+    throw new Error('Provide a DOM element to hideElem function')
+  }
 
   elem.classList.add('js-hidden')
 }
 
 export const showElem = elem => {
-  checkIfElemArgValid(elem, 'showElem')
+  if (!elem) {
+    throw new Error('Provide a DOM element to showElem function')
+  }
 
   elem.classList.remove('js-hidden')
 }
@@ -75,7 +79,7 @@ export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
 
 // *** FORMS RELATED
 
-export const getInputValue = (inputElem, parentElem) => {
+export const getInputValue = (inputElem, parentElem = null) => {
   checkIfElemArgValid(inputElem, 'getInputValue', parentElem)
 
   let inputEl
