@@ -5,6 +5,20 @@ import { search } from '../models/searchModel'
 
 import { PATH } from '../configs/path'
 
+// *** HELPERS
+const renderSearchResults = searchArr => {
+  searchArr.forEach(elem => showElem(elem))
+
+  searchArr.forEach(elem => {
+    const taskTitle = elem.querySelector(PATH.task.taskTitle).textContent
+
+    if (state.search.results.indexOf(taskTitle) < 0) {
+      hideElem(elem)
+    }
+  })
+}
+
+// *** CONTROLLER
 export const searchController = searchEl => {
   const searchForm = searchEl.closest(PATH.search.searchForm)
 
@@ -14,13 +28,5 @@ export const searchController = searchEl => {
 
   const tasksElems = document.querySelectorAll(PATH.task.task)
 
-  tasksElems.forEach(elem => showElem(elem))
-
-  tasksElems.forEach(elem => {
-    const taskTitle = elem.querySelector(PATH.task.taskTitle).textContent
-
-    if (state.search.results.indexOf(taskTitle) < 0) {
-      hideElem(elem)
-    }
-  })
+  renderSearchResults(tasksElems)
 }
