@@ -1,5 +1,3 @@
-import 'bootstrap/js/dist/modal'
-
 // import views
 import * as taskView from './views/taskView'
 
