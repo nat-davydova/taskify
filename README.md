@@ -1,4 +1,4 @@
-# Taskify App v.2.0
+# Taskify App v.2.1
 
 The app allows to:
 - **create**, **edit** and **delete** tasks;
