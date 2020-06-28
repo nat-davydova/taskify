@@ -3,6 +3,33 @@
 	@include position-absolute($top: 0, $left: 0);
 }
 
+.modal {
+	display: block;
+	visibility: hidden;
+
+	&.show {
+		visibility: visible;
+
+		.modal-dialog {
+			@include transition-mix();
+
+			transform: translateY(0);
+
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.modal-dialog {
+	@include transition-mix();
+
+	transform: translateY(-100px);
+
+	opacity: 0;
+	visibility: hidden;
+}
+
 .modal-backdrop {
 	width: 100%;
 	height: 100%;

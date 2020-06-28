@@ -4,8 +4,6 @@ import { triggerClick } from '../utils'
 export const openModal = modal => {
   const modalEl = document.querySelector(modal)
 
-  document.body.classList.add('modal-open')
-  modalEl.style.display = 'block'
   modalEl.classList.add('show')
 }
 
