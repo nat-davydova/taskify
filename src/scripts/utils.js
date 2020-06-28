@@ -13,13 +13,11 @@ import { PATH } from './configs/path'
 // *** HELPERS FOR LOCAL USAGE
 
 // funcName() is used for error message customization
-const checkIfElemArgValid = (elem, funcName, parentElem = null) => {
+const checkIfElemArgValid = (elem, funcName) => {
   if (
     !elem ||
     typeof elem !== 'string' ||
-    elem.trim() === '' ||
-    (parentElem && typeof parentElem !== 'string') ||
-    (parentElem && parentElem.trim() === '')
+    elem.trim() === ''
   ) {
     throw new Error(`Provide a DOM element to ${funcName} function`)
   }
