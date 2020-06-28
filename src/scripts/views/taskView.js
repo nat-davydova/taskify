@@ -1,4 +1,4 @@
-import { grabTemplate, appendTemplate, hideElem } from '../utils'
+import { grabTemplate, appendTemplate, hideElem } from '../utils/utils'
 import { PATH } from '../configs/path'
 
 // *** HELPERS

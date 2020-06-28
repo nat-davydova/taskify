@@ -11,7 +11,9 @@ import { PATH } from './configs/path'
 import {
   triggerClick,
   scrollbarIniting
-} from './utils'
+} from './utils/utils'
+
+import { openModal } from './utils/modals/modals'
 
 (function () {
   'use strict'
@@ -61,6 +63,8 @@ import {
       const taskId = target.closest(PATH.task.task).dataset.taskId
 
       tasksListController('pick', taskId)
+
+      openModal(PATH.editTaskModal.editModal)
     }
 
     if (target.closest(PATH.editTaskModal.editTaskBtn)) {

@@ -6,11 +6,12 @@ import * as taskView from '../views/taskView'
 import {
   checkTextEmpty,
   cleanInput,
-  dismissModal,
   getInputValue,
   markAsError,
   unmarkErrored
-} from '../utils'
+} from '../utils/utils'
+
+import { dismissModal } from '../utils/modals/modals'
 
 import { PATH } from '../configs/path'
 

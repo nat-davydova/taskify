@@ -1,6 +1,6 @@
 import state from '../state'
 
-import { getInputValue, hideElem, showElem } from '../utils'
+import { getInputValue, hideElem, showElem } from '../utils/utils'
 import { search } from '../models/searchModel'
 
 import { PATH } from '../configs/path'

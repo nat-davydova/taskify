@@ -1,6 +1,6 @@
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import { PATH } from './configs/path'
+import { PATH } from '../configs/path'
 
 // COLLECTION OF HELPERS FUNCTIONS
 
@@ -129,16 +129,6 @@ export const appendTemplate = (templateElem, appendDestinationElem) => {
   }
 
   appendDestinationElem.append(templateElem)
-}
-
-// *** MODALS RELATED
-
-export const dismissModal = modalEl => {
-  if (!modalEl) {
-    throw new Error('Provide a DOM element in to dismissModal function')
-  }
-
-  triggerClick(PATH.misc.modalClose, modalEl)
 }
 
 // *** SCROLLBAR RELATED
