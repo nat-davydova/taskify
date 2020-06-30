@@ -40,6 +40,16 @@ import { openModal, closeModal } from './utils/modals/modals'
       closeModal(modal)
     }
 
+    console.log(target)
+
+    if (target.closest(PATH.modals.modalBackdrop)) {
+
+
+      const currentModal = document.querySelector(`${PATH.modals.modal}.show`)
+
+      closeModal(currentModal)
+    }
+
     // open add task modal
     if (target.closest(PATH.addTask.openTaskModal)) {
       openModal(PATH.addTask.addTaskModal)
