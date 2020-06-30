@@ -110,10 +110,7 @@ export const cleanInput = (inputElem, needToFind = false) => {
 }
 
 export const checkTextEmpty = stringArg => {
-  if (
-    !stringArg ||
-    typeof stringArg !== 'string'
-  ) {
+  if (typeof stringArg !== 'string') {
     throw new Error('Provide a string argument to checkTextEmpty function')
   }
 
