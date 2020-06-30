@@ -11,7 +11,7 @@
 		visibility: visible;
 
 		.modal-dialog {
-			@include transition-mix();
+			@include transition-mix($delay: .2s);
 
 			transform: translateY(0);
 
@@ -22,7 +22,7 @@
 }
 
 .modal-dialog {
-	@include transition-mix();
+	@include transition-mix($delay: 0s);
 
 	transform: translateY(-100px);
 

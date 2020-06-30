@@ -8,7 +8,10 @@ export const closeModal = modal => {
 
   const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
   const appFrame = document.querySelector(PATH.misc.frame)
-  appFrame.removeChild(modalBackdrop)
+
+  setTimeout(() => {
+    appFrame.removeChild(modalBackdrop)
+  }, 250)
 
   modal.classList.remove('show')
 }
