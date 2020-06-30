@@ -5,6 +5,11 @@ export const closeModal = modal => {
   if (!modal) {
     throw new Error('Provide a DOM element in to closeModal function')
   }
+
+  const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
+  const appFrame = document.querySelector(PATH.misc.frame)
+  appFrame.removeChild(modalBackdrop)
+
   modal.classList.remove('show')
 }
 
