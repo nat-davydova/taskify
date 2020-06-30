@@ -2,11 +2,23 @@ import { PATH } from '../../configs/path'
 import { triggerClick } from '../utils'
 
 export const closeModal = modal => {
+  if (!modal) {
+    throw new Error('Provide a DOM element in to closeModal function')
+  }
   modal.classList.remove('show')
 }
 
 export const openModal = modal => {
+  if (!modal) {
+    throw new Error('Provide a DOM element in to openModal function')
+  }
+
   const modalEl = document.querySelector(modal)
+
+  const modalBackdrop = document.createElement('div')
+  modalBackdrop.classList.add('modal-backdrop', 'fade', 'show')
+  const appFrame = document.querySelector(PATH.misc.frame)
+  appFrame.appendChild(modalBackdrop)
 
   modalEl.classList.add('show')
 }

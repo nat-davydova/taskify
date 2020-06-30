@@ -37,7 +37,8 @@ export const PATH = {
   modals: {
     modal: '.modal',
     closeBtnTop: '.close',
-    closeBtnMain: '.close-btn'
+    closeBtnMain: '.close-btn',
+    modalBackdrop: '.modal-backdrop'
   },
 
   search: {
@@ -47,6 +48,7 @@ export const PATH = {
   },
 
   misc: {
+    frame: '.app__frame',
     modalClose: '.close'
   }
 }
