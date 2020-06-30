@@ -11,7 +11,7 @@ import {
   unmarkErrored
 } from '../utils/utils'
 
-import { dismissModal } from '../utils/modals/modals'
+import { openModal, dismissModal } from '../utils/modals/modals'
 
 import { PATH } from '../configs/path'
 

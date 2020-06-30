@@ -1,5 +1,6 @@
 export const PATH = {
   addTask: {
+    openTaskModal: '.open-add-task-modal',
     addTaskBtn: '.add-new-task__btn',
     addTaskModal: '.add-new-task',
     addTaskTitleInput: '.add-new-task__title',

@@ -40,6 +40,11 @@ import { openModal, closeModal } from './utils/modals/modals'
       closeModal(modal)
     }
 
+    // open add task modal
+    if (target.closest(PATH.addTask.openTaskModal)) {
+      openModal(PATH.addTask.addTaskModal)
+    }
+
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {
       tasksListController('add')
@@ -62,6 +67,8 @@ import { openModal, closeModal } from './utils/modals/modals'
       const taskId = target.closest(PATH.task.task).dataset.taskId
 
       tasksListController('pick', taskId)
+
+      openModal(PATH.delTaskModal.delModal)
     }
 
     if (target.closest(PATH.delTaskModal.delTaskBtn)) {
