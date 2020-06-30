@@ -13,7 +13,7 @@ import { PATH } from '../configs/path'
 // *** HELPERS FOR LOCAL USAGE
 
 // funcName() is used for error message customization
-const checkIfElemArgValid = (elem, funcName) => {
+export const checkIfElemArgValid = (elem, funcName) => {
   if (
     !elem ||
     typeof elem !== 'string' ||

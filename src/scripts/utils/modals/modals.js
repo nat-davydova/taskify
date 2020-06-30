@@ -1,5 +1,5 @@
 import { PATH } from '../../configs/path'
-import { triggerClick } from '../utils'
+import { checkIfElemArgValid, triggerClick } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
@@ -16,10 +16,12 @@ export const closeModal = modal => {
   modal.classList.remove('show')
 }
 
-export const openModal = modal => {
+export const openModal = (modal, inputToAutofocus) => {
   if (!modal) {
     throw new Error('Provide a DOM element in to openModal function')
   }
+
+  checkIfElemArgValid(inputToAutofocus, 'openModal')
 
   const modalEl = document.querySelector(modal)
 
@@ -29,6 +31,11 @@ export const openModal = modal => {
   appFrame.appendChild(modalBackdrop)
 
   modalEl.classList.add('show')
+
+  setTimeout(() => {
+    const inputToAutofocusElem = modalEl.querySelector(inputToAutofocus)
+    inputToAutofocusElem.focus()
+  }, 250)
 }
 
 export const dismissModal = modalEl => {

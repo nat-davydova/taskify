@@ -40,8 +40,6 @@ import { openModal, closeModal } from './utils/modals/modals'
       closeModal(modal)
     }
 
-    console.log(target)
-
     if (target.closest(PATH.modals.modalBackdrop)) {
 
 
@@ -52,7 +50,7 @@ import { openModal, closeModal } from './utils/modals/modals'
 
     // open add task modal
     if (target.closest(PATH.addTask.openTaskModal)) {
-      openModal(PATH.addTask.addTaskModal)
+      openModal(PATH.addTask.addTaskModal, PATH.addTask.addTaskTitleInput)
     }
 
     // adding new task
@@ -91,7 +89,7 @@ import { openModal, closeModal } from './utils/modals/modals'
 
       tasksListController('pick', taskId)
 
-      openModal(PATH.editTaskModal.editModal)
+      openModal(PATH.editTaskModal.editModal, PATH.editTaskModal.editTaskInput)
     }
 
     if (target.closest(PATH.editTaskModal.editTaskBtn)) {
