@@ -1,15 +1,17 @@
 .modal,
 .modal-backdrop {
-	@include position-absolute($top: 50%, $left: 50%);
-
-	width: 80%;
-	height: auto;
-
-	transform: translate(-50%, - 50%);
+	@include position-absolute($top: 0, $left: 0);
 }
 
 .modal {
+	@include position-absolute($top: 50%, $left: 50%);
+
 	display: block;
+	width: 80%;
+	height: auto;;
+
+	transform: translate(-50%, - 50%);
+
 	visibility: hidden;
 	overflow: visible;
 
