@@ -1,0 +1,9 @@
+.form__label--required {
+
+	&:after {
+		display: inline-flex;
+		margin-left: 5px;
+
+		content: '*';
+	}
+}
