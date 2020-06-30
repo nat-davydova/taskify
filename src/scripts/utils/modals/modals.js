@@ -1,10 +1,13 @@
 import { PATH } from '../../configs/path'
-import { checkIfElemArgValid, triggerClick } from '../utils'
+import { checkIfElemArgValid, triggerClick, cleanInput } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
     throw new Error('Provide a DOM element in to closeModal function')
   }
+
+  const modalInputs = modal.querySelectorAll('input')
+  modalInputs.forEach(elem => cleanInput(elem, false))
 
   const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
   const appFrame = document.querySelector(PATH.misc.frame)

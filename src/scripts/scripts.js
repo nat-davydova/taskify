@@ -41,8 +41,6 @@ import { openModal, closeModal } from './utils/modals/modals'
     }
 
     if (target.closest(PATH.modals.modalBackdrop)) {
-
-
       const currentModal = document.querySelector(`${PATH.modals.modal}.show`)
 
       closeModal(currentModal)

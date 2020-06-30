@@ -91,10 +91,21 @@ export const getInputValue = (inputElem, parentElem = null) => {
   return inputEl.value
 }
 
-export const cleanInput = inputElem => {
-  checkIfElemArgValid(inputElem, 'cleanInput')
+export const cleanInput = (inputElem, needToFind = false) => {
+  let inputEl
 
-  const inputEl = document.querySelector(inputElem)
+  if (needToFind) {
+    checkIfElemArgValid(inputElem, 'cleanInput')
+
+    inputEl = document.querySelector(inputElem)
+  }
+
+  if (!inputElem) {
+    throw new Error('Provide a DOM element to cleanInput function')
+  }
+
+  inputEl = inputElem
+
   inputEl.value = ''
 }
 
