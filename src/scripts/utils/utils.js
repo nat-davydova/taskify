@@ -51,11 +51,18 @@ export const markAsError = elem => {
 }
 
 // use if you need to remove error markers from element (check previous function)
-export const unmarkErrored = elem => {
-  checkIfElemArgValid(elem, 'unmarkErrored')
+export const unmarkErrored = (elem, needToSearch = false) => {
+  if (needToSearch) {
+    checkIfElemArgValid(elem, 'unmarkErrored')
 
-  const errorElem = document.querySelector(elem)
-  errorElem.classList.remove('is-invalid')
+    elem = document.querySelector(elem)
+  }
+
+  if (!elem) {
+    throw new Error('Provide a DOM element to cleanInput function')
+  }
+
+  elem.classList.remove('is-invalid')
 }
 
 export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
@@ -91,10 +98,10 @@ export const getInputValue = (inputElem, parentElem = null) => {
   return inputEl.value
 }
 
-export const cleanInput = (inputElem, needToFind = false) => {
+export const cleanInput = (inputElem, needToSearch = false) => {
   let inputEl
 
-  if (needToFind) {
+  if (needToSearch) {
     checkIfElemArgValid(inputElem, 'cleanInput')
 
     inputEl = document.querySelector(inputElem)

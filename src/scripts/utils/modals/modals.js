@@ -1,5 +1,5 @@
 import { PATH } from '../../configs/path'
-import { checkIfElemArgValid, triggerClick, cleanInput } from '../utils'
+import { checkIfElemArgValid, triggerClick, cleanInput, unmarkErrored } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
@@ -7,7 +7,10 @@ export const closeModal = modal => {
   }
 
   const modalInputs = modal.querySelectorAll('input')
-  modalInputs.forEach(elem => cleanInput(elem, false))
+  modalInputs.forEach(elem => {
+    unmarkErrored(elem, false)
+    cleanInput(elem, false)
+  })
 
   const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
   const appFrame = document.querySelector(PATH.layout.frame)
