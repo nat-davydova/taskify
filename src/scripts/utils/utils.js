@@ -47,7 +47,7 @@ export const markAsError = elem => {
   checkIfElemArgValid(elem, 'markAsError')
 
   const errorElem = document.querySelector(elem)
-  errorElem.classList.add('border-danger')
+  errorElem.classList.add('is-invalid')
 }
 
 // use if you need to remove error markers from element (check previous function)
@@ -55,7 +55,7 @@ export const unmarkErrored = elem => {
   checkIfElemArgValid(elem, 'unmarkErrored')
 
   const errorElem = document.querySelector(elem)
-  errorElem.classList.remove('border-danger')
+  errorElem.classList.remove('is-invalid')
 }
 
 export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
