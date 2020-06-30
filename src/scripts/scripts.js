@@ -13,7 +13,7 @@ import {
   scrollbarIniting
 } from './utils/utils'
 
-import { openModal } from './utils/modals/modals'
+import { openModal, closeModal } from './utils/modals/modals'
 
 (function () {
   'use strict'
@@ -29,6 +29,16 @@ import { openModal } from './utils/modals/modals'
 
   document.addEventListener('click', e => {
     const target = e.target
+
+    // close modal windows
+    if (
+      target.closest(PATH.modals.closeBtnMain) ||
+      target.closest(PATH.modals.closeBtnTop)
+    ) {
+      const modal = target.closest(PATH.modals.modal)
+
+      closeModal(modal)
+    }
 
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {

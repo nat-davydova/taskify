@@ -33,6 +33,12 @@ export const PATH = {
     }
   },
 
+  modals: {
+    modal: '.modal',
+    closeBtnTop: '.close',
+    closeBtnMain: '.close-btn'
+  },
+
   search: {
     searchForm: '.search',
     searchInput: '.search__input',

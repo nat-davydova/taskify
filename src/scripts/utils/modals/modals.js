@@ -1,6 +1,10 @@
 import { PATH } from '../../configs/path'
 import { triggerClick } from '../utils'
 
+export const closeModal = modal => {
+  modal.classList.remove('show')
+}
+
 export const openModal = modal => {
   const modalEl = document.querySelector(modal)
 
