@@ -120,5 +120,12 @@ import { openModal, closeModal } from './utils/modals/modals'
 
       tasksListController('add')
     }
+
+    // adding new task
+    if (target.closest(PATH.editTaskModal.editTaskInput) && (e.code === 'Enter' || e.key === 'Enter')) {
+      e.preventDefault()
+
+      tasksListController('edit')
+    }
   })
 })()
