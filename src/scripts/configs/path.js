@@ -47,8 +47,7 @@ export const PATH = {
     searchBtn: '.search__btn'
   },
 
-  misc: {
-    frame: '.app__frame',
-    modalClose: '.close'
+  layout: {
+    frame: '.app__frame'
   }
 }

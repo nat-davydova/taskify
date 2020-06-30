@@ -10,7 +10,7 @@ export const closeModal = modal => {
   modalInputs.forEach(elem => cleanInput(elem, false))
 
   const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
-  const appFrame = document.querySelector(PATH.misc.frame)
+  const appFrame = document.querySelector(PATH.layout.frame)
 
   setTimeout(() => {
     appFrame.removeChild(modalBackdrop)
@@ -28,7 +28,7 @@ export const openModal = (modal, inputToAutofocus) => {
 
   const modalBackdrop = document.createElement('div')
   modalBackdrop.classList.add('modal-backdrop', 'fade', 'show')
-  const appFrame = document.querySelector(PATH.misc.frame)
+  const appFrame = document.querySelector(PATH.layout.frame)
   appFrame.appendChild(modalBackdrop)
 
   modalEl.classList.add('show')
@@ -47,5 +47,5 @@ export const dismissModal = modalEl => {
     throw new Error('Provide a DOM element in to dismissModal function')
   }
 
-  triggerClick(PATH.misc.modalClose, modalEl)
+  triggerClick(PATH.modals.closeBtnTop, modalEl)
 }
