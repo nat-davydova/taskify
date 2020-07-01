@@ -10,7 +10,7 @@ import state from './state'
 import { PATH } from './configs/path'
 import {
   triggerClick,
-  scrollbarIniting
+  scrollbarIniting, unmarkErrored
 } from './utils/utils'
 
 import { openModal, closeModal } from './utils/modals/modals'
@@ -101,6 +101,15 @@ import { openModal, closeModal } from './utils/modals/modals'
     // search on typing
     if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
       searchController(target.closest(PATH.search.searchInput))
+    }
+
+    // clean errored inputs when start typing
+    if (
+      (target.closest(PATH.addTask.addTaskTitleInput) ||
+      target.closest(PATH.editTaskModal.editTaskInput)) &&
+      e.code !== 'Enter'
+    ) {
+      unmarkErrored(target.closest('input'))
     }
   })
 
