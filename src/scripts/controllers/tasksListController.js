@@ -34,8 +34,8 @@ const addTask = taskTitle => {
 
   taskView.renderTask(newTask)
 
-  unmarkErrored(PATH.addTask.addTaskTitleInput)
-  cleanInput(PATH.addTask.addTaskTitleInput)
+  unmarkErrored(PATH.addTask.addTaskTitleInput, true)
+  cleanInput(PATH.addTask.addTaskTitleInput, true)
 }
 
 const deleteTask = () => {
@@ -56,8 +56,8 @@ const editTask = newTaskTitle => {
 
   taskView.editTask(state.pickedItemId, newTaskTitle)
 
-  unmarkErrored(PATH.editTaskModal.editTaskInput)
-  cleanInput(PATH.editTaskModal.editTaskInput)
+  unmarkErrored(PATH.editTaskModal.editTaskInput, true)
+  cleanInput(PATH.editTaskModal.editTaskInput, true)
 }
 
 // *** CONTROLLER

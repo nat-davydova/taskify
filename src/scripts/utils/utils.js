@@ -99,7 +99,7 @@ export const getInputValue = (inputElem, parentElem = null) => {
 }
 
 export const cleanInput = (inputElem, needToSearch = false) => {
-  let inputEl
+  let inputEl = inputElem
 
   if (needToSearch) {
     checkIfElemArgValid(inputElem, 'cleanInput')
@@ -110,8 +110,6 @@ export const cleanInput = (inputElem, needToSearch = false) => {
   if (!inputElem) {
     throw new Error('Provide a DOM element to cleanInput function')
   }
-
-  inputEl = inputElem
 
   inputEl.value = ''
 }
