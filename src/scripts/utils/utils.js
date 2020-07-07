@@ -95,22 +95,6 @@ export const getInputValue = (inputElem, parentElem = null) => {
   return inputEl.value
 }
 
-export const cleanInput = (inputElem, needToSearch = false) => {
-  let inputEl = inputElem
-
-  if (needToSearch) {
-    //checkIfElemArgValid(inputElem, 'cleanInput')
-
-    inputEl = document.querySelector(inputElem)
-  }
-
-  if (!inputElem) {
-    throw new Error('Provide a DOM element to cleanInput function')
-  }
-
-  inputEl.value = ''
-}
-
 export const checkTextEmpty = stringArg => {
   if (typeof stringArg !== 'string') {
     throw new Error('Provide a string argument to checkTextEmpty function')
