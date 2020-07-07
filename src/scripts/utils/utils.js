@@ -50,21 +50,14 @@ export const showElem = elem => {
 
 export const markAsError = elem => {
   checkElemArgValid(elem, 'markAsError')
+  console.log('marked')
 
   elem.classList.add('is-invalid')
 }
 
 // use if you need to remove error markers from element (check previous function)
-export const unmarkErrored = (elem, needToSearch = false) => {
-  if (needToSearch) {
-    //checkIfElemArgValid(elem, 'unmarkErrored')
-
-    elem = document.querySelector(elem)
-  }
-
-  if (!elem) {
-    throw new Error('Provide a DOM element to cleanInput function')
-  }
+export const unmarkErrored = elem => {
+  checkElemArgValid(elem, 'unmarkErrored')
 
   elem.classList.remove('is-invalid')
 }

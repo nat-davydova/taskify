@@ -5,7 +5,6 @@ import * as taskView from '../views/taskView'
 
 import {
   checkTextEmpty,
-  cleanInput,
   getInputValue,
   markAsError,
   unmarkErrored
@@ -21,8 +20,9 @@ const pickItem = taskId => {
 }
 
 const addTask = taskTitle => {
+  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+
   if (checkTextEmpty(taskTitle)) {
-    const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
     markAsError(taskTitleInput)
     return
   }
@@ -35,8 +35,8 @@ const addTask = taskTitle => {
 
   taskView.renderTask(newTask)
 
-  unmarkErrored(PATH.addTask.addTaskTitleInput, true)
-  cleanInput(PATH.addTask.addTaskTitleInput, true)
+  unmarkErrored(taskTitleInput)
+  taskTitleInput.value = ''
 }
 
 const deleteTask = () => {
@@ -46,8 +46,9 @@ const deleteTask = () => {
 }
 
 const editTask = newTaskTitle => {
+  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+
   if (checkTextEmpty(newTaskTitle)) {
-    const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
     markAsError(taskTitleInput)
     return
   }
@@ -58,8 +59,8 @@ const editTask = newTaskTitle => {
 
   taskView.editTask(state.pickedItemId, newTaskTitle)
 
-  unmarkErrored(PATH.editTaskModal.editTaskInput, true)
-  cleanInput(PATH.editTaskModal.editTaskInput, true)
+  unmarkErrored(taskTitleInput)
+  taskTitleInput.value = ''
 }
 
 // *** CONTROLLER

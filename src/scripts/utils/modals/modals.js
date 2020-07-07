@@ -1,5 +1,5 @@
 import { PATH } from '../../configs/path'
-import { checkIfElemArgValid, triggerClick, cleanInput, unmarkErrored } from '../utils'
+import { checkElemArgValid, triggerClick, unmarkErrored } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
@@ -8,8 +8,8 @@ export const closeModal = modal => {
 
   const modalInputs = modal.querySelectorAll('input')
   modalInputs.forEach(elem => {
-    unmarkErrored(elem, false)
-    cleanInput(elem, false)
+    unmarkErrored(elem)
+    elem.value = ''
   })
 
   const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop)
@@ -38,8 +38,8 @@ export const openModal = (modal, inputToAutofocus) => {
 
   if (inputToAutofocus) {
     setTimeout(() => {
-      checkIfElemArgValid(inputToAutofocus, 'openModal')
       const inputToAutofocusElem = modalEl.querySelector(inputToAutofocus)
+      checkElemArgValid(inputToAutofocusElem, 'openModal')
       inputToAutofocusElem.focus()
     }, 250)
   }

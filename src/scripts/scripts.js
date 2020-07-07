@@ -10,7 +10,8 @@ import state from './state'
 import { PATH } from './configs/path'
 import {
   triggerClick,
-  scrollbarIniting, unmarkErrored
+  scrollbarIniting,
+  unmarkErrored
 } from './utils/utils'
 
 import { openModal, closeModal } from './utils/modals/modals'
