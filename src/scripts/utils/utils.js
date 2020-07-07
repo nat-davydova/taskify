@@ -62,23 +62,6 @@ export const unmarkErrored = elem => {
   elem.classList.remove('is-invalid')
 }
 
-export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
-  //checkIfElemArgValid(elem, 'triggerClick', parentElem)
-
-  let elemEl
-
-  if (parentElem && needToSearchParent) {
-    const parentEl = document.querySelector(parentElem)
-    elemEl = parentEl.querySelector(elem)
-  } else if (parentElem) {
-    elemEl = parentElem.querySelector(elem)
-  } else {
-    elemEl = document.querySelector(elem)
-  }
-
-  elemEl.click()
-}
-
 // *** FORMS RELATED
 
 export const getInputValue = (inputElem, parentElem = null) => {

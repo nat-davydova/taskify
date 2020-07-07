@@ -10,7 +10,7 @@ import {
   unmarkErrored
 } from '../utils/utils'
 
-import { dismissModal } from '../utils/modals/modals'
+import { closeModal } from '../utils/modals/modals'
 
 import { PATH } from '../configs/path'
 
@@ -27,7 +27,8 @@ const addTask = taskTitle => {
     return
   }
 
-  dismissModal(PATH.addTask.addTaskModal)
+  const modal = document.querySelector(PATH.addTask.addTaskModal)
+  closeModal(modal)
 
   const newTask = createTask(taskTitle)
 
@@ -41,7 +42,10 @@ const addTask = taskTitle => {
 
 const deleteTask = () => {
   delTask(state.pickedItemId, state.taskList)
-  dismissModal(PATH.delTaskModal.delModal)
+
+  const modal = document.querySelector(PATH.delTaskModal.delModal)
+  closeModal(modal)
+
   taskView.deleteTask(state.pickedItemId)
 }
 
@@ -53,7 +57,8 @@ const editTask = newTaskTitle => {
     return
   }
 
-  dismissModal(PATH.editTaskModal.editModal)
+  const modal = document.querySelector(PATH.editTaskModal.editModal)
+  closeModal(modal)
 
   edit(state.pickedItemId, state.taskList, newTaskTitle)
 

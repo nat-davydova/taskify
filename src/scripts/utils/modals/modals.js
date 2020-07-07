@@ -1,5 +1,5 @@
 import { PATH } from '../../configs/path'
-import { checkElemArgValid, triggerClick, unmarkErrored } from '../utils'
+import { checkElemArgValid, unmarkErrored } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
@@ -43,12 +43,4 @@ export const openModal = (modal, inputToAutofocus) => {
       inputToAutofocusElem.focus()
     }, 250)
   }
-}
-
-export const dismissModal = modalEl => {
-  if (!modalEl) {
-    throw new Error('Provide a DOM element in to dismissModal function')
-  }
-
-  triggerClick(PATH.modals.closeBtnTop, modalEl)
 }

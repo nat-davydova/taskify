@@ -9,7 +9,6 @@ import { searchController } from './controllers/searchController'
 import state from './state'
 import { PATH } from './configs/path'
 import {
-  triggerClick,
   scrollbarIniting,
   unmarkErrored
 } from './utils/utils'
@@ -121,7 +120,7 @@ import { openModal, closeModal } from './utils/modals/modals'
     if (target.closest(PATH.search.searchInput) && (e.code === 'Enter' || e.key === 'Enter')) {
       e.preventDefault()
 
-      triggerClick(PATH.search.searchBtn, target.closest(PATH.search.searchForm), false)
+      searchController(target.closest(PATH.search.searchInput))
     }
 
     // adding new task
