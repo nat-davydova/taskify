@@ -27,7 +27,8 @@ export const renderTask = taskData => {
 
   const { taskTitle, taskId } = taskData
 
-  const taskTemplate = grabTemplate(PATH.task.taskTemplate)
+  const taskTemplateElem = document.querySelector(PATH.task.taskTemplate)
+  const taskTemplate = grabTemplate(taskTemplateElem)
   const taskEl = taskTemplate.querySelector(PATH.task.task)
   const taskTitleElem = taskTemplate.querySelector(PATH.task.taskTitle)
 

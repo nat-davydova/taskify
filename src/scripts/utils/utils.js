@@ -75,11 +75,9 @@ export const checkTextEmpty = stringArg => {
 // *** TEMPLATES RELATED
 
 export const grabTemplate = templateElem => {
-  //checkIfElemArgValid(templateElem, 'grabTemplate')
+  checkElemArgValid(templateElem, 'grabTemplate')
 
-  const template = document.querySelector(templateElem)
-
-  return document.importNode(template.content, true)
+  return document.importNode(templateElem.content, true)
 }
 
 export const appendTemplate = (templateElem, appendDestinationElem) => {
