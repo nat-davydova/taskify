@@ -23,6 +23,17 @@ export const checkStringArgValid = (elem, funcName) => {
   return true
 }
 
+export const checkElemArgValid = (elem, funcName) => {
+  if (
+    !elem ||
+    !(elem instanceof window.DocumentFragment)
+  ) {
+    throw new Error(`Provide a valid DOM-element argument to ${funcName} function`)
+  }
+
+  return true
+}
+
 // *** COMMON
 
 export const hideElem = elem => {
