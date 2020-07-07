@@ -5,7 +5,6 @@ import * as taskView from '../views/taskView'
 
 import {
   checkTextEmpty,
-  getInputValue,
   markAsError,
   unmarkErrored
 } from '../utils/utils'
@@ -75,7 +74,7 @@ const editTask = newTaskTitle => {
 // - del - for deleting a task
 export const tasksListController = (type, taskId) => {
   if (type === 'add') {
-    const taskTitle = getInputValue(PATH.addTask.addTaskTitleInput)
+    const taskTitle = document.querySelector(PATH.addTask.addTaskTitleInput).value
 
     addTask(taskTitle)
   }
@@ -89,7 +88,7 @@ export const tasksListController = (type, taskId) => {
   }
 
   if (type === 'edit') {
-    const newTaskTitle = getInputValue(PATH.editTaskModal.editTaskInput)
+    const newTaskTitle = document.querySelector(PATH.editTaskModal.editTaskInput).value
 
     editTask(newTaskTitle)
   }

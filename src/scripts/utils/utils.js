@@ -64,20 +64,6 @@ export const unmarkErrored = elem => {
 
 // *** FORMS RELATED
 
-export const getInputValue = (inputElem, parentElem = null) => {
-  //checkIfElemArgValid(inputElem, 'getInputValue', parentElem)
-
-  let inputEl
-
-  if (parentElem) {
-    inputEl = parentElem.querySelector(inputElem)
-  } else {
-    inputEl = document.querySelector(inputElem)
-  }
-
-  return inputEl.value
-}
-
 export const checkTextEmpty = stringArg => {
   if (typeof stringArg !== 'string') {
     throw new Error('Provide a string argument to checkTextEmpty function')

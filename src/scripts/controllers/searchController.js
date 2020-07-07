@@ -1,6 +1,6 @@
 import state from '../state'
 
-import { getInputValue, hideElem, showElem } from '../utils/utils'
+import { hideElem, showElem } from '../utils/utils'
 import { search } from '../models/searchModel'
 
 import { PATH } from '../configs/path'
@@ -21,8 +21,9 @@ const renderSearchResults = searchArr => {
 // *** CONTROLLER
 export const searchController = searchEl => {
   const searchForm = searchEl.closest(PATH.search.searchForm)
+  const searchInput = searchForm.querySelector(PATH.search.searchInput)
 
-  state.search.query = getInputValue(PATH.search.searchInput, searchForm)
+  state.search.query = searchInput.value
 
   state.search.results = search(state.taskList, state.search.query)
 
