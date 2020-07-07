@@ -43,9 +43,7 @@ export const hideElem = elem => {
 }
 
 export const showElem = elem => {
-  if (!elem) {
-    throw new Error('Provide a DOM element to showElem function')
-  }
+  checkElemArgValid(elem, 'showElem')
 
   elem.classList.remove('js-hidden')
 }
