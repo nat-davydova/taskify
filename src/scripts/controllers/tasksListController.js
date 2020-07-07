@@ -46,7 +46,7 @@ const deleteTask = () => {
 }
 
 const editTask = newTaskTitle => {
-  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+  const taskTitleInput = document.querySelector(PATH.editTaskModal.editTaskInput)
 
   if (checkTextEmpty(newTaskTitle)) {
     markAsError(taskTitleInput)
