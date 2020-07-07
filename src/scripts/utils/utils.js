@@ -50,7 +50,6 @@ export const showElem = elem => {
 
 export const markAsError = elem => {
   checkElemArgValid(elem, 'markAsError')
-  console.log('marked')
 
   elem.classList.add('is-invalid')
 }
@@ -81,13 +80,14 @@ export const grabTemplate = templateElem => {
 }
 
 export const appendTemplate = (templateElem, appendDestinationElem) => {
-  if (!templateElem) {
-    throw new Error('Add a template element in appendTemplate function')
+  if (
+    !templateElem ||
+    !(templateElem instanceof window.DocumentFragment)
+  ) {
+    throw new Error('Add a valid template element to appendTemplate function')
   }
 
-  if (!appendDestinationElem) {
-    throw new Error('Add an append destination in appendTemplate function')
-  }
+  checkElemArgValid(appendDestinationElem, 'appendTemplate')
 
   appendDestinationElem.append(templateElem)
 }
