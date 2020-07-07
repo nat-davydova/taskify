@@ -1,7 +1,5 @@
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import { PATH } from '../configs/path'
-
 // COLLECTION OF HELPERS FUNCTIONS
 
 // - common
@@ -13,13 +11,13 @@ import { PATH } from '../configs/path'
 // *** HELPERS FOR LOCAL USAGE
 
 // funcName() is used for error message customization
-export const checkIfElemArgValid = (elem, funcName) => {
+export const checkStringArgValid = (elem, funcName) => {
   if (
     !elem ||
     typeof elem !== 'string' ||
     elem.trim() === ''
   ) {
-    throw new Error(`Provide a DOM element to ${funcName} function`)
+    throw new Error(`Provide a valid non-empty string argument to ${funcName} function`)
   }
 
   return true
@@ -44,7 +42,7 @@ export const showElem = elem => {
 }
 
 export const markAsError = elem => {
-  checkIfElemArgValid(elem, 'markAsError')
+  //checkIfElemArgValid(elem, 'markAsError')
 
   const errorElem = document.querySelector(elem)
   errorElem.classList.add('is-invalid')
@@ -53,7 +51,7 @@ export const markAsError = elem => {
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = (elem, needToSearch = false) => {
   if (needToSearch) {
-    checkIfElemArgValid(elem, 'unmarkErrored')
+    //checkIfElemArgValid(elem, 'unmarkErrored')
 
     elem = document.querySelector(elem)
   }
@@ -66,7 +64,7 @@ export const unmarkErrored = (elem, needToSearch = false) => {
 }
 
 export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
-  checkIfElemArgValid(elem, 'triggerClick', parentElem)
+  //checkIfElemArgValid(elem, 'triggerClick', parentElem)
 
   let elemEl
 
@@ -85,7 +83,7 @@ export const triggerClick = (elem, parentElem, needToSearchParent = true) => {
 // *** FORMS RELATED
 
 export const getInputValue = (inputElem, parentElem = null) => {
-  checkIfElemArgValid(inputElem, 'getInputValue', parentElem)
+  //checkIfElemArgValid(inputElem, 'getInputValue', parentElem)
 
   let inputEl
 
@@ -102,7 +100,7 @@ export const cleanInput = (inputElem, needToSearch = false) => {
   let inputEl = inputElem
 
   if (needToSearch) {
-    checkIfElemArgValid(inputElem, 'cleanInput')
+    //checkIfElemArgValid(inputElem, 'cleanInput')
 
     inputEl = document.querySelector(inputElem)
   }
@@ -125,7 +123,7 @@ export const checkTextEmpty = stringArg => {
 // *** TEMPLATES RELATED
 
 export const grabTemplate = templateElem => {
-  checkIfElemArgValid(templateElem, 'grabTemplate')
+  //checkIfElemArgValid(templateElem, 'grabTemplate')
 
   const template = document.querySelector(templateElem)
 
@@ -146,9 +144,7 @@ export const appendTemplate = (templateElem, appendDestinationElem) => {
 
 // *** SCROLLBAR RELATED
 export const scrollbarIniting = elemWithScrollbar => {
-  if (!elemWithScrollbar) {
-    throw new Error('Provide a DOM element in to scrollbarIniting function')
-  }
+  checkStringArgValid(elemWithScrollbar, 'scrollbarIniting')
 
   const ps = new PerfectScrollbar(elemWithScrollbar)
 }
