@@ -26,7 +26,7 @@ export const checkStringArgValid = (elem, funcName) => {
 export const checkElemArgValid = (elem, funcName) => {
   if (
     !elem ||
-    !(elem instanceof window.DocumentFragment)
+    !(elem instanceof window.Element)
   ) {
     throw new Error(`Provide a valid DOM-element argument to ${funcName} function`)
   }
@@ -37,9 +37,7 @@ export const checkElemArgValid = (elem, funcName) => {
 // *** COMMON
 
 export const hideElem = elem => {
-  if (!elem) {
-    throw new Error('Provide a DOM element to hideElem function')
-  }
+  checkElemArgValid(elem, 'hideElem')
 
   elem.classList.add('js-hidden')
 }
