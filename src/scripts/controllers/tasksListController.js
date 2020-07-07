@@ -22,7 +22,8 @@ const pickItem = taskId => {
 
 const addTask = taskTitle => {
   if (checkTextEmpty(taskTitle)) {
-    markAsError(PATH.addTask.addTaskTitleInput)
+    const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+    markAsError(taskTitleInput)
     return
   }
 
@@ -46,7 +47,8 @@ const deleteTask = () => {
 
 const editTask = newTaskTitle => {
   if (checkTextEmpty(newTaskTitle)) {
-    markAsError(PATH.editTaskModal.editTaskInput)
+    const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+    markAsError(taskTitleInput)
     return
   }
 

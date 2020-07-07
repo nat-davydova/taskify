@@ -49,10 +49,9 @@ export const showElem = elem => {
 }
 
 export const markAsError = elem => {
-  //checkIfElemArgValid(elem, 'markAsError')
+  checkElemArgValid(elem, 'markAsError')
 
-  const errorElem = document.querySelector(elem)
-  errorElem.classList.add('is-invalid')
+  elem.classList.add('is-invalid')
 }
 
 // use if you need to remove error markers from element (check previous function)
