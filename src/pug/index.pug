@@ -9,19 +9,19 @@ html(lang="en")
 
                 include includes/blocks/nav
 
-            .main-container.container.mt-3
-
-                //ADD TASKS BTN
-                .row
-                    .col
-                        include includes/blocks/add-task
-
-                //CONTENT PANELS
+            .main-container.mt-3
 
                 //TASKS PANEL
-                .row.tasks-panel.panel
-                    .col
-                        include includes/blocks/tasks-panel
+                .tasks-panel.panel.container
+
+                    //toolbar part
+                    .row
+                        .col
+                            include includes/blocks/add-task
+                    //content part
+                    .row
+                        .col
+                            include includes/blocks/tasks-panel
 
             //MODALS
             include includes/modals/add-task-modal
