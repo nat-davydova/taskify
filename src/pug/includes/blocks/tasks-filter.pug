@@ -1,0 +1,20 @@
+//- filter block part (here user can pick if checked tasks are hidden or not)
+.tasks-filter.filter
+
+    //filter button
+    button.filter__btn.btn.btn--iconed.btn-outline-primary(type="button")
+            span.material-icons filter_alt
+
+    //filter block
+    .filter__options
+        form.filter__options-form
+            ul.filter__options-list
+                li.filter__option
+                    input.filter__option-input#show-all(type="radio" name="to-show-tasks")
+                    label.filter__option-label(for="show-all") Show all
+                li.filter__option
+                    input.filter__option-input#show-only-completed(type="radio" name="to-show-tasks")
+                    label.filter__option-label(for="show-only-completed") Show only completed
+                li.filter__option
+                    input.filter__option-input#show-only-uncompleted(type="radio" name="to-show-tasks" checked)
+                    label.filter__option-label(for="show-only-uncompleted") Show only uncompleted
