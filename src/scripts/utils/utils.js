@@ -3,12 +3,13 @@ import PerfectScrollbar from 'perfect-scrollbar'
 // COLLECTION OF HELPERS FUNCTIONS
 
 // - common
+// - ui-related
 // - forms related
 // - templates related
 // - modals related
 // - scrollbar related
 
-// *** HELPERS FOR LOCAL USAGE
+// *** COMMON
 
 // funcName() is used for error message customization
 export const checkStringArgValid = (elem, funcName) => {
@@ -34,7 +35,7 @@ export const checkElemArgValid = (elem, funcName) => {
   return true
 }
 
-// *** COMMON
+// *** UI-RELATED
 
 export const hideElem = elem => {
   checkElemArgValid(elem, 'hideElem')
