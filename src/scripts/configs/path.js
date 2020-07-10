@@ -48,6 +48,7 @@ export const PATH = {
   },
 
   layout: {
-    frame: '.app__frame'
+    frame: '.app__frame',
+    mainContainer: '.main-container'
   }
 }
