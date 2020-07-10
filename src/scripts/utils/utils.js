@@ -55,6 +55,12 @@ export const markAsError = elem => {
   elem.classList.add('is-invalid')
 }
 
+// Bootstrap related function for visual button state toggling
+export const toggleBootstrapBtn = btn => {
+  checkElemArgValid(btn, 'toggleBootstrapBtn')
+  btn.classList.toggle('active')
+}
+
 // use if you need to remove error markers from element (check previous function)
 export const unmarkErrored = elem => {
   checkElemArgValid(elem, 'unmarkErrored')
