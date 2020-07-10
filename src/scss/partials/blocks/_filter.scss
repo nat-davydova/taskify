@@ -3,6 +3,7 @@
 }
 
 .filter__options {
+	@include transition-mix();
 	@include position-absolute($top: 0, $left: 100%);
 
 	padding: 20px;
@@ -10,8 +11,10 @@
 	transform: translateX(15px);
 
 	background-color: $light;
+	opacity: 0;
 
 	z-index: 10;
+	visibility: hidden;
 }
 
 .filter__options-list {
