@@ -4,3 +4,17 @@
     //filter button
     button.filter-btn.btn.btn--iconed.btn-outline-primary(type="button")
             span.material-icons filter_alt
+
+    //filter block
+    .filter-block
+        form
+            ul
+                li
+                    input#show-all(type="radio" name="to-show-tasks")
+                    label(for="show-all") Show all
+                li
+                    input#show-only-completed(type="radio" name="to-show-tasks")
+                    label(for="show-only-completed") Show only completed
+                li
+                    input#show-only-uncompleted(type="radio" name="to-show-tasks" checked)
+                    label(for="show-only-uncompleted") Show only uncompleted
