@@ -1,0 +1,44 @@
+.filter {
+	position: relative;
+}
+
+.filter__options {
+	@include position-absolute($top: 0, $left: 100%);
+
+	padding: 20px;
+
+	transform: translateX(15px);
+
+	background-color: $light;
+
+	z-index: 10;
+}
+
+.filter__options-list {
+	padding: 0;
+	margin: 0;
+
+	list-style-type: none;
+}
+
+.filter__option {
+	display: flex;
+	align-items: center;
+
+	cursor: pointer;
+	white-space: nowrap;
+
+	&:not(:last-child) {
+		margin-bottom: 10px;
+	}
+
+	& > *:first-child {
+		margin-right: 8px;
+	}
+}
+
+.filter__option-label {
+	margin-bottom: 0;
+
+	cursor: pointer;
+}
