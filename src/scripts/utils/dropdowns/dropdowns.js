@@ -23,3 +23,20 @@ export const dropdownToggle = dropdown => {
   toggleDropdownOptions(dropdownOptions)
   dropdown.dataset.toggled = currentToggleStatus === 'true' ? 'false' : 'true'
 }
+
+export const checkIfAnyDropdownOpened = () => {
+  const dropdowns = document.querySelectorAll(PATH.dropdown.dropdownBlock)
+
+  let toggled = false
+
+  for (let i = 0; i < dropdowns.length; i++) {
+    const currentEl = dropdowns[i]
+
+    if (currentEl.dataset.toggled === 'true') {
+      toggled = currentEl
+      break
+    }
+  }
+
+  return toggled
+}

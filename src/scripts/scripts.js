@@ -14,7 +14,7 @@ import {
 } from './utils/utils'
 
 import { openModal, closeModal } from './utils/modals/modals'
-import { dropdownToggle } from './utils/dropdowns/dropdowns'
+import { dropdownToggle, checkIfAnyDropdownOpened } from './utils/dropdowns/dropdowns'
 
 (function () {
   'use strict'
@@ -39,6 +39,14 @@ import { dropdownToggle } from './utils/dropdowns/dropdowns'
     }
 
     // close opened dropdown onclick everywhere but options part
+    if (
+      !target.closest(PATH.dropdown.dropdownBlock)
+    ) {
+      const openedToggle = checkIfAnyDropdownOpened()
+      if (openedToggle) {
+        dropdownToggle(openedToggle)
+      }
+    }
 
     // close modal windows
     if (
