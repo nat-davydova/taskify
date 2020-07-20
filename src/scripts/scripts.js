@@ -14,6 +14,7 @@ import {
 } from './utils/utils'
 
 import { openModal, closeModal } from './utils/modals/modals'
+import { dropdownToggle } from './utils/dropdowns/dropdowns'
 
 (function () {
   'use strict'
@@ -29,6 +30,13 @@ import { openModal, closeModal } from './utils/modals/modals'
 
   document.addEventListener('click', e => {
     const target = e.target
+
+    // dropdowns toggling
+    if (target.closest(PATH.dropdown.toggleBtn)) {
+      const dropdown = target.closest(PATH.dropdown.dropdownBlock)
+
+      dropdownToggle(dropdown)
+    }
 
     // close modal windows
     if (

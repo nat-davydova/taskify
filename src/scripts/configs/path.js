@@ -50,5 +50,10 @@ export const PATH = {
   layout: {
     frame: '.app__frame',
     mainContainer: '.main-container'
+  },
+
+  dropdown: {
+    dropdownBlock: '.dropdown',
+    toggleBtn: '.dropdown__btn'
   }
 }
