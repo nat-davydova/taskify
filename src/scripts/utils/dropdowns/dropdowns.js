@@ -17,7 +17,9 @@ export const dropdownToggle = dropdown => {
 
   const dropdownBtn = dropdown.querySelector(PATH.dropdown.toggleBtn)
   const dropdownOptions = dropdown.querySelector(PATH.dropdown.options)
+  const currentToggleStatus = dropdown.dataset.toggled
 
   toggleDropdownBtn(dropdownBtn)
   toggleDropdownOptions(dropdownOptions)
+  dropdown.dataset.toggled = currentToggleStatus === 'true' ? 'false' : 'true'
 }
