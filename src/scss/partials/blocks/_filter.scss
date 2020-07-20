@@ -3,7 +3,7 @@
 }
 
 .filter__options {
-	@include transition-mix();
+	@include transition-mix($duration: .1s);
 	@include position-absolute($top: 0, $left: 100%);
 
 	padding: 20px;
@@ -15,6 +15,11 @@
 
 	z-index: 10;
 	visibility: hidden;
+
+	&.js-visible {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 .filter__options-list {

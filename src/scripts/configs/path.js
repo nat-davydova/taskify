@@ -54,6 +54,7 @@ export const PATH = {
 
   dropdown: {
     dropdownBlock: '.dropdown',
+    options: '.dropdown__options',
     toggleBtn: '.dropdown__btn'
   }
 }
