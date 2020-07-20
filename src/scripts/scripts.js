@@ -38,6 +38,8 @@ import { dropdownToggle } from './utils/dropdowns/dropdowns'
       dropdownToggle(dropdown)
     }
 
+    // close opened dropdown onclick everywhere but options part
+
     // close modal windows
     if (
       target.closest(PATH.modals.closeBtnMain) ||
@@ -107,7 +109,10 @@ import { dropdownToggle } from './utils/dropdowns/dropdowns'
     const target = e.target
 
     // search on typing
-    if (target.closest(PATH.search.searchInput) && e.code !== 'Enter') {
+    if (
+      target.closest(PATH.search.searchInput) &&
+      e.code !== 'Enter'
+    ) {
       searchController(target.closest(PATH.search.searchInput))
     }
 
@@ -125,21 +130,30 @@ import { dropdownToggle } from './utils/dropdowns/dropdowns'
     const target = e.target
 
     // if we press 'Enter' when Search Input is focused
-    if (target.closest(PATH.search.searchInput) && (e.code === 'Enter' || e.key === 'Enter')) {
+    if (
+      target.closest(PATH.search.searchInput) &&
+      (e.code === 'Enter' || e.key === 'Enter')
+    ) {
       e.preventDefault()
 
       searchController(target.closest(PATH.search.searchInput))
     }
 
     // adding new task
-    if (target.closest(PATH.addTask.addTaskTitleInput) && (e.code === 'Enter' || e.key === 'Enter')) {
+    if (
+      target.closest(PATH.addTask.addTaskTitleInput) &&
+      (e.code === 'Enter' || e.key === 'Enter')
+    ) {
       e.preventDefault()
 
       tasksListController('add')
     }
 
     // adding new task
-    if (target.closest(PATH.editTaskModal.editTaskInput) && (e.code === 'Enter' || e.key === 'Enter')) {
+    if (
+      target.closest(PATH.editTaskModal.editTaskInput) &&
+      (e.code === 'Enter' || e.key === 'Enter')
+    ) {
       e.preventDefault()
 
       tasksListController('edit')
