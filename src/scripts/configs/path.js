@@ -59,6 +59,7 @@ export const PATH = {
   },
 
   filter: {
+    filter: '.filter',
     option: '.filter__option'
   }
 }
