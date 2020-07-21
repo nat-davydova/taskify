@@ -1,5 +1,5 @@
 //- filter block part (here user can pick if checked tasks are hidden or not)
-.tasks-filter.filter.dropdown(data-toggled="false" data-to-filter="#tasks-list" data-filter-criteria="completeState")
+.tasks-filter.filter.dropdown(data-toggled="false" data-to-filter="#tasks-list" data-filter-criteria="complete-state")
 
     //filter button
     button.dropdown__btn.filter__btn.btn.btn--iconed.btn-outline-primary(type="button")
@@ -17,4 +17,4 @@
                     label.filter__option-label(for="show-only-completed") Show only complete
                 li.filter__option
                     input.filter__option-input#show-only-incompleted(type="radio" name="to-show-tasks" checked value="incomplete")
-                    label.filter__option-label(for="show-only-incompleted") Show only incompleted
+                    label.filter__option-label(for="show-only-incompleted") Show only incomplete

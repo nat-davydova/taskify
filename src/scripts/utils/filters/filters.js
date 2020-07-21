@@ -16,6 +16,10 @@ const getFilterValue = filterOptionElem => {
 
 const getFilterCriteria = filterBlockElem => filterBlockElem.dataset.filterCriteria
 
+const getElemsToFilter = (listOfElems, filterCriteria) => {
+  return listOfElems.querySelectorAll(`[data-${filterCriteria}]`)
+}
+
 export const applyFilter = filterOptionElem => {
   checkElemArgValid(filterOptionElem, 'applyFilter')
 
@@ -31,7 +35,6 @@ export const applyFilter = filterOptionElem => {
     filterValue &&
     filterCriteria
   ) {
-    // grab filter value
-    console.log(listToFilter, filterValue, filterCriteria)
+    const elemsToFilter = getElemsToFilter(listToFilter, filterCriteria)
   }
 }
