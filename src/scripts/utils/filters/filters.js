@@ -1,4 +1,4 @@
-import { checkElemArgValid } from '../utils'
+import { checkElemArgValid, hideElem, showElem } from '../utils'
 
 import { PATH } from '../../configs/path'
 
@@ -35,6 +35,19 @@ export const applyFilter = filterOptionElem => {
     filterValue &&
     filterCriteria
   ) {
-    const elemsToFilter = getElemsToFilter(listToFilter, filterCriteria)
+    const elemsToFilter = Array.from(getElemsToFilter(listToFilter, filterCriteria))
+
+    elemsToFilter.forEach(elem => {
+      const elemFilterVal = elem.dataset.completeState
+
+      console.log(filterCriteria)
+      if (filterValue === 'all') {
+        showElem(elem)
+      } else if (elemFilterVal === filterValue) {
+        showElem(elem)
+      } else {
+        hideElem(elem)
+      }
+    })
   }
 }
