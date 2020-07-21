@@ -10,11 +10,11 @@
         form.filter__options-form
             ul.filter__options-list
                 li.filter__option
-                    input.filter__option-input#show-all(type="radio" name="to-show-tasks")
+                    input.filter__option-input#show-all(type="radio" name="to-show-tasks" value="all")
                     label.filter__option-label(for="show-all") Show all
                 li.filter__option
-                    input.filter__option-input#show-only-completed(type="radio" name="to-show-tasks")
+                    input.filter__option-input#show-only-completed(type="radio" name="to-show-tasks" value="completed")
                     label.filter__option-label(for="show-only-completed") Show only completed
                 li.filter__option
-                    input.filter__option-input#show-only-uncompleted(type="radio" name="to-show-tasks" checked)
-                    label.filter__option-label(for="show-only-uncompleted") Show only uncompleted
+                    input.filter__option-input#show-only-incompleted(type="radio" name="to-show-tasks" checked value="incompleted")
+                    label.filter__option-label(for="show-only-incompleted") Show only incompleted

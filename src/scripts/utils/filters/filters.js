@@ -9,9 +9,21 @@ const findListToFilter = filterOptionElem => {
   return document.querySelector(listId)
 }
 
+const getFilterValue = filterOptionElem => {
+  const filterElem = filterOptionElem.querySelector('[value]')
+
+  return filterElem.value
+}
+
 export const applyFilter = filterOptionElem => {
   checkElemArgValid(filterOptionElem, 'applyFilter')
 
   const listToFilter = findListToFilter(filterOptionElem)
-  console.log(listToFilter)
+  const filterValue = getFilterValue(filterOptionElem)
+
+  console.log(filterValue)
+
+  if (listToFilter) {
+    // grab filter value
+  }
 }
