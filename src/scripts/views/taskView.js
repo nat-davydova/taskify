@@ -50,6 +50,8 @@ export const hideTask = task => {
 
   taskTitle.innerHTML = newTaskTitle
 
+  task.dataset.completeState = 'complete'
+
   setTimeout(() => {
     hideElem(task)
   }, 300)
