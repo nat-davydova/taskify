@@ -3,8 +3,8 @@ import PerfectScrollbar from 'perfect-scrollbar'
 // COLLECTION OF HELPERS FUNCTIONS
 
 // - common
+// - strings related
 // - ui-related
-// - forms related
 // - templates related
 // - modals related
 // - scrollbar related
@@ -33,6 +33,33 @@ export const checkElemArgValid = (elem, funcName) => {
   }
 
   return true
+}
+
+// *** STRINGS RELATED
+export const checkTextEmpty = stringArg => {
+  if (typeof stringArg !== 'string') {
+    throw new Error('Provide a string argument to checkTextEmpty function')
+  }
+
+  return stringArg.length === 0 || stringArg.trim() === ''
+}
+
+export const stringToCamelCase = (string, separator) => {
+  checkStringArgValid(string, 'stringToCamelCase')
+  checkStringArgValid(separator, 'stringToCamelCase')
+
+  const strArr = string.split(separator)
+
+  const newStrArr = strArr.map((elem, index) => {
+    if (index === 0) {
+      return elem
+    }
+
+    const newElem = elem.slice(0, 1).toUpperCase() + elem.slice(1, elem.length)
+    return newElem
+  })
+
+  return newStrArr.join('')
 }
 
 // *** UI-RELATED
@@ -66,16 +93,6 @@ export const unmarkErrored = elem => {
   checkElemArgValid(elem, 'unmarkErrored')
 
   elem.classList.remove('is-invalid')
-}
-
-// *** FORMS RELATED
-
-export const checkTextEmpty = stringArg => {
-  if (typeof stringArg !== 'string') {
-    throw new Error('Provide a string argument to checkTextEmpty function')
-  }
-
-  return stringArg.length === 0 || stringArg.trim() === ''
 }
 
 // *** TEMPLATES RELATED

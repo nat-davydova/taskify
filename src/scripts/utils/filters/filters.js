@@ -1,4 +1,4 @@
-import { checkElemArgValid, hideElem, showElem } from '../utils'
+import { checkElemArgValid, hideElem, showElem, stringToCamelCase } from '../utils'
 
 import { PATH } from '../../configs/path'
 
@@ -38,9 +38,10 @@ export const applyFilter = filterOptionElem => {
     const elemsToFilter = Array.from(getElemsToFilter(listToFilter, filterCriteria))
 
     elemsToFilter.forEach(elem => {
-      const elemFilterVal = elem.dataset.completeState
+      const dataFilterCriteria = stringToCamelCase(filterCriteria, '-')
 
-      console.log(filterCriteria)
+      const elemFilterVal = elem.dataset[dataFilterCriteria]
+
       if (filterValue === 'all') {
         showElem(elem)
       } else if (elemFilterVal === filterValue) {
