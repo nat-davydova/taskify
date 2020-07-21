@@ -2,8 +2,7 @@ import { checkElemArgValid } from '../utils'
 
 import { PATH } from '../../configs/path'
 
-const findListToFilter = filterOptionElem => {
-  const filterBlockElem = filterOptionElem.closest(PATH.filter.filter)
+const findListToFilter = filterBlockElem => {
   const listId = filterBlockElem.dataset.toFilter
 
   return document.querySelector(listId)
@@ -15,15 +14,24 @@ const getFilterValue = filterOptionElem => {
   return filterElem.value
 }
 
+const getFilterCriteria = filterBlockElem => filterBlockElem.dataset.filterCriteria
+
 export const applyFilter = filterOptionElem => {
   checkElemArgValid(filterOptionElem, 'applyFilter')
 
-  const listToFilter = findListToFilter(filterOptionElem)
+  const filterBlockElem = filterOptionElem.closest(PATH.filter.filter)
+  checkElemArgValid(filterBlockElem, 'applyFilter')
+
+  const listToFilter = findListToFilter(filterBlockElem)
   const filterValue = getFilterValue(filterOptionElem)
+  const filterCriteria = getFilterCriteria(filterBlockElem)
 
-  console.log(filterValue)
-
-  if (listToFilter) {
+  if (
+    listToFilter &&
+    filterValue &&
+    filterCriteria
+  ) {
     // grab filter value
+    console.log(listToFilter, filterValue, filterCriteria)
   }
 }
