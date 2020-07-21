@@ -15,6 +15,7 @@ import {
 
 import { openModal, closeModal } from './utils/modals/modals'
 import { dropdownToggle, checkIfAnyDropdownOpened } from './utils/dropdowns/dropdowns'
+import { applyFilter } from './utils/filters/filters'
 
 (function () {
   'use strict'
@@ -46,6 +47,11 @@ import { dropdownToggle, checkIfAnyDropdownOpened } from './utils/dropdowns/drop
       if (openedToggle) {
         dropdownToggle(openedToggle)
       }
+    }
+
+    // apply filter functionality
+    if (target.closest(PATH.filter.option)) {
+      applyFilter(target.closest(PATH.filter.option))
     }
 
     // close modal windows
