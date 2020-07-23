@@ -70,7 +70,14 @@ export const showTask = task => {
 }
 
 export const toggleTaskCompleteness = taskId => {
-  console.log(taskId)
+  const task = findElemInTaskArr(taskId)
+  const currentStatus = task.dataset.completeState
+
+  if (currentStatus === 'incomplete') {
+
+  } else if (currentStatus === 'complete') {
+
+  }
 }
 
 export const deleteTask = taskId => {
