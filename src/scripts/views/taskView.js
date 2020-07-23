@@ -39,7 +39,7 @@ export const renderTask = taskData => {
   appendTemplate(taskTemplate, document.querySelector(PATH.panels.tasks.tasksPanelContent))
 }
 
-export const hideTask = task => {
+export const makeTaskComplete = task => {
   const taskTitle = task.querySelector(PATH.task.taskTitle)
   const taskTitleContent = taskTitle.textContent
   const newTaskTitle = `
@@ -51,22 +51,14 @@ export const hideTask = task => {
   taskTitle.innerHTML = newTaskTitle
 
   task.dataset.completeState = 'complete'
-
-  setTimeout(() => {
-    hideElem(task)
-  }, 300)
 }
 
-export const showTask = task => {
+export const makeTaskIncomplete = task => {
   const taskTitle = task.querySelector(PATH.task.taskTitle)
   const taskTitleContent = taskTitle.textContent
   taskTitle.innerHTML = taskTitleContent
 
   task.dataset.completeState = 'incomplete'
-
-  setTimeout(() => {
-    showElem(task)
-  }, 300)
 }
 
 export const toggleTaskCompleteness = taskId => {
@@ -74,9 +66,9 @@ export const toggleTaskCompleteness = taskId => {
   const currentStatus = task.dataset.completeState
 
   if (currentStatus === 'incomplete') {
-
+    makeTaskComplete(task)
   } else if (currentStatus === 'complete') {
-
+    makeTaskIncomplete(task)
   }
 }
 
