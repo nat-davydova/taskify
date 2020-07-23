@@ -1,4 +1,4 @@
-import { grabTemplate, appendTemplate, hideElem } from '../utils/utils'
+import { grabTemplate, appendTemplate, hideElem, showElem } from '../utils/utils'
 import { PATH } from '../configs/path'
 
 // *** HELPERS
@@ -54,6 +54,18 @@ export const hideTask = task => {
 
   setTimeout(() => {
     hideElem(task)
+  }, 300)
+}
+
+export const showTask = task => {
+  const taskTitle = task.querySelector(PATH.task.taskTitle)
+  const taskTitleContent = taskTitle.textContent
+  taskTitle.innerHTML = taskTitleContent
+
+  task.dataset.completeState = 'incomplete'
+
+  setTimeout(() => {
+    showElem(task)
   }, 300)
 }
 

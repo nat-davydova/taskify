@@ -83,8 +83,13 @@ import { applyFilter } from './utils/filters/filters'
     // checking/unchecking task
     if (target.closest(PATH.task.taskCheckbox)) {
       const task = target.closest(PATH.task.task)
+      const taskState = task.dataset.completeState
 
-      taskView.hideTask(task)
+      if (taskState === 'incomplete') {
+        taskView.hideTask(task)
+      } else if (taskState === 'complete') {
+        taskView.showTask(task)
+      }
     }
 
     // search functional
