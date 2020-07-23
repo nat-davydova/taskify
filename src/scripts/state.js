@@ -9,12 +9,12 @@ const state = {
     {
       taskTitle: 'Sample Task',
       taskId: uuid(),
-      completeState: 'incomplete'
+      taskComplete: false
     },
     {
       taskTitle: 'One More Sample Task',
       taskId: uuid(),
-      completeState: 'incomplete'
+      taskComplete: false
     }
   ]
 }
