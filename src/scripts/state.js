@@ -8,11 +8,13 @@ const state = {
   taskList: [
     {
       taskTitle: 'Sample Task',
-      taskId: uuid()
+      taskId: uuid(),
+      completeState: 'incomplete'
     },
     {
       taskTitle: 'One More Sample Task',
-      taskId: uuid()
+      taskId: uuid(),
+      completeState: 'incomplete'
     }
   ]
 }
