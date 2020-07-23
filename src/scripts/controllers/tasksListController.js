@@ -102,6 +102,4 @@ export const tasksListController = (type, taskId) => {
   if (type === 'changeCompletenessStatus') {
     changeTaskCompletenessStatus(taskId)
   }
-
-  console.log(state)
 }
