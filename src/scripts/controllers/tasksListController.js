@@ -1,6 +1,6 @@
 import state from '../state'
 
-import { createTask, delTask, editTask as edit } from '../models/taskModel'
+import { createTask, delTask, editTask as edit, changeTaskCompleteness } from '../models/taskModel'
 import * as taskView from '../views/taskView'
 
 import {
@@ -67,6 +67,10 @@ const editTask = newTaskTitle => {
   taskTitleInput.value = ''
 }
 
+const changeTaskCompletenessStatus = taskId => {
+  changeTaskCompleteness(taskId, state.taskList)
+}
+
 // *** CONTROLLER
 // type can be:
 // - add - for task adding
@@ -91,6 +95,10 @@ export const tasksListController = (type, taskId) => {
     const newTaskTitle = document.querySelector(PATH.editTaskModal.editTaskInput).value
 
     editTask(newTaskTitle)
+  }
+
+  if (type === 'changeCompletenessStatus') {
+    changeTaskCompletenessStatus(taskId)
   }
 
   console.log(state)
