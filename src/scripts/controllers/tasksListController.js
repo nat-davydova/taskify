@@ -92,4 +92,6 @@ export const tasksListController = (type, taskId) => {
 
     editTask(newTaskTitle)
   }
+
+  console.log(state)
 }

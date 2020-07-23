@@ -51,3 +51,10 @@ export const editTask = (taskId, taskDataArr, taskTitle) => {
 
   taskDataArr[taskInd].taskTitle = taskTitle
 }
+
+export const changeTaskCompleteness = (taskId, taskDataArr) => {
+  const taskInd = findATaskIndex(taskId, taskDataArr)
+  const currentStatus = taskDataArr[taskInd].isTaskComplete
+
+  taskDataArr[taskInd].isTaskComplete = !currentStatus
+}
