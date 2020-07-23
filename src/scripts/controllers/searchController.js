@@ -28,9 +28,9 @@ export const searchController = searchEl => {
 
   state.search.results = search(state.taskList, state.search.query)
 
-  const tasksElems = document.querySelectorAll(PATH.task.task)
-
-  renderSearchResults(tasksElems)
+  // const tasksElems = document.querySelectorAll(PATH.task.task)
+  //
+  // //renderSearchResults(tasksElems)
 
   console.log(state)
 }

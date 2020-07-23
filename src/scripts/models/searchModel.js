@@ -7,7 +7,7 @@ export const search = (list, query) => {
     const { taskTitle } = elem
 
     if (taskTitle.match(queryRegExp)) {
-      searchResults.push(taskTitle)
+      searchResults.push(elem)
     }
   })
 
