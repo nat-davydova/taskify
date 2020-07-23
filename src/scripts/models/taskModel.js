@@ -36,7 +36,7 @@ export const createTask = (...taskData) => {
   return {
     taskTitle,
     taskId: id,
-    taskComplete: false
+    isTaskComplete: false
   }
 }
 
