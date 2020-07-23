@@ -69,6 +69,8 @@ const editTask = newTaskTitle => {
 
 const changeTaskCompletenessStatus = taskId => {
   changeTaskCompleteness(taskId, state.taskList)
+
+  taskView.toggleTaskCompleteness(taskId)
 }
 
 // *** CONTROLLER

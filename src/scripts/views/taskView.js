@@ -69,6 +69,10 @@ export const showTask = task => {
   }, 300)
 }
 
+export const toggleTaskCompleteness = taskId => {
+  console.log(taskId)
+}
+
 export const deleteTask = taskId => {
   if (!taskId) {
     throw new Error('Provide a valid task id in deleteTask function')
