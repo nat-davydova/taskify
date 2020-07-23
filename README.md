@@ -1,9 +1,11 @@
-# Taskify App v.2.3
+# Taskify App v.3.0
 
 The app allows to:
 - **create**, **edit** and **delete** tasks;
 - **mark** tasks as completed;
-- **search** tasks by their titles
+- **change** completed tasks status to inclomplete;
+- **search** through tasks by their titles
+- **filter** tasks to show only complete/only incomplete/all
 
 <a href="https://eisenpar.com/taskify/" target="_blank">Check the Demo</a>
 
