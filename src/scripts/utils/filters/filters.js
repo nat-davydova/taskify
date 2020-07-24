@@ -9,7 +9,8 @@ export const findListToFilter = filterBlockElem => {
   return document.querySelector(listId)
 }
 
-const getFilterValue = filterOptionElem => {
+export const getFilterValue = filterOptionElem => {
+  checkElemArgValid(filterOptionElem, 'findListToFilter')
   const filterElem = filterOptionElem.querySelector('[value]')
 
   return filterElem.value
