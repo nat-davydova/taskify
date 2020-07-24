@@ -14,12 +14,12 @@ const state = {
     {
       taskTitle: 'Sample Task',
       taskId: uuid(),
-      isComplete: false
+      isComplete: 'incomplete'
     },
     {
       taskTitle: 'One More Sample Task',
       taskId: uuid(),
-      isComplete: false
+      isComplete: 'incomplete'
     }
   ],
   search: {}

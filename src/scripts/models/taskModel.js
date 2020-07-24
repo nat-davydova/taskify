@@ -56,5 +56,5 @@ export const changeTaskCompleteness = (taskId, taskDataArr) => {
   const taskInd = findATaskIndex(taskId, taskDataArr)
   const currentStatus = taskDataArr[taskInd].isComplete
 
-  taskDataArr[taskInd].isComplete = !currentStatus
+  taskDataArr[taskInd].isComplete = currentStatus === 'complete' ? 'incomplete' : 'complete'
 }
