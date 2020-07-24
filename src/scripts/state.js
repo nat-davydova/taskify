@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 const state = {
   filters: {
     isComplete: {
-      value: 'incomplete',
+      value: 'all',
       filteredValues: []
     }
   },
