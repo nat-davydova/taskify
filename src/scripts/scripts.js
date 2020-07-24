@@ -16,7 +16,7 @@ import {
 
 import { openModal, closeModal } from './utils/modals/modals'
 import { dropdownToggle, checkIfAnyDropdownOpened } from './utils/dropdowns/dropdowns'
-import { applyFilter } from './utils/filters/filters'
+import { findListToFilter } from './utils/filters/filters'
 
 (function () {
   'use strict'
@@ -52,8 +52,13 @@ import { applyFilter } from './utils/filters/filters'
 
     // apply filter functionality
     if (target.closest(PATH.filter.option)) {
-      filtersController()
-      applyFilter(target.closest(PATH.filter.option))
+      const filterOptionElem = target.closest(PATH.filter.option)
+      const filterBlockElem = target.closest(PATH.filter.filter)
+      const listToFilterElem = findListToFilter(filterBlockElem)
+
+      console.log(listToFilterElem)
+
+      filtersController(listToFilterElem)
     }
 
     // close modal windows
