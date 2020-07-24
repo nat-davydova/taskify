@@ -4,7 +4,9 @@ import { v4 as uuid } from 'uuid'
 // - tasks list
 // - current search query
 const state = {
-  search: {},
+  filters: {
+    completeState: 'incomplete'
+  },
   taskList: [
     {
       taskTitle: 'Sample Task',
@@ -16,7 +18,8 @@ const state = {
       taskId: uuid(),
       isTaskComplete: false
     }
-  ]
+  ],
+  search: {}
 }
 
 export default state
