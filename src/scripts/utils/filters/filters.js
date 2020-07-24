@@ -2,13 +2,6 @@ import { checkElemArgValid, hideElem, showElem, stringToCamelCase } from '../uti
 
 import { PATH } from '../../configs/path'
 
-export const findListToFilter = filterBlockElem => {
-  checkElemArgValid(filterBlockElem, 'findListToFilter')
-  const listId = filterBlockElem.dataset.toFilter
-
-  return document.querySelector(listId)
-}
-
 export const getFilterValue = filterOptionElem => {
   checkElemArgValid(filterOptionElem, 'findListToFilter')
   const filterElem = filterOptionElem.querySelector('[value]')
