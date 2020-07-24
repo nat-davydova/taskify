@@ -36,7 +36,7 @@ export const createTask = (...taskData) => {
   return {
     taskTitle,
     taskId: id,
-    isTaskComplete: false
+    isComplete: false
   }
 }
 
@@ -54,7 +54,7 @@ export const editTask = (taskId, taskDataArr, taskTitle) => {
 
 export const changeTaskCompleteness = (taskId, taskDataArr) => {
   const taskInd = findATaskIndex(taskId, taskDataArr)
-  const currentStatus = taskDataArr[taskInd].isTaskComplete
+  const currentStatus = taskDataArr[taskInd].isComplete
 
-  taskDataArr[taskInd].isTaskComplete = !currentStatus
+  taskDataArr[taskInd].isComplete = !currentStatus
 }

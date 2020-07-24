@@ -50,7 +50,7 @@ export const makeTaskComplete = task => {
 
   taskTitle.innerHTML = newTaskTitle
 
-  task.dataset.completeState = 'complete'
+  task.dataset.isComplete = 'complete'
 }
 
 export const makeTaskIncomplete = task => {
@@ -58,12 +58,12 @@ export const makeTaskIncomplete = task => {
   const taskTitleContent = taskTitle.textContent
   taskTitle.innerHTML = taskTitleContent
 
-  task.dataset.completeState = 'incomplete'
+  task.dataset.isComplete = 'incomplete'
 }
 
 export const toggleTaskCompleteness = taskId => {
   const task = findElemInTaskArr(taskId)
-  const currentStatus = task.dataset.completeState
+  const currentStatus = task.dataset.isComplete
 
   if (currentStatus === 'incomplete') {
     makeTaskComplete(task)
