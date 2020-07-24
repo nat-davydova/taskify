@@ -5,7 +5,10 @@ import { v4 as uuid } from 'uuid'
 // - current search query
 const state = {
   filters: {
-    completeState: 'incomplete'
+    completeState: {
+      value: 'incomplete',
+      filteredValues: []
+    }
   },
   taskList: [
     {
