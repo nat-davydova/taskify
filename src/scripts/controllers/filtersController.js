@@ -12,7 +12,7 @@ export const filtersController = (filterCriteria, currentValue) => {
   state.filters[filterCriteriaCamelCase].value = currentValue
   state.filters[filterCriteriaCamelCase].filteredValues = filters(state.taskList, filterCriteriaCamelCase, currentValue)
 
-  filtersView.renderFilteredItems()
+  filtersView.renderFilteredItems(state.taskList, state.filters[filterCriteriaCamelCase].filteredValues)
 
   console.log(state)
 }
