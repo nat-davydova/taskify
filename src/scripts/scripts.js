@@ -4,6 +4,7 @@ import * as taskView from './views/taskView'
 // import controllers
 import { tasksListController } from './controllers/tasksListController'
 import { searchController } from './controllers/searchController'
+import { filtersController } from './controllers/filtersController'
 
 // import utils and configs
 import state from './state'
@@ -51,6 +52,7 @@ import { applyFilter } from './utils/filters/filters'
 
     // apply filter functionality
     if (target.closest(PATH.filter.option)) {
+      filtersController()
       applyFilter(target.closest(PATH.filter.option))
     }
 
