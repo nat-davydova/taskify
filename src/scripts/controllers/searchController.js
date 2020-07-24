@@ -14,7 +14,7 @@ export const searchController = searchEl => {
 
   state.search.results = search(state.taskList, state.search.query)
 
-  searchView.renderSearchResults(state.search.results)
+  searchView.renderSearchResults(state.taskList, state.search.results)
 
   console.log(state)
 }

@@ -5,6 +5,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
 // - common
 // - strings related
 // - ui-related
+// - tasks related
 // - templates related
 // - modals related
 // - scrollbar related
@@ -93,6 +94,38 @@ export const unmarkErrored = elem => {
   checkElemArgValid(elem, 'unmarkErrored')
 
   elem.classList.remove('is-invalid')
+}
+
+// *** TASKS RELATED
+
+// hides all task elements except tasks from toRenderArr
+export const renderTasksFromArrayOnly = (fullArr, toRenderArr) => {
+  if (
+    !(fullArr && toRenderArr) ||
+    !(Array.isArray(fullArr) && Array.isArray(toRenderArr))
+  ) {
+    throw new Error('Please, provide a valid array in the renderTasksFromArrayOnly function')
+  }
+
+  fullArr.forEach(elem => {
+    const elemID = elem.taskId
+    const elemInUI = document.querySelector(`[data-task-id='${elemID}']`)
+
+    let toShowElem = false
+
+    for (let i = 0; i < toRenderArr.length; i++) {
+      if (toRenderArr[i].taskId === elemID) {
+        toShowElem = true
+        break
+      }
+    }
+
+    if (toShowElem) {
+      showElem(elemInUI)
+    } else {
+      hideElem(elemInUI)
+    }
+  })
 }
 
 // *** TEMPLATES RELATED
