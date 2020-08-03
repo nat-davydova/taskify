@@ -3,32 +3,15 @@ $frame-width: 580px;
 $frame-height: 667px;
 
 .app {
-	width: 90%;
-	height: 90%;
-
-	box-shadow:
-					0 16px 24px 2px rgba(0,0,0,0.14),
-					0 6px 30px 5px rgba(0,0,0,0.12),
-					0 8px 10px -7px rgba(0,0,0,0.2);
+	width: 100%;
+	height: 100%;
 
 	box-sizing: border-box;
-
-	@media (min-width: $mobile-width) {
-		width: $frame-width * .85;
-		height: $frame-height * .85;
-	}
-
-	@media (min-width: $tablet-width--sm) {
-		width: $frame-width;
-		height: $frame-height;
-	}
 }
 
 .app__frame {
 	position: relative;
 
-	display: flex;
-	flex-direction: column;
 	width: 100%;
 	height: 100%;
 
