@@ -22,7 +22,7 @@ export const closeModal = modal => {
   modal.classList.remove('show')
 }
 
-export const openModal = (modal, inputToAutofocus) => {
+export const openModal = (modal, elemToAutofocus) => {
   if (!modal) {
     throw new Error('Provide a DOM element in to openModal function')
   }
@@ -36,10 +36,10 @@ export const openModal = (modal, inputToAutofocus) => {
 
   modalEl.classList.add('show')
 
-  if (inputToAutofocus) {
+  if (elemToAutofocus) {
     setTimeout(() => {
-      const inputToAutofocusElem = modalEl.querySelector(inputToAutofocus)
-      toAutofocusElem(inputToAutofocusElem)
+      const toAutofocusElemDOM = modalEl.querySelector(elemToAutofocus)
+      toAutofocusElem(toAutofocusElemDOM)
     }, 250)
   }
 }

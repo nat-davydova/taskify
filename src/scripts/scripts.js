@@ -106,7 +106,7 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
 
       tasksListController('pick', taskId)
 
-      openModal(PATH.delTaskModal.delModal)
+      openModal(PATH.delTaskModal.delModal, PATH.delTaskModal.delTaskBtn)
     }
 
     if (target.closest(PATH.delTaskModal.delTaskBtn)) {
