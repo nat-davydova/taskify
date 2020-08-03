@@ -1,5 +1,5 @@
 import { PATH } from '../../configs/path'
-import { checkElemArgValid, unmarkErrored } from '../utils'
+import { unmarkErrored, toAutofocusElem } from '../utils'
 
 export const closeModal = modal => {
   if (!modal) {
@@ -39,8 +39,7 @@ export const openModal = (modal, inputToAutofocus) => {
   if (inputToAutofocus) {
     setTimeout(() => {
       const inputToAutofocusElem = modalEl.querySelector(inputToAutofocus)
-      checkElemArgValid(inputToAutofocusElem, 'openModal')
-      inputToAutofocusElem.focus()
+      toAutofocusElem(inputToAutofocusElem)
     }, 250)
   }
 }
