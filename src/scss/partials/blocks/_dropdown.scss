@@ -1,8 +1,8 @@
-.filter {
+.dropdown {
 	position: relative;
 }
 
-.filter__options {
+.dropdown__options {
 	@include transition-mix($duration: .1s);
 	@include position-absolute($top: 0, $left: 100%);
 
@@ -22,7 +22,7 @@
 	}
 }
 
-.filter__options-list {
+.dropdown__options-list {
 	padding: 0;
 	margin: 0;
 

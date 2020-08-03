@@ -9,14 +9,14 @@
 
     //filter block
     .dropdown__options.filter__options.shadow
-        form.filter__options-form
-            ul.filter__options-list
-                li.filter__option
+        form.dropdown__options-form.filter__options-form
+            ul.dropdown__options-list.filter__options-list
+                li.dropdown__option.filter__option
                     input.filter__option-input#show-all(type="radio" name="to-show-tasks" value="all" checked)
                     label.filter__option-label(for="show-all") Show all
-                li.filter__option
+                li.dropdown__option.filter__option
                     input.filter__option-input#show-only-completed(type="radio" name="to-show-tasks" value="complete")
                     label.filter__option-label(for="show-only-completed") Show only complete
-                li.filter__option
+                li.dropdown__option.filter__option
                     input.filter__option-input#show-only-incompleted(type="radio" name="to-show-tasks" value="incomplete")
                     label.filter__option-label(for="show-only-incompleted") Show only incomplete
