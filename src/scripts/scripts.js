@@ -58,7 +58,7 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
       const filterCriteria = getFilterCriteria(filterBlockElem)
       const currentFilterValue = getFilterValue(filterOptionElem)
 
-      filtersController(filterCriteria, currentFilterValue)
+      filtersController('addNewFilter', filterCriteria, currentFilterValue)
     }
 
     // close modal windows
