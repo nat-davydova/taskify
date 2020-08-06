@@ -29,12 +29,11 @@
 	list-style-type: none;
 }
 
-.filter__option {
+.dropdown__option {
 	display: inline-flex;
 	align-items: center;
 
 	cursor: pointer;
-	white-space: nowrap;
 
 	&:not(:last-child) {
 		margin-bottom: 10px;
@@ -43,10 +42,4 @@
 	& > *:first-child {
 		margin-right: 8px;
 	}
-}
-
-.filter__option-label {
-	margin-bottom: 0;
-
-	cursor: pointer;
 }
