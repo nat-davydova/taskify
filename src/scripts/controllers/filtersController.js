@@ -18,9 +18,7 @@ const reapplyFilter = () => {
   const currentValue = state.filters.isComplete.value
   state.filters.isComplete.filteredValues = filters(state.taskList, `isComplete`, currentValue)
 
-  setTimeout(() => {
-    filtersView.renderFilteredItems(state.taskList, state.filters.isComplete.filteredValues)
-  }, 300)
+  filtersView.renderFilteredItems(state.taskList, state.filters.isComplete.filteredValues)
 
   console.log(state.filters.isComplete.filteredValues)
 }

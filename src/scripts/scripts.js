@@ -94,7 +94,9 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
       const taskId = task.dataset.taskId
 
       tasksListController('changeCompletenessStatus', taskId)
-      filtersController('reapplyFilter')
+      setTimeout(() => {
+        filtersController('reapplyFilter')
+      }, 300)
     }
 
     // search functional
