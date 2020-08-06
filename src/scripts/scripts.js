@@ -85,6 +85,7 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {
       tasksListController('add')
+      filtersController('reapplyFilter')
     }
 
     // checking/unchecking task
@@ -93,6 +94,7 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
       const taskId = task.dataset.taskId
 
       tasksListController('changeCompletenessStatus', taskId)
+      filtersController('reapplyFilter')
     }
 
     // search functional

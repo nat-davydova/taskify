@@ -14,6 +14,17 @@ const applyNewFilter = (filterCriteria, currentValue) => {
   filtersView.renderFilteredItems(state.taskList, state.filters[filterCriteriaCamelCase].filteredValues)
 }
 
+const reapplyFilter = () => {
+  const currentValue = state.filters.isComplete.value
+  state.filters.isComplete.filteredValues = filters(state.taskList, `isComplete`, currentValue)
+
+  setTimeout(() => {
+    filtersView.renderFilteredItems(state.taskList, state.filters.isComplete.filteredValues)
+  }, 300)
+
+  console.log(state.filters.isComplete.filteredValues)
+}
+
 // *** CONTROLLER
 
 // type can be:
@@ -22,5 +33,9 @@ const applyNewFilter = (filterCriteria, currentValue) => {
 export const filtersController = (type, filterCriteria, currentValue) => {
   if (type === 'addNewFilter') {
     applyNewFilter(filterCriteria, currentValue)
+  }
+
+  if (type === 'reapplyFilter') {
+    reapplyFilter()
   }
 }
