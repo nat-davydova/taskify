@@ -15,12 +15,12 @@ const applyNewFilter = (filterCriteria, currentValue) => {
 }
 
 const reapplyFilter = () => {
-  const currentValue = state.filters.isComplete.value
-  state.filters.isComplete.filteredValues = filters(state.taskList, `isComplete`, currentValue)
+  for (const filter in state.filters) {
+    const currentValue = state.filters[filter].value
+    state.filters[filter].filteredValues = filters(state.taskList, filter, currentValue)
+  }
 
   filtersView.renderFilteredItems(state.taskList, state.filters.isComplete.filteredValues)
-
-  console.log(state.filters.isComplete.filteredValues)
 }
 
 // *** CONTROLLER
