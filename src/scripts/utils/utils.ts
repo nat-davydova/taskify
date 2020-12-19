@@ -74,8 +74,7 @@ export const unmarkErrored = (elem: HTMLElement): void => {
 };
 
 // Bootstrap related function for visual button state toggling
-export const toggleBootstrapBtn = (btn: any): any => {
-  checkElemArgValid(btn, "toggleBootstrapBtn");
+export const toggleBootstrapBtn = (btn: HTMLElement): void => {
   btn.classList.toggle("active");
 };
 
