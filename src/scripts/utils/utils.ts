@@ -12,15 +12,8 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // *** COMMON
 
-// funcName() is used for error message customization
-export const checkStringArgValid = (elem: any, funcName: any): any => {
-  if (!elem || typeof elem !== "string" || elem.trim() === "") {
-    throw new Error(
-      `Provide a valid non-empty string argument to ${funcName} function`
-    );
-  }
-
-  return true;
+export const isStringEmpty = (stringArg: string): boolean => {
+  return stringArg.length === 0 || stringArg.trim() === "";
 };
 
 export const checkElemArgValid = (elem: any, funcName: any): any => {
@@ -34,13 +27,9 @@ export const checkElemArgValid = (elem: any, funcName: any): any => {
 };
 
 // *** STRINGS RELATED
-export const checkTextEmpty = (stringArg: string) => {
-  return stringArg.length === 0 || stringArg.trim() === "";
-};
-
 export const stringToCamelCase = (string: any, separator: any): any => {
-  checkStringArgValid(string, "stringToCamelCase");
-  checkStringArgValid(separator, "stringToCamelCase");
+  isStringEmpty(string);
+  isStringEmpty(separator);
 
   const strArr = string.split(separator);
 
@@ -155,7 +144,7 @@ export const appendTemplate = (
 
 // *** SCROLLBAR RELATED
 export const scrollbarIniting = (elemWithScrollbar: any): any => {
-  checkStringArgValid(elemWithScrollbar, "scrollbarIniting");
+  isStringEmpty(elemWithScrollbar);
 
   const ps = new PerfectScrollbar(elemWithScrollbar);
 };

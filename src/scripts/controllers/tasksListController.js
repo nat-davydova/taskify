@@ -1,77 +1,80 @@
-import { state } from '../state'
-
-import { createTask, delTask, editTask as edit, changeTaskCompleteness } from '../models/taskModel'
-import * as taskView from '../views/taskView'
+import { state } from "../state";
 
 import {
-  checkTextEmpty,
-  markAsError,
-  unmarkErrored
-} from '../utils/utils'
+  createTask,
+  delTask,
+  editTask as edit,
+  changeTaskCompleteness,
+} from "../models/taskModel";
+import * as taskView from "../views/taskView";
 
-import { closeModal } from '../utils/modals/modals'
+import { isStringEmpty, markAsError, unmarkErrored } from "../utils/utils";
 
-import { PATH } from '../configs'
+import { closeModal } from "../utils/modals/modals";
+
+import { PATH } from "../configs";
 
 // *** HELPERS
-const pickItem = taskId => {
-  state.pickedItemId = taskId
-}
+const pickItem = (taskId) => {
+  state.pickedItemId = taskId;
+};
 
-const addTask = taskTitle => {
-  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput)
+const addTask = (taskTitle) => {
+  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput);
 
-  if (checkTextEmpty(taskTitle)) {
-    markAsError(taskTitleInput)
-    return
+  if (isStringEmpty(taskTitle)) {
+    markAsError(taskTitleInput);
+    return;
   }
 
-  const modal = document.querySelector(PATH.addTask.addTaskModal)
-  closeModal(modal)
+  const modal = document.querySelector(PATH.addTask.addTaskModal);
+  closeModal(modal);
 
-  const newTask = createTask(taskTitle)
+  const newTask = createTask(taskTitle);
 
-  state.taskList.push(newTask)
+  state.taskList.push(newTask);
 
-  taskView.renderTask(newTask)
+  taskView.renderTask(newTask);
 
-  unmarkErrored(taskTitleInput)
-  taskTitleInput.value = ''
-}
+  unmarkErrored(taskTitleInput);
+  taskTitleInput.value = "";
+};
 
 const deleteTask = () => {
-  delTask(state.pickedItemId, state.taskList)
+  delTask(state.pickedItemId, state.taskList);
 
-  const modal = document.querySelector(PATH.delTaskModal.delModal)
-  closeModal(modal)
+  const modal = document.querySelector(PATH.delTaskModal.delModal);
+  closeModal(modal);
 
-  taskView.deleteTask(state.pickedItemId)
-}
+  taskView.deleteTask(state.pickedItemId);
+};
 
-const editTask = newTaskTitle => {
-  const taskTitleInput = document.querySelector(PATH.editTaskModal.editTaskInput)
+const editTask = (newTaskTitle) => {
+  const taskTitleInput = document.querySelector(
+    PATH.editTaskModal.editTaskInput
+  );
 
-  if (checkTextEmpty(newTaskTitle)) {
-    markAsError(taskTitleInput)
-    return
+  if (isStringEmpty(newTaskTitle)) {
+    markAsError(taskTitleInput);
+    return;
   }
 
-  const modal = document.querySelector(PATH.editTaskModal.editModal)
-  closeModal(modal)
+  const modal = document.querySelector(PATH.editTaskModal.editModal);
+  closeModal(modal);
 
-  edit(state.pickedItemId, state.taskList, newTaskTitle)
+  edit(state.pickedItemId, state.taskList, newTaskTitle);
 
-  taskView.editTask(state.pickedItemId, newTaskTitle)
+  taskView.editTask(state.pickedItemId, newTaskTitle);
 
-  unmarkErrored(taskTitleInput)
-  taskTitleInput.value = ''
-}
+  unmarkErrored(taskTitleInput);
+  taskTitleInput.value = "";
+};
 
-const changeTaskCompletenessStatus = taskId => {
-  changeTaskCompleteness(taskId, state.taskList)
+const changeTaskCompletenessStatus = (taskId) => {
+  changeTaskCompleteness(taskId, state.taskList);
 
-  taskView.toggleTaskCompleteness(taskId)
-}
+  taskView.toggleTaskCompleteness(taskId);
+};
 
 // *** CONTROLLER
 // type can be:
@@ -79,27 +82,30 @@ const changeTaskCompletenessStatus = taskId => {
 // - pick - for picking a task
 // - del - for deleting a task
 export const tasksListController = (type, taskId) => {
-  if (type === 'add') {
-    const taskTitle = document.querySelector(PATH.addTask.addTaskTitleInput).value
+  if (type === "add") {
+    const taskTitle = document.querySelector(PATH.addTask.addTaskTitleInput)
+      .value;
 
-    addTask(taskTitle)
+    addTask(taskTitle);
   }
 
-  if (type === 'pick') {
-    pickItem(taskId)
+  if (type === "pick") {
+    pickItem(taskId);
   }
 
-  if (type === 'del') {
-    deleteTask()
+  if (type === "del") {
+    deleteTask();
   }
 
-  if (type === 'edit') {
-    const newTaskTitle = document.querySelector(PATH.editTaskModal.editTaskInput).value
+  if (type === "edit") {
+    const newTaskTitle = document.querySelector(
+      PATH.editTaskModal.editTaskInput
+    ).value;
 
-    editTask(newTaskTitle)
+    editTask(newTaskTitle);
   }
 
-  if (type === 'changeCompletenessStatus') {
-    changeTaskCompletenessStatus(taskId)
+  if (type === "changeCompletenessStatus") {
+    changeTaskCompletenessStatus(taskId);
   }
-}
+};
