@@ -65,9 +65,7 @@ export const showElem = (elem: HTMLElement): void => {
   elem.classList.remove("js-hidden");
 };
 
-export const markAsError = (elem: any): any => {
-  checkElemArgValid(elem, "markAsError");
-
+export const markAsError = (elem: HTMLElement): void => {
   elem.classList.add("is-invalid");
 };
 
