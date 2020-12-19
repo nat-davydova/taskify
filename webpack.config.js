@@ -39,6 +39,10 @@ module.exports = {
     }
   },
   devtool: 'source-map',
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js"],
+  },
   devServer: {
     overlay: true
   },
@@ -91,12 +95,7 @@ module.exports = {
         exclude: '/node_modules'
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: '/node_modules'
-      },
-      {
-        test: /\.ts$/,
+        test: /\.(ts | js )$/,
         loader: ['babel-loader', 'ts-loader'],
         exclude: '/node_modules'
       },
