@@ -1,64 +1,62 @@
 // import views
-import * as taskView from './views/taskView'
+import * as taskView from "./views/taskView";
 
 // import controllers
-import { tasksListController } from './controllers/tasksListController'
-import { searchController } from './controllers/searchController'
-import { filtersController } from './controllers/filtersController'
+import { tasksListController } from "./controllers/tasksListController";
+import { searchController } from "./controllers/searchController";
+import { filtersController } from "./controllers/filtersController";
 
 // import utils and configs
-import { state } from './state'
-import { PATH } from './configs'
-import {
-  scrollbarIniting,
-  unmarkErrored
-} from './utils/utils'
+import { state } from "./state";
+import { PATH } from "./configs";
+import { initScrollbar, unmarkErrored } from "./utils/utils";
 
-import { openModal, closeModal } from './utils/modals/modals'
-import { dropdownToggle, checkIfAnyDropdownOpened } from './utils/dropdowns/dropdowns'
-import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
+import { openModal, closeModal } from "./utils/modals/modals";
+import {
+  dropdownToggle,
+  checkIfAnyDropdownOpened,
+} from "./utils/dropdowns/dropdowns";
+import { getFilterCriteria, getFilterValue } from "./utils/filters/filters";
 
 (function () {
-  'use strict'
+  "use strict";
 
   // *** EVENT LISTENERS
-  document.addEventListener('DOMContentLoaded', () => {
-    state.taskList.forEach(elem => {
-      taskView.renderTask(elem)
-    })
+  document.addEventListener("DOMContentLoaded", () => {
+    state.taskList.forEach((elem) => {
+      taskView.renderTask(elem);
+    });
 
-    scrollbarIniting(PATH.panels.tasks.tasksPanel)
-  })
+    initScrollbar(PATH.panels.tasks.tasksPanel);
+  });
 
-  document.addEventListener('click', e => {
-    const target = e.target
+  document.addEventListener("click", (e) => {
+    const target = e.target;
 
     // dropdowns toggling
     if (target.closest(PATH.dropdown.toggleBtn)) {
-      const dropdown = target.closest(PATH.dropdown.dropdownBlock)
+      const dropdown = target.closest(PATH.dropdown.dropdownBlock);
 
-      dropdownToggle(dropdown)
+      dropdownToggle(dropdown);
     }
 
     // close opened dropdown onclick everywhere but options part
-    if (
-      !target.closest(PATH.dropdown.dropdownBlock)
-    ) {
-      const openedToggle = checkIfAnyDropdownOpened()
+    if (!target.closest(PATH.dropdown.dropdownBlock)) {
+      const openedToggle = checkIfAnyDropdownOpened();
       if (openedToggle) {
-        dropdownToggle(openedToggle)
+        dropdownToggle(openedToggle);
       }
     }
 
     // apply filter functionality
     if (target.closest(PATH.filter.option)) {
-      const filterOptionElem = target.closest(PATH.filter.option)
-      const filterBlockElem = target.closest(PATH.filter.filter)
+      const filterOptionElem = target.closest(PATH.filter.option);
+      const filterBlockElem = target.closest(PATH.filter.filter);
 
-      const filterCriteria = getFilterCriteria(filterBlockElem)
-      const currentFilterValue = getFilterValue(filterOptionElem)
+      const filterCriteria = getFilterCriteria(filterBlockElem);
+      const currentFilterValue = getFilterValue(filterOptionElem);
 
-      filtersController('addNewFilter', filterCriteria, currentFilterValue)
+      filtersController("addNewFilter", filterCriteria, currentFilterValue);
     }
 
     // close modal windows
@@ -66,123 +64,120 @@ import { getFilterCriteria, getFilterValue } from './utils/filters/filters'
       target.closest(PATH.modals.closeBtnMain) ||
       target.closest(PATH.modals.closeBtnTop)
     ) {
-      const modal = target.closest(PATH.modals.modal)
+      const modal = target.closest(PATH.modals.modal);
 
-      closeModal(modal)
+      closeModal(modal);
     }
 
     if (target.closest(PATH.modals.modalBackdrop)) {
-      const currentModal = document.querySelector(`${PATH.modals.modal}.show`)
+      const currentModal = document.querySelector(`${PATH.modals.modal}.show`);
 
-      closeModal(currentModal)
+      closeModal(currentModal);
     }
 
     // open add task modal
     if (target.closest(PATH.addTask.openTaskModal)) {
-      openModal(PATH.addTask.addTaskModal, PATH.addTask.addTaskTitleInput)
+      openModal(PATH.addTask.addTaskModal, PATH.addTask.addTaskTitleInput);
     }
 
     // adding new task
     if (target.closest(PATH.addTask.saveTaskBtn)) {
-      tasksListController('add')
-      filtersController('reapplyFilter')
+      tasksListController("add");
+      filtersController("reapplyFilter");
     }
 
     // checking/unchecking task
     if (target.closest(PATH.task.taskCheckbox)) {
-      const task = target.closest(PATH.task.task)
-      const taskId = task.dataset.taskId
+      const task = target.closest(PATH.task.task);
+      const taskId = task.dataset.taskId;
 
-      tasksListController('changeCompletenessStatus', taskId)
+      tasksListController("changeCompletenessStatus", taskId);
       setTimeout(() => {
-        filtersController('reapplyFilter')
-      }, 300)
+        filtersController("reapplyFilter");
+      }, 300);
     }
 
     // search functional
     if (target.closest(PATH.search.searchBtn)) {
-      searchController(target.closest(PATH.search.searchBtn))
+      searchController(target.closest(PATH.search.searchBtn));
     }
 
     // deleting task
     if (target.closest(PATH.task.taskDelBtn)) {
-      const taskId = target.closest(PATH.task.task).dataset.taskId
+      const taskId = target.closest(PATH.task.task).dataset.taskId;
 
-      tasksListController('pick', taskId)
+      tasksListController("pick", taskId);
 
-      openModal(PATH.delTaskModal.delModal, PATH.delTaskModal.delTaskBtn)
+      openModal(PATH.delTaskModal.delModal, PATH.delTaskModal.delTaskBtn);
     }
 
     if (target.closest(PATH.delTaskModal.delTaskBtn)) {
-      tasksListController('del')
+      tasksListController("del");
     }
 
     // editing task
     if (target.closest(PATH.task.taskEditBtn)) {
-      const taskId = target.closest(PATH.task.task).dataset.taskId
+      const taskId = target.closest(PATH.task.task).dataset.taskId;
 
-      tasksListController('pick', taskId)
+      tasksListController("pick", taskId);
 
-      openModal(PATH.editTaskModal.editModal, PATH.editTaskModal.editTaskInput)
+      openModal(PATH.editTaskModal.editModal, PATH.editTaskModal.editTaskInput);
     }
 
     if (target.closest(PATH.editTaskModal.editTaskBtn)) {
-      tasksListController('edit')
+      tasksListController("edit");
     }
-  })
+  });
 
-  document.addEventListener('keyup', e => {
-    const target = e.target
+  document.addEventListener("keyup", (e) => {
+    const target = e.target;
 
     // search on typing
-    if (
-      target.closest(PATH.search.searchInput) &&
-      e.code !== 'Enter'
-    ) {
-      searchController(target.closest(PATH.search.searchInput))
+    if (target.closest(PATH.search.searchInput) && e.code !== "Enter") {
+      searchController(target.closest(PATH.search.searchInput));
     }
 
     // clean errored inputs when start typing
     if (
       (target.closest(PATH.addTask.addTaskTitleInput) ||
-      target.closest(PATH.editTaskModal.editTaskInput)) &&
-      e.code !== 'Enter'
+        target.closest(PATH.editTaskModal.editTaskInput)) &&
+      e.code !== "Enter"
     ) {
-      unmarkErrored(target.closest('input'))
+      unmarkErrored(target.closest("input"));
     }
-  })
+  });
 
-  document.addEventListener('keypress', e => {
-    const target = e.target
+  document.addEventListener("keypress", (e) => {
+    const target = e.target;
 
     // if we press 'Enter' when Search Input is focused
     if (
       target.closest(PATH.search.searchInput) &&
-      (e.code === 'Enter' || e.key === 'Enter')
+      (e.code === "Enter" || e.key === "Enter")
     ) {
-      e.preventDefault()
+      e.preventDefault();
 
-      searchController(target.closest(PATH.search.searchInput))
+      searchController(target.closest(PATH.search.searchInput));
     }
 
     // adding new task
     if (
       target.closest(PATH.addTask.addTaskTitleInput) &&
-      (e.code === 'Enter' || e.key === 'Enter')
+      (e.code === "Enter" || e.key === "Enter")
     ) {
-      e.preventDefault()
+      e.preventDefault();
 
-      tasksListController('add')
+      tasksListController("add");
     }
 
     // adding new task
     if (
       target.closest(PATH.editTaskModal.editTaskInput) &&
-      (e.code === 'Enter' || e.key === 'Enter')
+      (e.code === "Enter" || e.key === "Enter")
     ) {
-      e.preventDefault()
+      e.preventDefault();
 
-      tasksListController('edit')
+      tasksListController("edit");
     }
-  })
-})()
+  });
+})();

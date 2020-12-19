@@ -84,22 +84,21 @@ export function setFocusToElem(elem: HTMLElement): void {
 
 // *** TEMPLATES RELATED
 
-export const getTemplate = (
+export function getTemplate(
   templateElem: HTMLTemplateElement
-): DocumentFragment => {
+): DocumentFragment {
   return document.importNode(templateElem.content, true);
-};
+}
 
-export const appendTemplate = (
+export function appendTemplate(
   templateElem: DocumentFragment,
   appendDestinationElem: HTMLTemplateElement
-): void => {
+): void {
   appendDestinationElem.append(templateElem);
-};
+}
 
 // *** SCROLLBAR RELATED
-export const scrollbarIniting = (elemWithScrollbar: any): any => {
-  isStringEmpty(elemWithScrollbar);
-
+export const initScrollbar = (elemWithScrollbar: string): void => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const ps = new PerfectScrollbar(elemWithScrollbar);
 };
