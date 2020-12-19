@@ -91,15 +91,9 @@ export const getTemplate = (
 };
 
 export const appendTemplate = (
-  templateElem: any,
-  appendDestinationElem: any
-): any => {
-  if (!templateElem || !(templateElem instanceof window.DocumentFragment)) {
-    throw new Error("Add a valid template element to appendTemplate function");
-  }
-
-  checkElemArgValid(appendDestinationElem, "appendTemplate");
-
+  templateElem: DocumentFragment,
+  appendDestinationElem: HTMLTemplateElement
+): void => {
   appendDestinationElem.append(templateElem);
 };
 
