@@ -27,16 +27,6 @@ export function setWordToCamelCase(word: string): string {
   return word.slice(0, 1).toUpperCase() + word.slice(1, word.length);
 }
 
-export const checkElemArgValid = (elem: any, funcName: any): any => {
-  if (!elem || !(elem instanceof window.Element)) {
-    throw new Error(
-      `Provide a valid DOM-element argument to ${funcName} function`
-    );
-  }
-
-  return true;
-};
-
 // *** STRINGS RELATED
 export function convertStringToCamelCase(
   string: string,
