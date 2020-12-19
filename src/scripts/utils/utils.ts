@@ -57,10 +57,10 @@ export const convertStringToCamelCase = (
 
 // *** UI-RELATED
 
-export const hideElem = (elem: any): any => {
-  checkElemArgValid(elem, "hideElem");
-
-  elem.classList.add("js-hidden");
+export const hideElem = (elem: HTMLElement): void => {
+  if (elem) {
+    elem.classList.add("js-hidden");
+  }
 };
 
 export const showElem = (elem: any): any => {
@@ -111,8 +111,10 @@ export const renderTasksFromArrayOnly = (
   }
 
   fullArr.forEach((elem) => {
-    const elemID = elem.taskId;
-    const elemInUI = document.querySelector(`[data-task-id='${elemID}']`);
+    const elemID: HTMLElement = elem.taskId;
+    const elemInUI = document.querySelector(
+      `[data-task-id='${elemID}']`
+    ) as HTMLElement;
 
     let toShowElem = false;
 
@@ -123,9 +125,9 @@ export const renderTasksFromArrayOnly = (
       }
     }
 
-    if (toShowElem) {
+    if (toShowElem && elemInUI) {
       showElem(elemInUI);
-    } else {
+    } else if (elemInUI) {
       hideElem(elemInUI);
     }
   });
