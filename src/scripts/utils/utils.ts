@@ -84,9 +84,9 @@ export function setFocusToElem(elem: HTMLElement): void {
 
 // *** TEMPLATES RELATED
 
-export const grabTemplate = (templateElem: any): any => {
-  checkElemArgValid(templateElem, "grabTemplate");
-
+export const getTemplate = (
+  templateElem: HTMLTemplateElement
+): DocumentFragment => {
   return document.importNode(templateElem.content, true);
 };
 
