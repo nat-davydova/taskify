@@ -38,10 +38,10 @@ export const checkElemArgValid = (elem: any, funcName: any): any => {
 };
 
 // *** STRINGS RELATED
-export const convertStringToCamelCase = (
+export function convertStringToCamelCase(
   string: string,
   separator: string
-): string => {
+): string {
   const strArr = splitStringBySeparator(string, separator);
 
   const newStrArr = strArr.map((elem: string, index: number) => {
@@ -53,36 +53,34 @@ export const convertStringToCamelCase = (
   });
 
   return newStrArr.join("");
-};
+}
 
 // *** UI-RELATED
 
-export const hideElem = (elem: HTMLElement): void => {
+export function hideElem(elem: HTMLElement): void {
   elem.classList.add("js-hidden");
-};
+}
 
-export const showElem = (elem: HTMLElement): void => {
+export function showElem(elem: HTMLElement): void {
   elem.classList.remove("js-hidden");
-};
+}
 
-export const markAsError = (elem: HTMLElement): void => {
+export function markAsError(elem: HTMLElement): void {
   elem.classList.add("is-invalid");
-};
+}
 
-export const unmarkErrored = (elem: HTMLElement): void => {
+export function unmarkErrored(elem: HTMLElement): void {
   elem.classList.remove("is-invalid");
-};
+}
 
 // Bootstrap related function for visual button state toggling
-export const toggleBootstrapBtn = (btn: HTMLElement): void => {
+export function toggleBootstrapBtn(btn: HTMLElement): void {
   btn.classList.toggle("active");
-};
+}
 
-export const toAutofocusElem = (elem: any): any => {
-  checkElemArgValid(elem, "toAutofocusElem");
-
+export function setFocusToElem(elem: HTMLElement): void {
   elem.focus();
-};
+}
 
 // *** TASKS RELATED
 
