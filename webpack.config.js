@@ -95,8 +95,13 @@ module.exports = {
         exclude: '/node_modules'
       },
       {
-        test: /\.(ts | js )$/,
-        loader: ['babel-loader', 'ts-loader'],
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: '/node_modules'
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
         exclude: '/node_modules'
       },
       {

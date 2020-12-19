@@ -1,0 +1,14 @@
+export declare const checkStringArgValid: (elem: any, funcName: any) => any;
+export declare const checkElemArgValid: (elem: any, funcName: any) => any;
+export declare const checkTextEmpty: (stringArg: string) => boolean;
+export declare const stringToCamelCase: (string: any, separator: any) => any;
+export declare const hideElem: (elem: any) => any;
+export declare const showElem: (elem: any) => any;
+export declare const markAsError: (elem: any) => any;
+export declare const unmarkErrored: (elem: any) => any;
+export declare const toggleBootstrapBtn: (btn: any) => any;
+export declare const toAutofocusElem: (elem: any) => any;
+export declare const renderTasksFromArrayOnly: (fullArr: any, toRenderArr: any) => any;
+export declare const grabTemplate: (templateElem: any) => any;
+export declare const appendTemplate: (templateElem: any, appendDestinationElem: any) => any;
+export declare const scrollbarIniting: (elemWithScrollbar: any) => any;

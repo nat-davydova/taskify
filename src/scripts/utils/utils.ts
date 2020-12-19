@@ -13,7 +13,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
 // *** COMMON
 
 // funcName() is used for error message customization
-export const checkStringArgValid = (elem, funcName) => {
+export const checkStringArgValid = (elem: any, funcName: any): any => {
   if (
     !elem ||
     typeof elem !== 'string' ||
@@ -25,7 +25,7 @@ export const checkStringArgValid = (elem, funcName) => {
   return true
 }
 
-export const checkElemArgValid = (elem, funcName) => {
+export const checkElemArgValid = (elem: any, funcName: any): any => {
   if (
     !elem ||
     !(elem instanceof window.Element)
@@ -37,21 +37,17 @@ export const checkElemArgValid = (elem, funcName) => {
 }
 
 // *** STRINGS RELATED
-export const checkTextEmpty = stringArg => {
-  if (typeof stringArg !== 'string') {
-    throw new Error('Provide a string argument to checkTextEmpty function')
-  }
-
+export const checkTextEmpty = (stringArg: string) => {
   return stringArg.length === 0 || stringArg.trim() === ''
 }
 
-export const stringToCamelCase = (string, separator) => {
+export const stringToCamelCase = (string: any, separator: any): any => {
   checkStringArgValid(string, 'stringToCamelCase')
   checkStringArgValid(separator, 'stringToCamelCase')
 
   const strArr = string.split(separator)
 
-  const newStrArr = strArr.map((elem, index) => {
+  const newStrArr = strArr.map((elem: any, index: any) => {
     if (index === 0) {
       return elem
     }
@@ -65,38 +61,38 @@ export const stringToCamelCase = (string, separator) => {
 
 // *** UI-RELATED
 
-export const hideElem = elem => {
+export const hideElem = (elem: any): any => {
   checkElemArgValid(elem, 'hideElem')
 
   elem.classList.add('js-hidden')
 }
 
-export const showElem = elem => {
+export const showElem = (elem: any): any => {
   checkElemArgValid(elem, 'showElem')
 
   elem.classList.remove('js-hidden')
 }
 
-export const markAsError = elem => {
+export const markAsError = (elem: any): any => {
   checkElemArgValid(elem, 'markAsError')
 
   elem.classList.add('is-invalid')
 }
 
 // use if you need to remove error markers from element (check previous function)
-export const unmarkErrored = elem => {
+export const unmarkErrored = (elem: any): any => {
   checkElemArgValid(elem, 'unmarkErrored')
 
   elem.classList.remove('is-invalid')
 }
 
 // Bootstrap related function for visual button state toggling
-export const toggleBootstrapBtn = btn => {
+export const toggleBootstrapBtn = (btn: any): any => {
   checkElemArgValid(btn, 'toggleBootstrapBtn')
   btn.classList.toggle('active')
 }
 
-export const toAutofocusElem = elem => {
+export const toAutofocusElem = (elem: any): any => {
   checkElemArgValid(elem, 'toAutofocusElem')
 
   elem.focus()
@@ -105,7 +101,7 @@ export const toAutofocusElem = elem => {
 // *** TASKS RELATED
 
 // hides all task elements except tasks from toRenderArr
-export const renderTasksFromArrayOnly = (fullArr, toRenderArr) => {
+export const renderTasksFromArrayOnly = (fullArr: any, toRenderArr: any): any => {
   if (
     !(fullArr && toRenderArr) ||
     !(Array.isArray(fullArr) && Array.isArray(toRenderArr))
@@ -136,13 +132,13 @@ export const renderTasksFromArrayOnly = (fullArr, toRenderArr) => {
 
 // *** TEMPLATES RELATED
 
-export const grabTemplate = templateElem => {
+export const grabTemplate = (templateElem: any): any => {
   checkElemArgValid(templateElem, 'grabTemplate')
 
   return document.importNode(templateElem.content, true)
 }
 
-export const appendTemplate = (templateElem, appendDestinationElem) => {
+export const appendTemplate = (templateElem: any, appendDestinationElem: any): any => {
   if (
     !templateElem ||
     !(templateElem instanceof window.DocumentFragment)
@@ -156,7 +152,7 @@ export const appendTemplate = (templateElem, appendDestinationElem) => {
 }
 
 // *** SCROLLBAR RELATED
-export const scrollbarIniting = elemWithScrollbar => {
+export const scrollbarIniting = (elemWithScrollbar: any): any => {
   checkStringArgValid(elemWithScrollbar, 'scrollbarIniting')
 
   const ps = new PerfectScrollbar(elemWithScrollbar)
