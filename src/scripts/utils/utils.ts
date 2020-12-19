@@ -88,7 +88,7 @@ export function appendTemplate(
 }
 
 // *** SCROLLBAR RELATED
-export const initScrollbar = (elemWithScrollbar: string): void => {
+export function initScrollbar(elemWithScrollbar: string): void {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const ps = new PerfectScrollbar(elemWithScrollbar);
-};
+}
