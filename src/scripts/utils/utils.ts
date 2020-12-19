@@ -12,9 +12,20 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // *** COMMON
 
-export const isStringEmpty = (stringArg: string): boolean => {
+export function isStringEmpty(stringArg: string): boolean {
   return stringArg.length === 0 || stringArg.trim() === "";
-};
+}
+
+export function splitStringBySeparator(
+  string: string,
+  separator: string
+): string[] {
+  return string.split(separator);
+}
+
+export function setWordToCamelCase(word: string): string {
+  return word.slice(0, 1).toUpperCase() + word.slice(1, word.length);
+}
 
 export const checkElemArgValid = (elem: any, funcName: any): any => {
   if (!elem || !(elem instanceof window.Element)) {
@@ -30,19 +41,15 @@ export const checkElemArgValid = (elem: any, funcName: any): any => {
 export const convertStringToCamelCase = (
   string: string,
   separator: string
-): string | null => {
-  if (isStringEmpty(string) || isStringEmpty(separator)) {
-    return null;
-  }
-
-  const strArr = string.split(separator);
+): string => {
+  const strArr = splitStringBySeparator(string, separator);
 
   const newStrArr = strArr.map((elem: string, index: number) => {
     if (index === 0) {
       return elem;
     }
 
-    return elem.slice(0, 1).toUpperCase() + elem.slice(1, elem.length);
+    return setWordToCamelCase(elem);
   });
 
   return newStrArr.join("");
