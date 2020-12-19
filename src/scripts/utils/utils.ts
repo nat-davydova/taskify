@@ -58,14 +58,10 @@ export const convertStringToCamelCase = (
 // *** UI-RELATED
 
 export const hideElem = (elem: HTMLElement): void => {
-  if (elem) {
-    elem.classList.add("js-hidden");
-  }
+  elem.classList.add("js-hidden");
 };
 
-export const showElem = (elem: any): any => {
-  checkElemArgValid(elem, "showElem");
-
+export const showElem = (elem: HTMLElement): void => {
   elem.classList.remove("js-hidden");
 };
 
