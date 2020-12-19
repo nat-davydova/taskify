@@ -27,19 +27,22 @@ export const checkElemArgValid = (elem: any, funcName: any): any => {
 };
 
 // *** STRINGS RELATED
-export const stringToCamelCase = (string: any, separator: any): any => {
-  isStringEmpty(string);
-  isStringEmpty(separator);
+export const convertStringToCamelCase = (
+  string: string,
+  separator: string
+): string | null => {
+  if (isStringEmpty(string) || isStringEmpty(separator)) {
+    return null;
+  }
 
   const strArr = string.split(separator);
 
-  const newStrArr = strArr.map((elem: any, index: any) => {
+  const newStrArr = strArr.map((elem: string, index: number) => {
     if (index === 0) {
       return elem;
     }
 
-    const newElem = elem.slice(0, 1).toUpperCase() + elem.slice(1, elem.length);
-    return newElem;
+    return elem.slice(0, 1).toUpperCase() + elem.slice(1, elem.length);
   });
 
   return newStrArr.join("");
