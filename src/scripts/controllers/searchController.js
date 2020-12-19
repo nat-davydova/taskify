@@ -3,7 +3,7 @@ import state from '../state'
 import { search } from '../models/searchModel'
 import * as searchView from '../views/searchView'
 
-import { PATH } from '../configs/path'
+import { PATH } from '../configs'
 
 // *** CONTROLLER
 export const searchController = searchEl => {

@@ -1,5 +1,5 @@
 import { grabTemplate, appendTemplate } from '../utils/utils'
-import { PATH } from '../configs/path'
+import { PATH } from '../configs'
 
 // *** HELPERS
 const findElemInTaskArr = taskId => {

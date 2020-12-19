@@ -8,7 +8,7 @@ import { filtersController } from './controllers/filtersController'
 
 // import utils and configs
 import state from './state'
-import { PATH } from './configs/path'
+import { PATH } from './configs'
 import {
   scrollbarIniting,
   unmarkErrored

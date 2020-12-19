@@ -1,6 +1,6 @@
 import { toggleBootstrapBtn, checkElemArgValid } from '../utils'
 
-import { PATH } from '../../configs/path'
+import { PATH } from '../../configs'
 
 const toggleDropdownBtn = btn => {
   checkElemArgValid(btn, 'toggleDropdownBtn')

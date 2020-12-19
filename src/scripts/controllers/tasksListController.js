@@ -11,7 +11,7 @@ import {
 
 import { closeModal } from '../utils/modals/modals'
 
-import { PATH } from '../configs/path'
+import { PATH } from '../configs'
 
 // *** HELPERS
 const pickItem = taskId => {
