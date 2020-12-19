@@ -1,4 +1,4 @@
-import state from '../state'
+import { state } from '../state'
 
 import { search } from '../models/searchModel'
 import * as searchView from '../views/searchView'

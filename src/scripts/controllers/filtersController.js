@@ -1,4 +1,4 @@
-import state from '../state'
+import { state } from '../state'
 
 import { filters } from '../models/filtersModel'
 import * as filtersView from '../views/filtersView'

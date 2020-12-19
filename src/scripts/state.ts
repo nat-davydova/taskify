@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 // state holds:
 // - tasks list
 // - current search query
-const state = {
+export const state = {
   filters: {
     isComplete: {
       value: 'incomplete',
@@ -24,5 +24,3 @@ const state = {
   ],
   search: {}
 }
-
-export default state

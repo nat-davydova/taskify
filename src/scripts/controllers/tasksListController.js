@@ -1,4 +1,4 @@
-import state from '../state'
+import { state } from '../state'
 
 import { createTask, delTask, editTask as edit, changeTaskCompleteness } from '../models/taskModel'
 import * as taskView from '../views/taskView'

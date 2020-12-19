@@ -7,7 +7,7 @@ import { searchController } from './controllers/searchController'
 import { filtersController } from './controllers/filtersController'
 
 // import utils and configs
-import state from './state'
+import { state } from './state'
 import { PATH } from './configs'
 import {
   scrollbarIniting,
