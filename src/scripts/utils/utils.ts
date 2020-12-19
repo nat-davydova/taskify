@@ -69,10 +69,7 @@ export const markAsError = (elem: HTMLElement): void => {
   elem.classList.add("is-invalid");
 };
 
-// use if you need to remove error markers from element (check previous function)
-export const unmarkErrored = (elem: any): any => {
-  checkElemArgValid(elem, "unmarkErrored");
-
+export const unmarkErrored = (elem: HTMLElement): void => {
   elem.classList.remove("is-invalid");
 };
 
