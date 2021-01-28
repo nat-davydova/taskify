@@ -1,27 +1,41 @@
-import state from '../state'
+import { state } from "../state";
 
-import { filters } from '../models/filtersModel'
-import * as filtersView from '../views/filtersView'
-import { stringToCamelCase } from '../utils/utils'
+import { filters } from "../models/filtersModel";
+import * as filtersView from "../views/filtersView";
+import { convertStringToCamelCase } from "../utils/utils";
 
 // *** HELPERS
 const applyNewFilter = (filterCriteria, currentValue) => {
-  const filterCriteriaCamelCase = stringToCamelCase(filterCriteria, '-')
+  const filterCriteriaCamelCase = convertStringToCamelCase(filterCriteria, "-");
 
-  state.filters[filterCriteriaCamelCase].value = currentValue
-  state.filters[filterCriteriaCamelCase].filteredValues = filters(state.taskList, filterCriteriaCamelCase, currentValue)
+  state.filters[filterCriteriaCamelCase].value = currentValue;
+  state.filters[filterCriteriaCamelCase].filteredValues = filters(
+    state.taskList,
+    filterCriteriaCamelCase,
+    currentValue
+  );
 
-  filtersView.renderFilteredItems(state.taskList, state.filters[filterCriteriaCamelCase].filteredValues)
-}
+  filtersView.renderFilteredItems(
+    state.taskList,
+    state.filters[filterCriteriaCamelCase].filteredValues
+  );
+};
 
 const reapplyFilter = () => {
   for (const filter in state.filters) {
-    const currentValue = state.filters[filter].value
-    state.filters[filter].filteredValues = filters(state.taskList, filter, currentValue)
+    const currentValue = state.filters[filter].value;
+    state.filters[filter].filteredValues = filters(
+      state.taskList,
+      filter,
+      currentValue
+    );
   }
 
-  filtersView.renderFilteredItems(state.taskList, state.filters.isComplete.filteredValues)
-}
+  filtersView.renderFilteredItems(
+    state.taskList,
+    state.filters.isComplete.filteredValues
+  );
+};
 
 // *** CONTROLLER
 
@@ -29,11 +43,11 @@ const reapplyFilter = () => {
 // - addNewFilter - for changing filter criteria
 // - reapplyFilter - reapply filter with current settings
 export const filtersController = (type, filterCriteria, currentValue) => {
-  if (type === 'addNewFilter') {
-    applyNewFilter(filterCriteria, currentValue)
+  if (type === "addNewFilter") {
+    applyNewFilter(filterCriteria, currentValue);
   }
 
-  if (type === 'reapplyFilter') {
-    reapplyFilter()
+  if (type === "reapplyFilter") {
+    reapplyFilter();
   }
-}
+};
