@@ -9,7 +9,7 @@ The app allows to:
 
 <a href="https://eisenpar.com/taskify/" target="_blank">Check the Demo</a>
 
-<img src="https://natali-davydova.me/assets/img/portfolio/taskify-app-js/full-1.png" width="320" />
+<img src="https://natali-davydova.me/assets/img/taskify-app-js/full-1.png" width="320" />
 
 ### ⚙️ Use `gulp` command to run app locally
 
