@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from "uuid";
 
 // state holds:
 // - tasks list
@@ -6,21 +6,21 @@ import { v4 as uuid } from 'uuid'
 export const state = {
   filters: {
     isComplete: {
-      value: 'incomplete',
-      filteredValues: []
-    }
+      value: "incomplete",
+      filteredValues: [],
+    },
   },
   taskList: [
     {
-      taskTitle: 'Sample Task',
+      taskTitle: "Sample Task",
       taskId: uuid(),
-      isComplete: 'incomplete'
+      isComplete: "incomplete",
     },
     {
-      taskTitle: 'One More Sample Task',
+      taskTitle: "One More Sample Task",
       taskId: uuid(),
-      isComplete: 'incomplete'
-    }
+      isComplete: "incomplete",
+    },
   ],
-  search: {}
-}
+  search: {},
+};
