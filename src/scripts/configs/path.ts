@@ -1,65 +1,65 @@
 export const PATH = {
   addTask: {
-    openTaskModal: '.open-add-task-modal',
-    addTaskBtn: '.add-new-task__btn',
-    addTaskModal: '.add-new-task',
-    addTaskTitleInput: '.add-new-task__title',
-    saveTaskBtn: '.save-task'
+    openTaskModal: ".open-add-task-modal",
+    addTaskBtn: ".add-new-task__btn",
+    addTaskModal: ".add-new-task",
+    addTaskTitleInput: ".add-new-task__title",
+    saveTaskBtn: ".save-task",
   },
 
   delTaskModal: {
-    delModal: '.del-task',
-    delTaskBtn: '.del-task-btn'
+    delModal: ".del-task",
+    delTaskBtn: ".del-task-btn",
   },
 
   editTaskModal: {
-    editModal: '.edit-task-modal',
-    editTaskBtn: '.save-edited-task',
-    editTaskInput: '.edit-task__title'
+    editModal: ".edit-task-modal",
+    editTaskBtn: ".save-edited-task",
+    editTaskInput: ".edit-task__title",
   },
 
   task: {
-    task: '.task',
-    taskTemplate: '#task',
-    taskTitle: '.task__title p',
-    taskCheckbox: '.task__checkbox',
-    taskDelBtn: '.task__del',
-    taskEditBtn: '.task__edit'
+    task: ".task",
+    taskTemplate: "#task",
+    taskTitle: ".task__title p",
+    taskCheckbox: ".task__checkbox",
+    taskDelBtn: ".task__del",
+    taskEditBtn: ".task__edit",
   },
 
   panels: {
     tasks: {
-      tasksPanel: '.tasks-panel',
-      tasksPanelContent: '.tasks-panel__content'
-    }
+      tasksPanel: ".tasks-panel",
+      tasksPanelContent: ".tasks-panel__content",
+    },
   },
 
   modals: {
-    modal: '.modal',
-    closeBtnTop: '.close',
-    closeBtnMain: '.close-btn',
-    modalBackdrop: '.modal-backdrop'
+    modal: ".modal",
+    closeBtnTop: ".close",
+    closeBtnMain: ".close-btn",
+    modalBackdrop: ".modal-backdrop",
   },
 
   search: {
-    searchForm: '.search',
-    searchInput: '.search__input',
-    searchBtn: '.search__btn'
+    searchForm: ".search",
+    searchInput: ".search__input",
+    searchBtn: ".search__btn",
   },
 
   layout: {
-    frame: '.app__frame',
-    mainContainer: '.main-container'
+    frame: ".app__frame",
+    mainContainer: ".main-container",
   },
 
   dropdown: {
-    dropdownBlock: '.dropdown',
-    options: '.dropdown__options',
-    toggleBtn: '.dropdown__btn'
+    dropdownBlock: ".dropdown",
+    options: ".dropdown__options",
+    toggleBtn: ".dropdown__btn",
   },
 
   filter: {
-    filter: '.filter',
-    option: '.filter__option'
-  }
-}
+    filter: ".filter",
+    option: ".filter__option",
+  },
+};
