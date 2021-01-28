@@ -2,7 +2,7 @@ import { state } from "../state";
 
 import { filters } from "../models/filtersModel";
 import * as filtersView from "../views/filtersView";
-import { convertStringToCamelCase } from "../utils/utils";
+import { convertStringToCamelCase } from "../utils";
 
 // *** HELPERS
 const applyNewFilter = (filterCriteria, currentValue) => {

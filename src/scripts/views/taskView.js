@@ -1,4 +1,4 @@
-import { getTemplate, appendTemplate } from "../utils/utils";
+import { getTemplate, appendTemplate } from "../utils";
 import { PATH } from "../configs";
 
 // *** HELPERS

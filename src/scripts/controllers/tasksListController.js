@@ -8,7 +8,7 @@ import {
 } from "../models/taskModel";
 import * as taskView from "../views/taskView";
 
-import { isStringEmpty, markAsError, unmarkErrored } from "../utils/utils";
+import { isStringEmpty, markAsError, unmarkErrored } from "../utils";
 
 import { closeModal } from "../utils/modals/modals";
 
