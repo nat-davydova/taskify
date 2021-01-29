@@ -1,8 +1,5 @@
 import { renderTasksFromArrayOnly } from "../utils/tasks/tasks";
-import {
-  checkIfAnyDropdownOpened,
-  dropdownToggle,
-} from "../utils/dropdowns/dropdowns";
+import { checkIfAnyDropdownOpened, dropdownToggle } from "../utils";
 
 export const renderFilteredItems = (fullList, filteredTasksArr) => {
   renderTasksFromArrayOnly(fullList, filteredTasksArr);

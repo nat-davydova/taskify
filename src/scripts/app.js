@@ -14,13 +14,11 @@ import {
   unmarkErrored,
   getFilterCriteria,
   getFilterValue,
+  dropdownToggle,
+  checkIfAnyDropdownOpened,
 } from "./utils";
 
 import { openModal, closeModal } from "./utils/modals/modals";
-import {
-  dropdownToggle,
-  checkIfAnyDropdownOpened,
-} from "./utils/dropdowns/dropdowns";
 
 (function () {
   "use strict";
