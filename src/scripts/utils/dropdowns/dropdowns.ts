@@ -2,21 +2,26 @@ import { toggleBootstrapBtn } from "../utils";
 
 import { PATH } from "../../configs";
 
-const toggleDropdownBtn = (btn) => {
+const toggleDropdownBtn = (btn: HTMLElement) => {
   toggleBootstrapBtn(btn);
 };
 
-const toggleDropdownOptions = (options) => {
-  options.classList.toggle("js-visible");
+const toggleDropdownOptions = (optionsElem: HTMLElement) => {
+  optionsElem.classList.toggle("js-visible");
 };
 
-export const dropdownToggle = (dropdown) => {
-  const dropdownBtn = dropdown.querySelector(PATH.dropdown.toggleBtn);
-  const dropdownOptions = dropdown.querySelector(PATH.dropdown.options);
+export const dropdownToggle = (dropdown: HTMLElement) => {
+  const dropdownBtn = dropdown.querySelector(
+    PATH.dropdown.toggleBtn
+  ) as HTMLElement;
+  const dropdownOptions = dropdown.querySelector(
+    PATH.dropdown.options
+  ) as HTMLElement;
   const currentToggleStatus = dropdown.dataset.toggled;
 
   toggleDropdownBtn(dropdownBtn);
   toggleDropdownOptions(dropdownOptions);
+  // eslint-disable-next-line no-param-reassign
   dropdown.dataset.toggled = currentToggleStatus === "true" ? "false" : "true";
 };
 
