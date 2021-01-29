@@ -1,19 +1,18 @@
-import { PATH } from "../../configs/path";
+import { PATH } from "../../configs";
 import { unmarkErrored, setFocusToElem } from "../utils";
 
-export const closeModal = (modal) => {
-  if (!modal) {
-    throw new Error("Provide a DOM element in to closeModal function");
-  }
-
+export const closeModal = (modal: HTMLElement) => {
   const modalInputs = modal.querySelectorAll("input");
   modalInputs.forEach((elem) => {
     unmarkErrored(elem);
+    // eslint-disable-next-line no-param-reassign
     elem.value = "";
   });
 
-  const modalBackdrop = document.querySelector(PATH.modals.modalBackdrop);
-  const appFrame = document.querySelector(PATH.layout.frame);
+  const modalBackdrop = document.querySelector(
+    PATH.modals.modalBackdrop
+  ) as HTMLElement;
+  const appFrame = document.querySelector(PATH.layout.frame) as HTMLElement;
 
   setTimeout(() => {
     appFrame.removeChild(modalBackdrop);
