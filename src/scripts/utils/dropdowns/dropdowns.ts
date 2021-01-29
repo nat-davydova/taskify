@@ -25,13 +25,15 @@ export const dropdownToggle = (dropdown: HTMLElement) => {
   dropdown.dataset.toggled = currentToggleStatus === "true" ? "false" : "true";
 };
 
-export const checkIfAnyDropdownOpened = () => {
-  const dropdowns = document.querySelectorAll(PATH.dropdown.dropdownBlock);
+export const checkIfAnyDropdownOpened = (): Node | undefined => {
+  const dropdowns = document.querySelectorAll(
+    PATH.dropdown.dropdownBlock
+  ) as NodeList;
 
-  let toggled = false;
+  let toggled;
 
-  for (let i = 0; i < dropdowns.length; i++) {
-    const currentEl = dropdowns[i];
+  for (let i = 0; i < dropdowns.length; i += 1) {
+    const currentEl = dropdowns[i] as HTMLElement;
 
     if (currentEl.dataset.toggled === "true") {
       toggled = currentEl;
