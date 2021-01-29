@@ -9,14 +9,18 @@ import { filtersController } from "./controllers/filtersController";
 // import utils and configs
 import { state } from "./state";
 import { PATH } from "./configs";
-import { initScrollbar, unmarkErrored } from "./utils/utils";
+import {
+  initScrollbar,
+  unmarkErrored,
+  getFilterCriteria,
+  getFilterValue,
+} from "./utils";
 
 import { openModal, closeModal } from "./utils/modals/modals";
 import {
   dropdownToggle,
   checkIfAnyDropdownOpened,
 } from "./utils/dropdowns/dropdowns";
-import { getFilterCriteria, getFilterValue } from "./utils/filters/filters";
 
 (function () {
   "use strict";
