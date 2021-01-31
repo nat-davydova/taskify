@@ -5,7 +5,7 @@ import {
   delTask,
   editTask as edit,
   changeTaskCompleteness,
-} from "../models/taskModel";
+} from "../models";
 import * as taskView from "../views/taskView";
 
 import {

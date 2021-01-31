@@ -1,6 +1,6 @@
 import { state } from "../state";
 
-import { filters } from "../models/filtersModel";
+import { filters } from "../models";
 import * as filtersView from "../views/filtersView";
 import { convertStringToCamelCase } from "../utils";
 
