@@ -1,5 +1,5 @@
 // import views
-import * as taskView from "./views/taskView";
+import * as taskView from "./views";
 
 // import controllers
 import { tasksListController } from "./controllers/tasksListController";

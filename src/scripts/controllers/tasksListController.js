@@ -6,7 +6,7 @@ import {
   editTask as edit,
   changeTaskCompleteness,
 } from "../models";
-import * as taskView from "../views/taskView";
+import * as taskView from "../views";
 
 import {
   isStringEmpty,

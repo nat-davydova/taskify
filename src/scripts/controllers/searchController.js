@@ -1,7 +1,7 @@
 import { state } from "../state";
 
 import { search } from "../models";
-import * as searchView from "../views/searchView";
+import * as searchView from "../views";
 
 import { PATH } from "../configs";
 

@@ -1,7 +1,7 @@
 import { state } from "../state";
 
 import { filters } from "../models";
-import * as filtersView from "../views/filtersView";
+import * as filtersView from "../views";
 import { convertStringToCamelCase } from "../utils";
 
 // *** HELPERS
