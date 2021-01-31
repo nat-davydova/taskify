@@ -30,7 +30,7 @@ export const createTask = (...taskData: Task[]) => {
 export const delTask = (taskId: string, taskDataArr: Task[]) => {
   const taskInd = findATaskIndex(taskId, taskDataArr);
 
-  if (taskInd) {
+  if (taskInd !== undefined) {
     taskDataArr.splice(taskInd, 1);
   }
 };
@@ -42,7 +42,7 @@ export const editTask = (
 ) => {
   const taskInd = findATaskIndex(taskId, taskDataArr);
 
-  if (taskInd) {
+  if (taskInd !== undefined) {
     // eslint-disable-next-line no-param-reassign
     taskDataArr[taskInd].taskTitle = taskTitle;
   }
@@ -51,7 +51,7 @@ export const editTask = (
 export const changeTaskCompleteness = (taskId: string, taskDataArr: Task[]) => {
   const taskInd = findATaskIndex(taskId, taskDataArr);
 
-  if (taskInd) {
+  if (taskInd !== undefined) {
     const currentStatus = taskDataArr[taskInd].isComplete;
 
     // eslint-disable-next-line no-param-reassign
