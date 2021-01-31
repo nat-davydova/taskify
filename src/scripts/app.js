@@ -16,9 +16,9 @@ import {
   getFilterValue,
   dropdownToggle,
   checkIfAnyDropdownOpened,
+  openModal,
+  closeModal,
 } from "./utils";
-
-import { openModal, closeModal } from "./utils/modals/modals";
 
 (function () {
   "use strict";
