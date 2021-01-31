@@ -8,9 +8,12 @@ import {
 } from "../models/taskModel";
 import * as taskView from "../views/taskView";
 
-import { isStringEmpty, markAsError, unmarkErrored } from "../utils";
-
-import { closeModal } from "../utils/modals/modals";
+import {
+  isStringEmpty,
+  markAsError,
+  unmarkErrored,
+  closeModal,
+} from "../utils";
 
 import { PATH } from "../configs";
 
