@@ -82,7 +82,7 @@ export function getTemplate(
 
 export function appendTemplate(
   templateElem: DocumentFragment,
-  appendDestinationElem: HTMLTemplateElement
+  appendDestinationElem: HTMLElement
 ): void {
   appendDestinationElem.append(templateElem);
 }
