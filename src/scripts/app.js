@@ -2,9 +2,11 @@
 import * as taskView from "./views";
 
 // import controllers
-import { tasksListController } from "./controllers/tasksListController";
-import { searchController } from "./controllers/searchController";
-import { filtersController } from "./controllers/filtersController";
+import {
+  filtersController,
+  searchController,
+  tasksListController,
+} from "./controllers";
 
 // import utils and configs
 import { state } from "./state";
