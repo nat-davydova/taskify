@@ -5,7 +5,7 @@ import * as filtersView from "../views";
 import { convertStringToCamelCase } from "../utils";
 
 // *** HELPERS
-const applyNewFilter = (filterCriteria, currentValue) => {
+const applyNewFilter = (filterCriteria: string, currentValue: string) => {
   const filterCriteriaCamelCase = convertStringToCamelCase(filterCriteria, "-");
 
   state.filters[filterCriteriaCamelCase].value = currentValue;
