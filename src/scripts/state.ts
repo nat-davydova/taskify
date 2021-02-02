@@ -10,10 +10,15 @@ type Filter = {
   filteredValues: Task[];
 };
 
+type Search = {
+  query: string;
+  results: Task[];
+};
+
 type State = {
   filters: Record<string, Filter>;
   taskList: Task[];
-  search: Record<string, unknown>;
+  search: Search;
 };
 
 export const state: State = {
@@ -35,5 +40,8 @@ export const state: State = {
       isComplete: "incomplete",
     },
   ],
-  search: {},
+  search: {
+    query: "",
+    results: [],
+  },
 };
