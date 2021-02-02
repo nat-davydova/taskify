@@ -19,6 +19,7 @@ type State = {
   filters: Record<string, Filter>;
   taskList: Task[];
   search: Search;
+  pickedItemId: string;
 };
 
 export const state: State = {
@@ -44,4 +45,5 @@ export const state: State = {
     query: "",
     results: [],
   },
+  pickedItemId: "",
 };

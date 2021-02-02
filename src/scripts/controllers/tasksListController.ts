@@ -18,19 +18,23 @@ import {
 import { PATH } from "../configs";
 
 // *** HELPERS
-const pickItem = (taskId) => {
+const pickItem = (taskId: string) => {
   state.pickedItemId = taskId;
 };
 
-const addTask = (taskTitle) => {
-  const taskTitleInput = document.querySelector(PATH.addTask.addTaskTitleInput);
+const addTask = (taskTitle: string) => {
+  const taskTitleInput = document.querySelector(
+    PATH.addTask.addTaskTitleInput
+  ) as HTMLInputElement;
 
   if (isStringEmpty(taskTitle)) {
     markAsError(taskTitleInput);
     return;
   }
 
-  const modal = document.querySelector(PATH.addTask.addTaskModal);
+  const modal = document.querySelector(
+    PATH.addTask.addTaskModal
+  ) as HTMLElement;
   closeModal(modal);
 
   const newTask = createTask(taskTitle);
@@ -46,23 +50,27 @@ const addTask = (taskTitle) => {
 const deleteTask = () => {
   delTask(state.pickedItemId, state.taskList);
 
-  const modal = document.querySelector(PATH.delTaskModal.delModal);
+  const modal = document.querySelector(
+    PATH.delTaskModal.delModal
+  ) as HTMLElement;
   closeModal(modal);
 
   taskView.deleteTask(state.pickedItemId);
 };
 
-const editTask = (newTaskTitle) => {
+const editTask = (newTaskTitle: string) => {
   const taskTitleInput = document.querySelector(
     PATH.editTaskModal.editTaskInput
-  );
+  ) as HTMLInputElement;
 
   if (isStringEmpty(newTaskTitle)) {
     markAsError(taskTitleInput);
     return;
   }
 
-  const modal = document.querySelector(PATH.editTaskModal.editModal);
+  const modal = document.querySelector(
+    PATH.editTaskModal.editModal
+  ) as HTMLElement;
   closeModal(modal);
 
   edit(state.pickedItemId, state.taskList, newTaskTitle);
@@ -73,21 +81,21 @@ const editTask = (newTaskTitle) => {
   taskTitleInput.value = "";
 };
 
-const changeTaskCompletenessStatus = (taskId) => {
+const changeTaskCompletenessStatus = (taskId: string) => {
   changeTaskCompleteness(taskId, state.taskList);
 
   taskView.toggleTaskCompleteness(taskId);
 };
 
 // *** CONTROLLER
-// type can be:
-// - add - for task adding
-// - pick - for picking a task
-// - del - for deleting a task
-export const tasksListController = (type, taskId) => {
+type TaskAction = "add" | "pick" | "del" | "edit" | "changeCompletenessStatus";
+
+export const tasksListController = (type: TaskAction, taskId: string) => {
   if (type === "add") {
-    const taskTitle = document.querySelector(PATH.addTask.addTaskTitleInput)
-      .value;
+    const taskInput = document.querySelector(
+      PATH.addTask.addTaskTitleInput
+    ) as HTMLInputElement;
+    const taskTitle = taskInput.value;
 
     addTask(taskTitle);
   }
@@ -101,9 +109,11 @@ export const tasksListController = (type, taskId) => {
   }
 
   if (type === "edit") {
-    const newTaskTitle = document.querySelector(
+    const newTaskTitleInput = document.querySelector(
       PATH.editTaskModal.editTaskInput
-    ).value;
+    ) as HTMLInputElement;
+
+    const newTaskTitle = newTaskTitleInput.value;
 
     editTask(newTaskTitle);
   }

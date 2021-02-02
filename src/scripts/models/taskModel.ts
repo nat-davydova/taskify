@@ -15,9 +15,7 @@ const findATaskIndex = (taskId: string, taskDataArr: Task[]) => {
   return taskIndex;
 };
 
-export const createTask = (...taskData: Task[]) => {
-  const [taskTitle] = taskData;
-
+export const createTask = (taskTitle: string): Task => {
   const id = uuid();
 
   return {
