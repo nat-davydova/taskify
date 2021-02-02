@@ -22,14 +22,12 @@ const applyNewFilter = (filterCriteria: string, currentValue: string) => {
 };
 
 const reapplyFilter = () => {
-  for (const filter in state.filters) {
-    const currentValue = state.filters[filter].value;
-    state.filters[filter].filteredValues = filters(
-      state.taskList,
-      filter,
-      currentValue
-    );
-  }
+  Object.entries(state.filters).forEach(([filterName, filterVal]) => {
+    const { value } = filterVal;
+
+    // eslint-disable-next-line no-param-reassign
+    filterVal.filteredValues = filters(state.taskList, filterName, value);
+  });
 
   filtersView.renderFilteredItems(
     state.taskList,
@@ -42,7 +40,11 @@ const reapplyFilter = () => {
 // type can be:
 // - addNewFilter - for changing filter criteria
 // - reapplyFilter - reapply filter with current settings
-export const filtersController = (type, filterCriteria, currentValue) => {
+export const filtersController = (
+  type: string,
+  filterCriteria: string,
+  currentValue: string
+) => {
   if (type === "addNewFilter") {
     applyNewFilter(filterCriteria, currentValue);
   }
