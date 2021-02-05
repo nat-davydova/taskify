@@ -1,4 +1,4 @@
-# Taskify App v.3.2
+# Taskify App v.3.3
 
 The app allows to:
 - **create**, **edit** and **delete** tasks;
@@ -11,11 +11,23 @@ The app allows to:
 
 <img src="https://natali-davydova.me/assets/img/taskify-app-js/full-1.png" width="320" />
 
-### ⚙️ Use `gulp` command to run app locally
-
+### Stack
 - HTML (Pug, Bootstrap v4)
 - CSS/CSS3 (SCSS)
 - JS (ES6+, Babel)
-- Gulp 4
+- TypeScript
+- Webpack
 - Responsive (Mobile First Approach)
 - Crossbrowser
+
+### ⚙️ How To Run Locally
+
+1. clone repo;
+2. install all dependencies with:
+```
+npm install
+```
+3. run in the **dev** mode with:
+```
+npm start
+```
