@@ -2,15 +2,15 @@ import { toggleBootstrapBtn } from "../utils";
 
 import { PATH } from "../../configs";
 
-const toggleDropdownBtn = (btn: HTMLElement): void => {
+function toggleDropdownBtn(btn: HTMLElement): void {
   toggleBootstrapBtn(btn);
-};
+}
 
-const toggleDropdownOptions = (optionsElem: HTMLElement): void => {
+function toggleDropdownOptions(optionsElem: HTMLElement): void {
   optionsElem.classList.toggle("js-visible");
-};
+}
 
-export const dropdownToggle = (dropdown: HTMLElement) => {
+export function dropdownToggle(dropdown: HTMLElement): void {
   const dropdownBtn = dropdown.querySelector(
     PATH.dropdown.toggleBtn
   ) as HTMLElement;
@@ -23,9 +23,9 @@ export const dropdownToggle = (dropdown: HTMLElement) => {
   toggleDropdownOptions(dropdownOptions);
   // eslint-disable-next-line no-param-reassign
   dropdown.dataset.toggled = currentToggleStatus === "true" ? "false" : "true";
-};
+}
 
-export const checkIfAnyDropdownOpened = (): Node | undefined => {
+export function checkIfAnyDropdownOpened(): Node | undefined {
   const dropdowns = document.querySelectorAll(
     PATH.dropdown.dropdownBlock
   ) as NodeList;
@@ -42,4 +42,4 @@ export const checkIfAnyDropdownOpened = (): Node | undefined => {
   }
 
   return toggled;
-};
+}
