@@ -2,11 +2,11 @@ import { toggleBootstrapBtn } from "../utils";
 
 import { PATH } from "../../configs";
 
-const toggleDropdownBtn = (btn: HTMLElement) => {
+const toggleDropdownBtn = (btn: HTMLElement): void => {
   toggleBootstrapBtn(btn);
 };
 
-const toggleDropdownOptions = (optionsElem: HTMLElement) => {
+const toggleDropdownOptions = (optionsElem: HTMLElement): void => {
   optionsElem.classList.toggle("js-visible");
 };
 
