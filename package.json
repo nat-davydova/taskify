@@ -1,51 +1,77 @@
 {
-  "name": "gulp-build",
-  "version": "1.1.0",
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.3",
     "perfect-scrollbar": "^1.5.0",
-    "uuid": "^8.1.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-transform-runtime": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/runtime": "^7.10.2",
-    "babelify": "^10.0.0",
-    "browser-sync": "^2.26.7",
-    "browserify": "^16.5.1",
-    "buffer": "^5.6.0",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-buffer": "0.0.2",
-    "gulp-cheerio": "^1.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-pug": "^4.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-svg-sprite": "^1.5.0",
-    "gulp-svgmin": "^2.2.0",
-    "gulp-tinypng-compress": "^1.2.5",
-    "gulp-uglify-es": "^2.0.0",
-    "standard": "^14.3.4",
-    "vinyl-source-stream": "^2.0.0"
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "cheerio-webpack-plugin": "^0.1.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.2.0",
+    "css-loader": "^4.3.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "html-webpack-plugin": "^4.5.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^0.11.3",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.1.1",
+    "postcss-loader": "^4.0.3",
+    "prettier": "^2.2.1",
+    "pug": "^3.0.0",
+    "pug-loader": "^2.4.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "svg-spritemap-webpack-plugin": "^3.5.10",
+    "terser-webpack-plugin": "^4.2.2",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-runtime"
-    ]
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open --exec \"npm run type-check:watch\"",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
-    "> 5%"
-  ]
+    "> .5%",
+    "not dead",
+    "IE 9"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nat-davydova/webpack-config.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nat-davydova/webpack-config/issues"
+  },
+  "homepage": "https://github.com/nat-davydova/webpack-config#readme"
 }
