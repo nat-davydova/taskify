@@ -42,10 +42,10 @@ const reapplyFilter = () => {
 // - reapplyFilter - reapply filter with current settings
 export const filtersController = (
   type: string,
-  filterCriteria: string,
-  currentValue: string
+  filterCriteria?: string,
+  currentValue?: string
 ) => {
-  if (type === "addNewFilter") {
+  if (type === "addNewFilter" && filterCriteria && currentValue) {
     applyNewFilter(filterCriteria, currentValue);
   }
 

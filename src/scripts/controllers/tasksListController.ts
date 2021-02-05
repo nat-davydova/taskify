@@ -90,7 +90,7 @@ const changeTaskCompletenessStatus = (taskId: string) => {
 // *** CONTROLLER
 type TaskAction = "add" | "pick" | "del" | "edit" | "changeCompletenessStatus";
 
-export const tasksListController = (type: TaskAction, taskId: string) => {
+export const tasksListController = (type: TaskAction, taskId?: string) => {
   if (type === "add") {
     const taskInput = document.querySelector(
       PATH.addTask.addTaskTitleInput
@@ -100,7 +100,7 @@ export const tasksListController = (type: TaskAction, taskId: string) => {
     addTask(taskTitle);
   }
 
-  if (type === "pick") {
+  if (type === "pick" && taskId) {
     pickItem(taskId);
   }
 
@@ -118,7 +118,7 @@ export const tasksListController = (type: TaskAction, taskId: string) => {
     editTask(newTaskTitle);
   }
 
-  if (type === "changeCompletenessStatus") {
+  if (type === "changeCompletenessStatus" && taskId) {
     changeTaskCompletenessStatus(taskId);
   }
 };
