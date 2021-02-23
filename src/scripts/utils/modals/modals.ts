@@ -8,6 +8,13 @@ function cleanInputvalue(input: HTMLInputElement): void {
   inputElem.value = "";
 }
 
+function createBackdrop(): void {
+  const modalBackdrop = document.createElement("div");
+  modalBackdrop.classList.add("modal-backdrop", "fade", "show");
+  const appFrame = document.querySelector(PATH.layout.frame) as HTMLElement;
+  appFrame.appendChild(modalBackdrop);
+}
+
 function removeBackdrop(): void {
   const modalBackdrop = document.querySelector(
     PATH.modals.modalBackdrop
@@ -17,6 +24,12 @@ function removeBackdrop(): void {
 
   setTimeout(() => {
     appFrame.removeChild(modalBackdrop);
+  }, UI_EFFECTS_TIMEOUT_MS);
+}
+
+function setModalElemToAutofocus(elemToAutofocus: HTMLElement): void {
+  setTimeout(() => {
+    setFocusToElem(elemToAutofocus);
   }, UI_EFFECTS_TIMEOUT_MS);
 }
 
@@ -33,22 +46,18 @@ export function closeModal(modal: HTMLElement): void {
   removeBackdrop();
 }
 
-export const openModal = (modal: string, elemToAutofocus?: string) => {
+export const openModal = (modal: string, elemToAutofocusClassname?: string) => {
   const modalEl = document.querySelector(modal) as HTMLElement;
 
-  const modalBackdrop = document.createElement("div");
-  modalBackdrop.classList.add("modal-backdrop", "fade", "show");
-  const appFrame = document.querySelector(PATH.layout.frame) as HTMLElement;
-  appFrame.appendChild(modalBackdrop);
+  createBackdrop();
 
   modalEl.classList.add("show");
 
-  if (elemToAutofocus) {
-    setTimeout(() => {
-      const setFocusToElemDOM = modalEl.querySelector(
-        elemToAutofocus
-      ) as HTMLElement;
-      setFocusToElem(setFocusToElemDOM);
-    }, 250);
+  if (elemToAutofocusClassname) {
+    const elemToAutofocus = modalEl.querySelector(
+      elemToAutofocusClassname
+    ) as HTMLElement;
+
+    setModalElemToAutofocus(elemToAutofocus);
   }
 };
