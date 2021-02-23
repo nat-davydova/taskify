@@ -1,6 +1,6 @@
 import {
   checkIfAnyDropdownOpened,
-  dropdownToggle,
+  toggleDropdown,
   renderTasksFromArrayOnly,
 } from "../utils";
 
@@ -15,6 +15,6 @@ export const renderFilteredItems = (
   const ifOpenedDropdown = checkIfAnyDropdownOpened() as HTMLElement;
 
   if (ifOpenedDropdown) {
-    dropdownToggle(ifOpenedDropdown);
+    toggleDropdown(ifOpenedDropdown);
   }
 };

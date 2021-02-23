@@ -6,23 +6,35 @@ function toggleDropdownBtn(btn: HTMLElement): void {
   toggleBootstrapBtn(btn);
 }
 
-function toggleDropdownOptions(optionsElem: HTMLElement): void {
+function toggleDropdownOptionsList(optionsElem: HTMLElement): void {
   optionsElem.classList.toggle("js-visible");
 }
 
-export function dropdownToggle(dropdown: HTMLElement): void {
-  const dropdownBtn = dropdown.querySelector(
-    PATH.dropdown.toggleBtn
-  ) as HTMLElement;
-  const dropdownOptions = dropdown.querySelector(
-    PATH.dropdown.options
-  ) as HTMLElement;
+function toggleDropdownToggledAttr(
+  dropdownElem: HTMLElement,
+  currentToggleStatus: string
+): void {
+  const newToggleVisibilityStatus =
+    currentToggleStatus === "true" ? "false" : "true";
+
+  dropdownElem.setAttribute("data-toggled", newToggleVisibilityStatus);
+}
+
+export function toggleDropdown(dropdown: HTMLElement): void {
+  const dropdownBtn = dropdown.querySelector(PATH.dropdown.toggleBtn);
+  const dropdownOptions = dropdown.querySelector(PATH.dropdown.options);
   const currentToggleStatus = dropdown.dataset.toggled;
 
+  if (
+    !(dropdownBtn instanceof HTMLElement) ||
+    !(dropdownOptions instanceof HTMLElement) ||
+    !currentToggleStatus
+  )
+    return;
+
   toggleDropdownBtn(dropdownBtn);
-  toggleDropdownOptions(dropdownOptions);
-  // eslint-disable-next-line no-param-reassign
-  dropdown.dataset.toggled = currentToggleStatus === "true" ? "false" : "true";
+  toggleDropdownOptionsList(dropdownOptions);
+  toggleDropdownToggledAttr(dropdown, currentToggleStatus);
 }
 
 export function checkIfAnyDropdownOpened(): Node | undefined {
