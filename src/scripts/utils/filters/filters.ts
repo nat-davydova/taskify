@@ -6,6 +6,6 @@ export function getFilterValue(filterOptionElem: HTMLElement): string {
   return filterElem.value;
 }
 
-export const getFilterCriteria = (filterBlockElem: HTMLElement) => {
-  return filterBlockElem.dataset.filterCriteria;
+export const getFilterCriterion = (filterBlockElem: HTMLElement) => {
+  return filterBlockElem.dataset.filterCriterion;
 };

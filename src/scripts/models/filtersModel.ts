@@ -2,7 +2,7 @@ import type { Task } from "../types";
 
 export const filters = (
   tasksArr: Task[],
-  filterCriteria: string,
+  filterCriterion: string,
   currentValue: string
 ) => {
   const filteredArr: Task[] = [];

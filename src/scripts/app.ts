@@ -14,7 +14,7 @@ import { PATH } from "./configs";
 import {
   initScrollbar,
   unmarkErrored,
-  getFilterCriteria,
+  getFilterCriterion,
   getFilterValue,
   toggleDropdown,
   checkIfAnyDropdownOpened,
@@ -61,11 +61,11 @@ import {
         PATH.filter.filter
       ) as HTMLElement;
 
-      const filterCriteria = getFilterCriteria(filterBlockElem);
+      const filterCriterion = getFilterCriterion(filterBlockElem);
       const currentFilterValue = getFilterValue(filterOptionElem);
 
-      if (filterCriteria) {
-        filtersController("addNewFilter", filterCriteria, currentFilterValue);
+      if (filterCriterion) {
+        filtersController("addNewFilter", filterCriterion, currentFilterValue);
       }
     }
 

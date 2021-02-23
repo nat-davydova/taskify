@@ -5,19 +5,22 @@ import * as filtersView from "../views";
 import { convertStringToCamelCase } from "../utils";
 
 // *** HELPERS
-const applyNewFilter = (filterCriteria: string, currentValue: string) => {
-  const filterCriteriaCamelCase = convertStringToCamelCase(filterCriteria, "-");
+const applyNewFilter = (filterCriterion: string, currentValue: string) => {
+  const filterCriterionCamelCase = convertStringToCamelCase(
+    filterCriterion,
+    "-"
+  );
 
-  state.filters[filterCriteriaCamelCase].value = currentValue;
-  state.filters[filterCriteriaCamelCase].filteredValues = filters(
+  state.filters[filterCriterionCamelCase].value = currentValue;
+  state.filters[filterCriterionCamelCase].filteredValues = filters(
     state.taskList,
-    filterCriteriaCamelCase,
+    filterCriterionCamelCase,
     currentValue
   );
 
   filtersView.renderFilteredItems(
     state.taskList,
-    state.filters[filterCriteriaCamelCase].filteredValues
+    state.filters[filterCriterionCamelCase].filteredValues
   );
 };
 
@@ -38,15 +41,15 @@ const reapplyFilter = () => {
 // *** CONTROLLER
 
 // type can be:
-// - addNewFilter - for changing filter criteria
+// - addNewFilter - for changing filter criterion
 // - reapplyFilter - reapply filter with current settings
 export const filtersController = (
   type: string,
-  filterCriteria?: string,
+  filterCriterion?: string,
   currentValue?: string
 ) => {
-  if (type === "addNewFilter" && filterCriteria && currentValue) {
-    applyNewFilter(filterCriteria, currentValue);
+  if (type === "addNewFilter" && filterCriterion && currentValue) {
+    applyNewFilter(filterCriterion, currentValue);
   }
 
   if (type === "reapplyFilter") {
