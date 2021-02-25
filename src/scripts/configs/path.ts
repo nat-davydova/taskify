@@ -21,7 +21,8 @@ export const PATH = {
   task: {
     task: ".task",
     taskTemplate: "#task",
-    taskTitle: ".task__title p",
+    taskTitle: ".task__title",
+    taskTitleComplete: ".task__title--complete",
     taskCheckbox: ".task__checkbox",
     taskDelBtn: ".task__del",
     taskEditBtn: ".task__edit",

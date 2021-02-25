@@ -45,6 +45,10 @@ export function convertStringToCamelCase(
   return newStrArr.join("");
 }
 
+export function convertPathToClassname(pathElem: string): string {
+  return pathElem.slice(1);
+}
+
 // *** UI-RELATED
 
 export function hideElem(elem: HTMLElement): void {

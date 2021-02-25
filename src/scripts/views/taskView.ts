@@ -1,4 +1,4 @@
-import { getTemplate, appendTemplate } from "../utils";
+import { getTemplate, appendTemplate, convertPathToClassname } from "../utils";
 import { PATH } from "../configs";
 import type { Task } from "../types";
 
@@ -45,17 +45,12 @@ export const renderTask = (taskData: Task) => {
 
 export const makeTaskComplete = (task: HTMLElement) => {
   const taskTitle = task.querySelector(PATH.task.taskTitle) as HTMLElement;
-  const taskTitleContent = taskTitle.textContent;
-  const newTaskTitle = `
-    <del>
-        ${taskTitleContent}
-    </del>
-  `;
+  const taskTitleCompleteClassname = convertPathToClassname(
+    PATH.task.taskTitleComplete
+  );
+  taskTitle.classList.add(taskTitleCompleteClassname);
 
-  taskTitle.innerHTML = newTaskTitle;
-
-  // eslint-disable-next-line no-param-reassign
-  task.dataset.isComplete = "complete";
+  task.setAttribute("data-is-complete", "complete");
 };
 
 export const makeTaskIncomplete = (task: HTMLElement) => {
