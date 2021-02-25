@@ -1,7 +1,7 @@
 import {
   checkIfAnyDropdownOpened,
   toggleDropdown,
-  renderTasksFromArrayOnly,
+  renderTasksFromArray,
 } from "../utils";
 
 import type { Task } from "../types";
@@ -10,7 +10,7 @@ export const renderFilteredItems = (
   fullList: Task[],
   filteredTasksArr: Task[]
 ) => {
-  renderTasksFromArrayOnly(fullList, filteredTasksArr);
+  renderTasksFromArray(filteredTasksArr);
 
   const ifOpenedDropdown = checkIfAnyDropdownOpened() as HTMLElement;
 
