@@ -2,13 +2,12 @@ import { getTemplate, appendTemplate } from "../utils";
 import { PATH } from "../configs";
 import type { Task } from "../types";
 
-// *** HELPERS
-const findElemInTaskArr = (taskId: string): HTMLElement | undefined => {
+function findElemInTaskArr(taskId: string): HTMLElement | null {
   const tasksArr = Array.from(
     document.querySelectorAll(PATH.task.task)
   ) as HTMLElement[];
 
-  let taskElem;
+  let taskElem = null;
 
   tasksArr.forEach((elem) => {
     if (elem.dataset.taskId === taskId) {
@@ -17,9 +16,8 @@ const findElemInTaskArr = (taskId: string): HTMLElement | undefined => {
   });
 
   return taskElem;
-};
+}
 
-// *** EXPORTS
 export const renderTask = (taskData: Task) => {
   const { taskTitle, taskId } = taskData;
 
