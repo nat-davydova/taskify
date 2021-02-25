@@ -25,12 +25,12 @@ export const renderTask = (taskData: Task) => {
     PATH.task.taskTemplate
   ) as HTMLTemplateElement;
   const taskTemplate = taskTemplateElem && getTemplate(taskTemplateElem);
-  const taskEl = taskTemplate.querySelector(PATH.task.task) as HTMLElement;
+  const taskElem = taskTemplate.querySelector(PATH.task.task) as HTMLElement;
   const taskTitleElem = taskTemplate.querySelector(
     PATH.task.taskTitle
   ) as HTMLElement;
 
-  taskEl.dataset.taskId = taskId;
+  taskElem.dataset.taskId = taskId;
 
   taskTitleElem.textContent = taskTitle;
 
