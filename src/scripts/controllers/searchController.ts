@@ -18,6 +18,6 @@ export const searchController = (searchEl: HTMLElement) => {
 
     state.search.results = search(state.taskList, state.search.query);
 
-    searchView.renderSearchResults(state.taskList, state.search.results);
+    searchView.renderSearchResults(state.search.results);
   }
 };
