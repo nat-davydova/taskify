@@ -37,19 +37,34 @@ export function toggleDropdown(dropdown: HTMLElement): void {
   toggleDropdownToggledAttr(dropdown, currentToggleStatus);
 }
 
-export function checkIfAnyDropdownOpened(): HTMLElement | boolean {
+export function isAnyDropdownOpened(): boolean {
   const dropdowns = document.querySelectorAll(PATH.dropdown.dropdownBlock);
 
-  let toggledElem: HTMLElement | boolean = false;
+  let isAnyDropdownOpened = false;
 
   for (let i = 0; i < dropdowns.length; i += 1) {
     const currentEl = dropdowns[i] as HTMLElement;
 
     if (currentEl.dataset.toggled === "true") {
-      toggledElem = currentEl;
-      break;
+      isAnyDropdownOpened = true;
     }
   }
 
-  return toggledElem;
+  return isAnyDropdownOpened;
+}
+
+export function getOpenedDropdown(): HTMLElement | null {
+  const dropdowns = document.querySelectorAll(PATH.dropdown.dropdownBlock);
+
+  let openedDropdown = null;
+
+  for (let i = 0; i < dropdowns.length; i += 1) {
+    const currentEl = dropdowns[i] as HTMLElement;
+
+    if (currentEl.dataset.toggled === "true") {
+      openedDropdown = currentEl;
+    }
+  }
+
+  return openedDropdown;
 }

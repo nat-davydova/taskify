@@ -19,7 +19,6 @@ const applyNewFilter = (filterCriterion: string, currentValue: string) => {
   );
 
   filtersView.renderFilteredItems(
-    state.taskList,
     state.filters[filterCriterionCamelCase].filteredValues
   );
 };
@@ -32,10 +31,7 @@ const reapplyFilter = () => {
     filterVal.filteredValues = filters(state.taskList, filterName, value);
   });
 
-  filtersView.renderFilteredItems(
-    state.taskList,
-    state.filters.isComplete.filteredValues
-  );
+  filtersView.renderFilteredItems(state.filters.isComplete.filteredValues);
 };
 
 // *** CONTROLLER

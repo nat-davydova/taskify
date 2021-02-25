@@ -17,7 +17,8 @@ import {
   getFilterCriterion,
   getFilterValue,
   toggleDropdown,
-  checkIfAnyDropdownOpened,
+  isAnyDropdownOpened,
+  getOpenedDropdown,
   openModal,
   closeModal,
 } from "./utils";
@@ -46,9 +47,12 @@ import {
 
     // close opened dropdown onclick everywhere but options part
     if (!targetElem.closest(PATH.dropdown.dropdownBlock)) {
-      const openedToggle = checkIfAnyDropdownOpened() as HTMLElement;
-      if (openedToggle) {
-        toggleDropdown(openedToggle);
+      if (isAnyDropdownOpened()) {
+        const currentDropdown = getOpenedDropdown();
+
+        if (currentDropdown) {
+          toggleDropdown(currentDropdown);
+        }
       }
     }
 
