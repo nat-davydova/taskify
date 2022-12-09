@@ -9,7 +9,7 @@ The app allows to:
 
 <a href="https://eisenpar.com/taskify/" target="_blank">Check the Demo</a>
 
-<img src="https://natali-davydova.me/assets/img/taskify-app-js/full-1.png" width="320" />
+<img src="https://eisenpar.com/portfolio2/assets/img/taskify-app-js/full-1.png" width="320" />
 
 ### Stack
 - HTML (Pug, Bootstrap v4)
